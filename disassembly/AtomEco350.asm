@@ -107,10 +107,13 @@ l023b               = &023b
 l023d               = &023d
 l48ac               = &48ac
 screen              = &8000
-reg_adlc0           = &b400
-reg_adlc1           = &b401
-reg_adlc2           = &b402
-reg_adlc3           = &b403
+reg_adlc_control1   = &b400
+reg_adlc_status1    = &b400
+reg_adlc_control23  = &b401
+reg_adlc_status2    = &b401
+reg_adlc_rxdata     = &b402
+reg_adlc_txdata     = &b402
+reg_adlc_control4   = &b403
 reg_stationid       = &b404
 basic_warm_start    = &c2ca
 kern_print_string   = &f7d1
@@ -132,7 +135,7 @@ oswrch              = &fff4
     bmi ca00f                                                         ; a003: 30 0a       0.
     jsr sub_ca095                                                     ; a005: 20 95 a0     ..
     lda #&c0                                                          ; a008: a9 c0       ..
-    sta reg_adlc0                                                     ; a00a: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a00a: 8d 00 b4    ...
     pla                                                               ; a00d: 68          h
     rti                                                               ; a00e: 40          @
 
@@ -181,7 +184,7 @@ oswrch              = &fff4
     stx screen + 30                                                   ; a05c: 8e 1e 80    ...
     sta screen + 31                                                   ; a05f: 8d 1f 80    ...
     lda #&20                                                          ; a062: a9 20       .
-    and reg_adlc1                                                     ; a064: 2d 01 b4    -..
+    and reg_adlc_status2                                              ; a064: 2d 01 b4    -..
     beq ca074                                                         ; a067: f0 0b       ..
     ldx #5                                                            ; a069: a2 05       ..
 .loop_ca06b
@@ -220,24 +223,24 @@ oswrch              = &fff4
     sta l00b0                                                         ; a09f: 85 b0       ..
 .sub_ca0a1
     lda #&c1                                                          ; a0a1: a9 c1       ..
-    sta reg_adlc0                                                     ; a0a3: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a0a3: 8d 00 b4    ...
     lda #&1e                                                          ; a0a6: a9 1e       ..
-    sta reg_adlc3                                                     ; a0a8: 8d 03 b4    ...
+    sta reg_adlc_control4                                             ; a0a8: 8d 03 b4    ...
     lda #&80                                                          ; a0ab: a9 80       ..
-    sta reg_adlc1                                                     ; a0ad: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a0ad: 8d 01 b4    ...
 .ca0b0
     lda #2                                                            ; a0b0: a9 02       ..
-    sta reg_adlc0                                                     ; a0b2: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a0b2: 8d 00 b4    ...
 .ca0b5
     lda #&63                                                          ; a0b5: a9 63       .c
-    sta reg_adlc1                                                     ; a0b7: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a0b7: 8d 01 b4    ...
 .do_rts
     rts                                                               ; a0ba: 60          `
 
 .ca0bb
     lda #&10                                                          ; a0bb: a9 10       ..
 .loop_ca0bd
-    bit reg_adlc0                                                     ; a0bd: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a0bd: 2c 00 b4    ,..
     beq loop_ca0bd                                                    ; a0c0: f0 fb       ..
     rts                                                               ; a0c2: 60          `
 
@@ -246,7 +249,7 @@ oswrch              = &fff4
 
 .ca0c6
     lda #4                                                            ; a0c6: a9 04       ..
-    and reg_adlc1                                                     ; a0c8: 2d 01 b4    -..
+    and reg_adlc_status2                                              ; a0c8: 2d 01 b4    -..
     bne ca0d0                                                         ; a0cb: d0 03       ..
 .ca0cd
     jsr sub_ca0a1                                                     ; a0cd: 20 a1 a0     ..
@@ -257,25 +260,25 @@ oswrch              = &fff4
 
 .ca0d5
     lda #&22                                                          ; a0d5: a9 22       ."
-    sta reg_adlc0                                                     ; a0d7: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a0d7: 8d 00 b4    ...
     pla                                                               ; a0da: 68          h
     rti                                                               ; a0db: 40          @
 
 .irq_handler
-    bit reg_adlc0                                                     ; a0dc: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a0dc: 2c 00 b4    ,..
     bpl loop_ca0c3                                                    ; a0df: 10 e2       ..
     lda #1                                                            ; a0e1: a9 01       ..
-    bit reg_adlc1                                                     ; a0e3: 2c 01 b4    ,..
+    bit reg_adlc_status2                                              ; a0e3: 2c 01 b4    ,..
     beq ca0c6                                                         ; a0e6: f0 de       ..
-    lda reg_adlc2                                                     ; a0e8: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a0e8: ad 02 b4    ...
     cmp reg_stationid                                                 ; a0eb: cd 04 b4    ...
     bne ca0d5                                                         ; a0ee: d0 e5       ..
     lda #1                                                            ; a0f0: a9 01       ..
 .loop_ca0f2
-    bit reg_adlc0                                                     ; a0f2: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a0f2: 2c 00 b4    ,..
     bpl loop_ca0f2                                                    ; a0f5: 10 fb       ..
     beq ca0cd                                                         ; a0f7: f0 d4       ..
-    lda reg_adlc2                                                     ; a0f9: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a0f9: ad 02 b4    ...
     bne ca0d5                                                         ; a0fc: d0 d7       ..
     tya                                                               ; a0fe: 98          .
     pha                                                               ; a0ff: 48          H
@@ -343,17 +346,17 @@ oswrch              = &fff4
     ldy #&e7                                                          ; a16a: a0 e7       ..
 .ca16c
     lda #4                                                            ; a16c: a9 04       ..
-    bit reg_adlc1                                                     ; a16e: 2c 01 b4    ,..
+    bit reg_adlc_status2                                              ; a16e: 2c 01 b4    ,..
     beq ca182                                                         ; a171: f0 0f       ..
-    lda reg_adlc0                                                     ; a173: ad 00 b4    ...
+    lda reg_adlc_status1                                              ; a173: ad 00 b4    ...
     lda #&67                                                          ; a176: a9 67       .g
-    sta reg_adlc1                                                     ; a178: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a178: 8d 01 b4    ...
     lda #&10                                                          ; a17b: a9 10       ..
-    bit reg_adlc0                                                     ; a17d: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a17d: 2c 00 b4    ,..
     bne ca19c                                                         ; a180: d0 1a       ..
 .ca182
     lda #&67                                                          ; a182: a9 67       .g
-    sta reg_adlc1                                                     ; a184: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a184: 8d 01 b4    ...
     tsx                                                               ; a187: ba          .
     inc l0101,x                                                       ; a188: fe 01 01    ...
     bne ca16c                                                         ; a18b: d0 df       ..
@@ -365,9 +368,9 @@ oswrch              = &fff4
     jmp ca3a6                                                         ; a199: 4c a6 a3    L..
 
 .ca19c
-    sty reg_adlc1                                                     ; a19c: 8c 01 b4    ...
+    sty reg_adlc_control23                                            ; a19c: 8c 01 b4    ...
     ldy #&44                                                          ; a19f: a0 44       .D
-    sty reg_adlc0                                                     ; a1a1: 8c 00 b4    ...
+    sty reg_adlc_control1                                             ; a1a1: 8c 00 b4    ...
     ldx #&80                                                          ; a1a4: a2 80       ..
     pla                                                               ; a1a6: 68          h
     pla                                                               ; a1a7: 68          h
@@ -411,24 +414,24 @@ oswrch              = &fff4
     jmp ca235                                                         ; a1db: 4c 35 a2    L5.
 
 .ca1de
-    bit reg_adlc0                                                     ; a1de: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a1de: 2c 00 b4    ,..
     bpl ca1de                                                         ; a1e1: 10 fb       ..
     lda #1                                                            ; a1e3: a9 01       ..
-    bit reg_adlc1                                                     ; a1e5: 2c 01 b4    ,..
+    bit reg_adlc_status2                                              ; a1e5: 2c 01 b4    ,..
     beq ca212                                                         ; a1e8: f0 28       .(
-    lda reg_adlc2                                                     ; a1ea: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a1ea: ad 02 b4    ...
     beq ca1f4                                                         ; a1ed: f0 05       ..
     cmp reg_stationid                                                 ; a1ef: cd 04 b4    ...
     bne ca211                                                         ; a1f2: d0 1d       ..
 .ca1f4
     jsr sub_ca218                                                     ; a1f4: 20 18 a2     ..
-    lda reg_adlc2                                                     ; a1f7: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a1f7: ad 02 b4    ...
     bne ca210                                                         ; a1fa: d0 14       ..
-    lda reg_adlc2                                                     ; a1fc: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a1fc: ad 02 b4    ...
     cmp l00b6                                                         ; a1ff: c5 b6       ..
     bne ca20f                                                         ; a201: d0 0c       ..
     jsr sub_ca218                                                     ; a203: 20 18 a2     ..
-    lda reg_adlc2                                                     ; a206: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a206: ad 02 b4    ...
     cmp l00b7                                                         ; a209: c5 b7       ..
     bne ca20e                                                         ; a20b: d0 01       ..
     rts                                                               ; a20d: 60          `
@@ -449,7 +452,7 @@ oswrch              = &fff4
 .sub_ca218
     lda #1                                                            ; a218: a9 01       ..
 .loop_ca21a
-    bit reg_adlc0                                                     ; a21a: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a21a: 2c 00 b4    ,..
     bpl loop_ca21a                                                    ; a21d: 10 fb       ..
     beq ca222                                                         ; a21f: f0 01       ..
     rts                                                               ; a221: 60          `
@@ -503,34 +506,34 @@ oswrch              = &fff4
 
 .sub_ca24b
     lda #&44                                                          ; a24b: a9 44       .D
-    sta reg_adlc0                                                     ; a24d: 8d 00 b4    ...
-    lda reg_adlc0                                                     ; a250: ad 00 b4    ...
+    sta reg_adlc_control1                                             ; a24d: 8d 00 b4    ...
+    lda reg_adlc_status1                                              ; a250: ad 00 b4    ...
     lda #&d7                                                          ; a253: a9 d7       ..
-    sta reg_adlc1                                                     ; a255: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a255: 8d 01 b4    ...
     lda l00b6                                                         ; a258: a5 b6       ..
 .loop_ca25a
-    bit reg_adlc0                                                     ; a25a: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a25a: 2c 00 b4    ,..
     bpl loop_ca25a                                                    ; a25d: 10 fb       ..
     bvc ca239                                                         ; a25f: 50 d8       P.
-    sta reg_adlc2                                                     ; a261: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a261: 8d 02 b4    ...
     lda l00b7                                                         ; a264: a5 b7       ..
-    sta reg_adlc2                                                     ; a266: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a266: 8d 02 b4    ...
 .loop_ca269
-    bit reg_adlc0                                                     ; a269: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a269: 2c 00 b4    ,..
     bpl loop_ca269                                                    ; a26c: 10 fb       ..
     bvc ca239                                                         ; a26e: 50 c9       P.
     lda reg_stationid                                                 ; a270: ad 04 b4    ...
-    sta reg_adlc2                                                     ; a273: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a273: 8d 02 b4    ...
     lda #0                                                            ; a276: a9 00       ..
-    sta reg_adlc2                                                     ; a278: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a278: 8d 02 b4    ...
     lda #&3b                                                          ; a27b: a9 3b       .;
-    sta reg_adlc1                                                     ; a27d: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a27d: 8d 01 b4    ...
 .loop_ca280
-    bit reg_adlc0                                                     ; a280: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a280: 2c 00 b4    ,..
     bpl loop_ca280                                                    ; a283: 10 fb       ..
     bvc ca239                                                         ; a285: 50 b2       P.
     lda #2                                                            ; a287: a9 02       ..
-    sta reg_adlc0                                                     ; a289: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a289: 8d 00 b4    ...
     jmp ca0b5                                                         ; a28c: 4c b5 a0    L..
 
 .ca28f
@@ -539,20 +542,20 @@ oswrch              = &fff4
     jmp ca3a4                                                         ; a292: 4c a4 a3    L..
 
 .ca295
-    lda reg_adlc0                                                     ; a295: ad 00 b4    ...
+    lda reg_adlc_status1                                              ; a295: ad 00 b4    ...
     lda #&43                                                          ; a298: a9 43       .C
-    sta reg_adlc1                                                     ; a29a: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a29a: 8d 01 b4    ...
 .ca29d
     lda #1                                                            ; a29d: a9 01       ..
 .loop_ca29f
-    bit reg_adlc0                                                     ; a29f: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a29f: 2c 00 b4    ,..
     bpl loop_ca29f                                                    ; a2a2: 10 fb       ..
     beq ca2bc                                                         ; a2a4: f0 16       ..
-    lda reg_adlc2                                                     ; a2a6: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a2a6: ad 02 b4    ...
     sta (l00b2),y                                                     ; a2a9: 91 b2       ..
     iny                                                               ; a2ab: c8          .
     beq ca2b6                                                         ; a2ac: f0 08       ..
-    lda reg_adlc2                                                     ; a2ae: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a2ae: ad 02 b4    ...
     sta (l00b2),y                                                     ; a2b1: 91 b2       ..
     iny                                                               ; a2b3: c8          .
     bne ca29d                                                         ; a2b4: d0 e7       ..
@@ -564,21 +567,21 @@ oswrch              = &fff4
     txa                                                               ; a2bc: 8a          .
     bne ca2c6                                                         ; a2bd: d0 07       ..
     lda #&84                                                          ; a2bf: a9 84       ..
-    sta reg_adlc1                                                     ; a2c1: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a2c1: 8d 01 b4    ...
     bne ca2cb                                                         ; a2c4: d0 05       ..
 .ca2c6
     lda #4                                                            ; a2c6: a9 04       ..
-    sta reg_adlc1                                                     ; a2c8: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a2c8: 8d 01 b4    ...
 .ca2cb
     lda #2                                                            ; a2cb: a9 02       ..
-    bit reg_adlc1                                                     ; a2cd: 2c 01 b4    ,..
+    bit reg_adlc_status2                                              ; a2cd: 2c 01 b4    ,..
     beq ca28f                                                         ; a2d0: f0 bd       ..
     clc                                                               ; a2d2: 18          .
     bpl ca2e0                                                         ; a2d3: 10 0b       ..
     tya                                                               ; a2d5: 98          .
     ora l00b0                                                         ; a2d6: 05 b0       ..
     beq ca28f                                                         ; a2d8: f0 b5       ..
-    lda reg_adlc2                                                     ; a2da: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a2da: ad 02 b4    ...
     sta (l00b2),y                                                     ; a2dd: 91 b2       ..
     sec                                                               ; a2df: 38          8
 .ca2e0
@@ -607,7 +610,7 @@ oswrch              = &fff4
     tsx                                                               ; a2fa: ba          .
     stx l00ff                                                         ; a2fb: 86 ff       ..
     lda #&20                                                          ; a2fd: a9 20       .
-    and reg_adlc1                                                     ; a2ff: 2d 01 b4    -..
+    and reg_adlc_status2                                              ; a2ff: 2d 01 b4    -..
     beq ca307                                                         ; a302: f0 03       ..
     jmp ca39b                                                         ; a304: 4c 9b a3    L..
 
@@ -641,14 +644,14 @@ oswrch              = &fff4
 .ca336
     lda (l00b2),y                                                     ; a336: b1 b2       ..
 .loop_ca338
-    bit reg_adlc0                                                     ; a338: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a338: 2c 00 b4    ,..
     bpl loop_ca338                                                    ; a33b: 10 fb       ..
     bvc ca36a                                                         ; a33d: 50 2b       P+
-    sta reg_adlc2                                                     ; a33f: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a33f: 8d 02 b4    ...
     iny                                                               ; a342: c8          .
     beq ca34d                                                         ; a343: f0 08       ..
     lda (l00b2),y                                                     ; a345: b1 b2       ..
-    sta reg_adlc2                                                     ; a347: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a347: 8d 02 b4    ...
     iny                                                               ; a34a: c8          .
     bne ca336                                                         ; a34b: d0 e9       ..
 .ca34d
@@ -656,9 +659,9 @@ oswrch              = &fff4
     bne loop_ca334                                                    ; a34f: d0 e3       ..
 .sub_ca351
     lda #&3f                                                          ; a351: a9 3f       .?
-    sta reg_adlc1                                                     ; a353: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a353: 8d 01 b4    ...
 .loop_ca356
-    bit reg_adlc0                                                     ; a356: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a356: 2c 00 b4    ,..
     bpl loop_ca356                                                    ; a359: 10 fb       ..
     bvc ca36a                                                         ; a35b: 50 0d       P.
     txa                                                               ; a35d: 8a          .
@@ -667,7 +670,7 @@ oswrch              = &fff4
 
 .ca363
     lda #0                                                            ; a363: a9 00       ..
-    sta reg_adlc0                                                     ; a365: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a365: 8d 00 b4    ...
     beq ca3ba                                                         ; a368: f0 50       .P
 .ca36a
     txa                                                               ; a36a: 8a          .
@@ -698,12 +701,12 @@ oswrch              = &fff4
     bcc ca38f                                                         ; a38a: 90 03       ..
     lda l00b6,y                                                       ; a38c: b9 b6 00    ...
 .ca38f
-    bit reg_adlc0                                                     ; a38f: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a38f: 2c 00 b4    ,..
     bpl ca38f                                                         ; a392: 10 fb       ..
     bvc ca370                                                         ; a394: 50 da       P.
     iny                                                               ; a396: c8          .
 .ca397
-    sta reg_adlc2                                                     ; a397: 8d 02 b4    ...
+    sta reg_adlc_txdata                                               ; a397: 8d 02 b4    ...
     rts                                                               ; a39a: 60          `
 
 .ca39b
@@ -742,34 +745,34 @@ oswrch              = &fff4
 
 .ca3ba
     lda #&82                                                          ; a3ba: a9 82       ..
-    sta reg_adlc0                                                     ; a3bc: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a3bc: 8d 00 b4    ...
     php                                                               ; a3bf: 08          .
     txa                                                               ; a3c0: 8a          .
     ora #&20                                                          ; a3c1: 09 20       .
     tax                                                               ; a3c3: aa          .
     lda #1                                                            ; a3c4: a9 01       ..
 .loop_ca3c6
-    bit reg_adlc0                                                     ; a3c6: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a3c6: 2c 00 b4    ,..
     bpl loop_ca3c6                                                    ; a3c9: 10 fb       ..
-    bit reg_adlc1                                                     ; a3cb: 2c 01 b4    ,..
+    bit reg_adlc_status2                                              ; a3cb: 2c 01 b4    ,..
     beq ca3a1                                                         ; a3ce: f0 d1       ..
-    lda reg_adlc2                                                     ; a3d0: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a3d0: ad 02 b4    ...
     cmp reg_stationid                                                 ; a3d3: cd 04 b4    ...
     bne ca3a1                                                         ; a3d6: d0 c9       ..
 .loop_ca3d8
-    lda reg_adlc1                                                     ; a3d8: ad 01 b4    ...
+    lda reg_adlc_status2                                              ; a3d8: ad 01 b4    ...
     beq loop_ca3d8                                                    ; a3db: f0 fb       ..
     bpl ca3a1                                                         ; a3dd: 10 c2       ..
-    lda reg_adlc2                                                     ; a3df: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a3df: ad 02 b4    ...
     bne ca3a1                                                         ; a3e2: d0 bd       ..
 .loop_ca3e4
-    lda reg_adlc1                                                     ; a3e4: ad 01 b4    ...
+    lda reg_adlc_status2                                              ; a3e4: ad 01 b4    ...
     beq loop_ca3e4                                                    ; a3e7: f0 fb       ..
     bpl ca3a1                                                         ; a3e9: 10 b6       ..
-    lda reg_adlc2                                                     ; a3eb: ad 02 b4    ...
-    lda reg_adlc2                                                     ; a3ee: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a3eb: ad 02 b4    ...
+    lda reg_adlc_rxdata                                               ; a3ee: ad 02 b4    ...
     lda #2                                                            ; a3f1: a9 02       ..
-    bit reg_adlc1                                                     ; a3f3: 2c 01 b4    ,..
+    bit reg_adlc_status2                                              ; a3f3: 2c 01 b4    ,..
     beq ca3a1                                                         ; a3f6: f0 a9       ..
     jsr ca0bb                                                         ; a3f8: 20 bb a0     ..
     txa                                                               ; a3fb: 8a          .
@@ -779,9 +782,9 @@ oswrch              = &fff4
     bcc ca40c                                                         ; a400: 90 0a       ..
 .sub_ca402
     lda #&44                                                          ; a402: a9 44       .D
-    sta reg_adlc0                                                     ; a404: 8d 00 b4    ...
+    sta reg_adlc_control1                                             ; a404: 8d 00 b4    ...
     lda #&e7                                                          ; a407: a9 e7       ..
-    sta reg_adlc1                                                     ; a409: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a409: 8d 01 b4    ...
 .ca40c
     rts                                                               ; a40c: 60          `
 
@@ -917,9 +920,9 @@ oswrch              = &fff4
     sec                                                               ; a4cb: 38          8
     jsr sub_ca382                                                     ; a4cc: 20 82 a3     ..
     lda #&3f                                                          ; a4cf: a9 3f       .?
-    sta reg_adlc1                                                     ; a4d1: 8d 01 b4    ...
+    sta reg_adlc_control23                                            ; a4d1: 8d 01 b4    ...
 .loop_ca4d4
-    bit reg_adlc0                                                     ; a4d4: 2c 00 b4    ,..
+    bit reg_adlc_status1                                              ; a4d4: 2c 00 b4    ,..
     bpl loop_ca4d4                                                    ; a4d7: 10 fb       ..
     bvs ca4de                                                         ; a4d9: 70 03       p.
     jmp ca3a3                                                         ; a4db: 4c a3 a3    L..
@@ -1046,7 +1049,7 @@ oswrch              = &fff4
 .jump2_81
     ldy #4                                                            ; a594: a0 04       ..
     jsr sub_ca426                                                     ; a596: 20 26 a4     &.
-    lda reg_adlc0                                                     ; a599: ad 00 b4    ...
+    lda reg_adlc_status1                                              ; a599: ad 00 b4    ...
     jsr sub_ca402                                                     ; a59c: 20 02 a4     ..
     ldy #0                                                            ; a59f: a0 00       ..
     sec                                                               ; a5a1: 38          8
@@ -1321,17 +1324,8 @@ oswrch              = &fff4
     bne ca752                                                         ; a770: d0 e0       ..
 ; overlapping: sbc l48ac,y                                            ; a772: f9 ac 48    ..H
 .vectors
-    equw eco_cli                                                      ; a772: f9 ac       ..
-    equw eco_wrch                                                     ; a774: 48 af       H.
-    equw eco_rdch                                                     ; a776: 93 ae       ..
-    equw eco_load                                                     ; a778: 95 aa       ..
-    equw eco_save                                                     ; a77a: bb a9       ..
-    equw eco_rdar                                                     ; a77c: c3 ab       ..
-    equw eco_star                                                     ; a77e: a3 ab       ..
-    equw eco_bget                                                     ; a780: 7b ab       {.
-    equw eco_bput                                                     ; a782: 5e ab       ^.
-    equw eco_find                                                     ; a784: 25 ab       %.
-    equw eco_shut                                                     ; a786: e5 ab       ..
+    equw  eco_cli, eco_wrch, eco_rdch, eco_load, eco_save, eco_rdar   ; a772: f9 ac 48... ..H
+    equw eco_star, eco_bget, eco_bput, eco_find, eco_shut             ; a77e: a3 ab 7b... ..{
 
 .sub_ca788
     ldx #0                                                            ; a788: a2 00       ..
