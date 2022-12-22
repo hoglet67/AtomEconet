@@ -1,13 +1,9 @@
 #!/bin/bash
 
-# Disassemble
-../tools/beebdis AtomEco350.dis
 
-# Assemble
-rm -f AtomEco350.bin
-../tools/beebasm -v -i AtomEco350.asm
+export PYTHONPATH=../../py8dis/py8dis:../common:$PATH
 
-# Test
-md5sum AtomEco350.rom
-md5sum AtomEco350.bin
-
+file=AtomEco350
+python ${file}.py > ${file}.asm
+beebasm -i ${file}.asm -o ${file}.bin
+md5sum ${file}.rom ${file}.bin
