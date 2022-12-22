@@ -146,26 +146,26 @@ expr(0xa591, ">function7")
 # Other indirect code addresses
 
 # Used via 022A/B
-entry(0xa6d0, "handler1")
-expr(0xafa6, "<handler1")
-expr(0xafab, ">handler1")
+entry(0xa6d0, "error_handler1")
+expr(0xafa6, "<error_handler1")
+expr(0xafab, ">error_handler1")
 
 # Used via 022A/B
-entry(0xa8f9, "handler2")
-expr(0xa6e6, "<handler2")
-expr(0xa6e7, ">handler2")
-expr(0xad57, "<handler2")
-expr(0xad5c, ">handler2")
+entry(0xa8f9, "error_handler2")
+expr(0xa6e6, "<error_handler2")
+expr(0xa6e7, ">error_handler2")
+expr(0xad57, "<error_handler2")
+expr(0xad5c, ">error_handler2")
 
 # Used via 022A/B
-entry(0xad62, "handler3")
-expr(0xad3f, "<handler3")
-expr(0xad44, ">handler3")
+entry(0xad62, "error_handler3")
+expr(0xad3f, "<error_handler3")
+expr(0xad44, ">error_handler3")
 
 # Used via 022A/B
-entry(0xaf27, "handler4")
-expr(0xaeba, "<handler4")
-expr(0xaebf, ">handler4")
+entry(0xaf27, "error_handler4")
+expr(0xaeba, "<error_handler4")
+expr(0xaebf, ">error_handler4")
 
 
 # Command Table at 0xACCD
@@ -184,45 +184,45 @@ entry(0xa750, "cmd_COS")
 entry(0xad84, "cmd_ROFF")
 entry(0xa79f, "cmd_UNKNOWN")
 
-# Jump table at A42A
+# Tx Cmd table at A42A
 
 pc = 0xa4ab
-label(pc, "jump1_table_lo")
-label(pc + 8, "jump1_table_hi")
+label(pc, "tx_cmd_table_lo")
+label(pc + 8, "tx_cmd_table_hi")
 
-expr_label(0xa42a, "jump1_table_lo-&81")
-expr_label(0xa432, "jump1_table_hi-&81")
+expr_label(0xa42a, "tx_cmd_table_lo-&81")
+expr_label(0xa432, "tx_cmd_table_hi-&81")
 
 for i in range(8):
     code_ptr(pc, pc + 8, 1)
     pc = pc + 1
 
-label(0xa4bb, "jump1_81_88")
-label(0xa4f7, "jump1_82")
-label(0xa519, "jump1_83_84_85")
-label(0xa535, "jump1_86_87")
+label(0xa4bb, "tx_cmd_81_88_peek")
+label(0xa4f7, "tx_cmd_82_poke")
+label(0xa519, "tx_cmd_83_84_85_remote")
+label(0xa535, "tx_cmd_86_87_halt_resume")
 
-# Jump table at A573
+# Rx Cmd table at A573
 
 pc = 0xa573
-label(pc, "jump2_table_lo")
-label(pc + 8, "jump2_table_hi")
+label(pc, "rx_cmd_table_lo")
+label(pc + 8, "rx_cmd_table_hi")
 
-expr_label(0xa4f2, "jump2_table_lo-&81")
-expr_label(0xa4fa, "jump2_table_hi-&81")
+expr_label(0xa4f2, "rx_cmd_table_lo-&81")
+expr_label(0xa4fa, "rx_cmd_table_hi-&81")
 
 for i in range(8):
     code_ptr(pc, pc + 8, 1)
     pc = pc + 1
 
-label(0xa594, "jump2_81")
-label(0xa5ad, "jump2_82")
-label(0xa5d6, "jump2_83")
-label(0xa5c1, "jump2_84")
-label(0xa5ca, "jump2_85")
-label(0xa614, "jump2_86")
-label(0xa630, "jump2_87")
-label(0xa583, "jump2_88")
+label(0xa594, "rx_cmd_81_peek")
+label(0xa5ad, "rx_cmd_82_poke")
+label(0xa5d6, "rx_cmd_83_jsr")
+label(0xa5c1, "rx_cmd_84_user_proc")
+label(0xa5ca, "rx_cmd_85_os_proc")
+label(0xa614, "rx_cmd_86_halt")
+label(0xa630, "rx_cmd_87_resume")
+label(0xa583, "rx_cmd_88_machine_peek")
 
 # Vector Table at A772
 
@@ -246,22 +246,22 @@ label(0xabe5, "eco_shut")
 # Jump Table at A7D0
 
 pc = 0xa7d0
-label(pc, "jump3_table")
+label(pc, "fserv_table")
 
-expr_label(0xa7ce, "jump3_table - 2")
-expr_label(0xa7cf, "jump3_table - 1")
+expr_label(0xa7ce, "fserv_table - 2")
+expr_label(0xa7cf, "fserv_table - 1")
 
 for i in range(9):
     pc = code_ptr(pc, pc + 1, 1)
 
-label(0xa99f, "jump3_00")
-label(0xaa72, "jump3_01")
-label(0xac12, "jump3_02")
-label(0xac8a, "jump3_03")
-label(0xa93a, "jump3_04_05")
-label(0xacbf, "jump3_06")
-label(0xacb2, "jump3_07")
-label(0xacc6, "jump3_08")
+label(0xa99f, "fserv_01_save")
+label(0xaa72, "fserv_02_load")
+label(0xac12, "fserv_03")
+label(0xac8a, "fserv_04_info")
+label(0xa93a, "fserv_05_sdisc_06_iam")
+label(0xacbf, "fserv_07_dir")
+label(0xacb2, "fserv_08_unrecognised")
+label(0xacc6, "fserv_09_lib")
 
 # Vector Table at AD80
 
@@ -296,6 +296,86 @@ expr(0xa054, "'0' - 1")
 expr(0xa04a, "100")
 expr(0xa04f, "100")
 
+
+# Better labels
+
+# Low Level uses #B0-#CF
+#label(0x00b0, "")
+#label(0x00b1, "")
+#label(0x00b2, "")
+#label(0x00b3, "")
+#label(0x00b4, "")
+#label(0x00b5, "")
+#label(0x00b6, "")
+#label(0x00b7, "")
+#label(0x00b8, "")
+#label(0x00b9, "")
+#label(0x00ba, "")
+#label(0x00bb, "")
+#label(0x00bc, "")
+#label(0x00bd, "")
+#label(0x00be, "")
+#label(0x00bf, "")
+#label(0x00c0, "")
+#label(0x00c1, "")
+#label(0x00c2, "")
+#label(0x00ca, "")
+
+# High Level uses #D0-#DD
+#label(0x00d0, "")
+#label(0x00d1, "")
+#label(0x00d2, "")
+#label(0x00d3, "")
+#label(0x00d4, "")
+#label(0x00d5, "")
+#label(0x00d6, "")
+#label(0x00d7, "")
+#label(0x00d8, "")
+#label(0x00d9, "")
+#label(0x00da, "")
+#label(0x00db, "")
+#label(0x00dc, "")
+
+
+#Remove uses #ED-#F7
+#label(0x00ed, "")
+#label(0x00ee, "")
+#label(0x00ef, "")
+#label(0x00f0, "")
+#label(0x00f1, "")
+#label(0x00f6, "")
+
+
+label(0x00fe, "char_not_sent_to_printer")
+label(0x00ff, "temp_sp")
+
+
+
+
+#label(0x0223, "")
+label(0x0224, "handle_urd") # User Root Directory
+label(0x0225, "handle_csd") # Current Selected Directory
+label(0x0226, "handle_lib") # Library Directory
+label(0x0227, "sequenceno")
+label(0x0228, "notifying_stn")
+expr_label(0x0229, "notifying_stn + 1")
+label(0x022a, "error_handler")
+expr_label(0x022b, "error_handler + 1")
+label(0x022c, "fileserver_stn")
+expr_label(0x022d, "fileserver_stn + 1")
+label(0x022e, "printserver_stn")
+expr_label(0x022f, "printserver_stn + 1")
+label(0x0230, "rxcvb")
+expr_label(0x0231, "rxcvb + 1")
+label(0x0236, "internal0")
+label(0x0237, "internal1")
+label(0x0238, "proc_jmp_ind")
+expr_label(0x0239, "proc_jmp_ind + 1")
+label(0x023a, "flags")
+label(0x023b, "prot_mask")
+label(0x023d, "transmit")
+
+label(0xa2ee, "transmit_handler")
 
 # TODO:
 

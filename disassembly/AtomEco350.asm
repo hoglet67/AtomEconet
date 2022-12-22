@@ -1,131 +1,125 @@
 ; Memory locations
-l0000               = &0000
-l0001               = &0001
-l0002               = &0002
-l0003               = &0003
-l0004               = &0004
-l0006               = &0006
-l0007               = &0007
-l0008               = &0008
-l0009               = &0009
-l00b0               = &00b0
-l00b1               = &00b1
-l00b2               = &00b2
-l00b3               = &00b3
-l00b4               = &00b4
-l00b5               = &00b5
-l00b6               = &00b6
-l00b7               = &00b7
-l00b8               = &00b8
-l00b9               = &00b9
-l00ba               = &00ba
-l00bb               = &00bb
-l00bc               = &00bc
-l00bd               = &00bd
-l00be               = &00be
-l00bf               = &00bf
-l00c0               = &00c0
-l00c1               = &00c1
-l00c2               = &00c2
-l00ca               = &00ca
-l00d0               = &00d0
-l00d1               = &00d1
-l00d2               = &00d2
-l00d3               = &00d3
-l00d4               = &00d4
-l00d5               = &00d5
-l00d6               = &00d6
-l00d7               = &00d7
-l00d8               = &00d8
-l00d9               = &00d9
-l00da               = &00da
-l00db               = &00db
-l00dc               = &00dc
-l00ed               = &00ed
-l00ee               = &00ee
-l00ef               = &00ef
-l00f0               = &00f0
-l00f1               = &00f1
-l00f6               = &00f6
-l00fe               = &00fe
-l00ff               = &00ff
-l0100               = &0100
-l0101               = &0101
-l0102               = &0102
-l0103               = &0103
-l0110               = &0110
-l0111               = &0111
-l0112               = &0112
-l0113               = &0113
-l0114               = &0114
-l0115               = &0115
-l0116               = &0116
-l0117               = &0117
-l0118               = &0118
-l0119               = &0119
-l011a               = &011a
-l011b               = &011b
-l011c               = &011c
-l011d               = &011d
-l011f               = &011f
-l0120               = &0120
-l0123               = &0123
-l0124               = &0124
-l013c               = &013c
-l013d               = &013d
-l013e               = &013e
-l013f               = &013f
-l0148               = &0148
-l0157               = &0157
-irqvec              = &0204
-comvec              = &0206
-wrcvec              = &0208
-rdcvec              = &020a
-irqvecl_old         = &021c
-irqvech_old         = &021d
-l0223               = &0223
-l0224               = &0224
-l0225               = &0225
-l0226               = &0226
-l0227               = &0227
-l0228               = &0228
-l0229               = &0229
-l022a               = &022a
-l022b               = &022b
-l022c               = &022c
-l022d               = &022d
-l022e               = &022e
-l022f               = &022f
-l0230               = &0230
-l0231               = &0231
-l0236               = &0236
-l0237               = &0237
-l0238               = &0238
-l0239               = &0239
-l023a               = &023a
-l023b               = &023b
-l023d               = &023d
-l48ac               = &48ac
-screen              = &8000
-reg_adlc_control1   = &b400
-reg_adlc_status1    = &b400
-reg_adlc_control23  = &b401
-reg_adlc_status2    = &b401
-reg_adlc_rxdata     = &b402
-reg_adlc_txdata     = &b402
-reg_adlc_control4   = &b403
-reg_stationid       = &b404
-basic_warm_start    = &c2ca
-kern_print_string   = &f7d1
-kern_skip_spaces    = &f876
-kern_cli_handler    = &f8ef
-kern_syn_error      = &fa7d
-kern_nvwrch         = &fe55
-kern_nvrdch         = &fe94
-kern_vectors        = &ff9a
-osasci              = &ffe9
-oscrlf              = &ffed
-oswrch              = &fff4
+l0000                   = &0000
+l0001                   = &0001
+l0002                   = &0002
+l0003                   = &0003
+l0004                   = &0004
+l0006                   = &0006
+l0007                   = &0007
+l0008                   = &0008
+l0009                   = &0009
+l00b0                   = &00b0
+l00b1                   = &00b1
+l00b2                   = &00b2
+l00b3                   = &00b3
+l00b4                   = &00b4
+l00b5                   = &00b5
+l00b6                   = &00b6
+l00b7                   = &00b7
+l00b8                   = &00b8
+l00b9                   = &00b9
+l00ba                   = &00ba
+l00bb                   = &00bb
+l00bc                   = &00bc
+l00bd                   = &00bd
+l00be                   = &00be
+l00bf                   = &00bf
+l00c0                   = &00c0
+l00c1                   = &00c1
+l00c2                   = &00c2
+l00ca                   = &00ca
+l00d0                   = &00d0
+l00d1                   = &00d1
+l00d2                   = &00d2
+l00d3                   = &00d3
+l00d4                   = &00d4
+l00d5                   = &00d5
+l00d6                   = &00d6
+l00d7                   = &00d7
+l00d8                   = &00d8
+l00d9                   = &00d9
+l00da                   = &00da
+l00db                   = &00db
+l00dc                   = &00dc
+l00ed                   = &00ed
+l00ee                   = &00ee
+l00ef                   = &00ef
+l00f0                   = &00f0
+l00f1                   = &00f1
+l00f6                   = &00f6
+char_not_sent_to_printer = &00fe
+temp_sp                 = &00ff
+l0100                   = &0100
+l0101                   = &0101
+l0102                   = &0102
+l0103                   = &0103
+l0110                   = &0110
+l0111                   = &0111
+l0112                   = &0112
+l0113                   = &0113
+l0114                   = &0114
+l0115                   = &0115
+l0116                   = &0116
+l0117                   = &0117
+l0118                   = &0118
+l0119                   = &0119
+l011a                   = &011a
+l011b                   = &011b
+l011c                   = &011c
+l011d                   = &011d
+l011f                   = &011f
+l0120                   = &0120
+l0123                   = &0123
+l0124                   = &0124
+l013c                   = &013c
+l013d                   = &013d
+l013e                   = &013e
+l013f                   = &013f
+l0148                   = &0148
+l0157                   = &0157
+irqvec                  = &0204
+comvec                  = &0206
+wrcvec                  = &0208
+rdcvec                  = &020a
+irqvecl_old             = &021c
+irqvech_old             = &021d
+l0223                   = &0223
+handle_urd              = &0224
+handle_csd              = &0225
+handle_lib              = &0226
+sequenceno              = &0227
+notifying_stn           = &0228
+error_handler           = &022a
+fileserver_stn          = &022c
+printserver_stn         = &022e
+rxcvb                   = &0230
+internal0               = &0236
+internal1               = &0237
+proc_jmp_ind            = &0238
+flags                   = &023a
+prot_mask               = &023b
+transmit                = &023d
+l48ac                   = &48ac
+screen                  = &8000
+reg_adlc_control1       = &b400
+reg_adlc_status1        = &b400
+reg_adlc_control23      = &b401
+reg_adlc_status2        = &b401
+reg_adlc_rxdata         = &b402
+reg_adlc_txdata         = &b402
+reg_adlc_control4       = &b403
+reg_stationid           = &b404
+basic_warm_start        = &c2ca
+kern_print_string       = &f7d1
+kern_skip_spaces        = &f876
+kern_cli_handler        = &f8ef
+kern_syn_error          = &fa7d
+kern_nvwrch             = &fe55
+kern_nvrdch             = &fe94
+kern_vectors            = &ff9a
+osasci                  = &ffe9
+oscrlf                  = &ffed
+oswrch                  = &fff4
 
     org &a000
 
@@ -147,7 +141,7 @@ oswrch              = &fff4
     ldx #8                                                            ; a013: a2 08       ..
 .loop_ca015
     lda init_0238_023F-1,x                                            ; a015: bd 7c a0    .|.
-    sta l0237,x                                                       ; a018: 9d 37 02    .7.
+    sta internal1,x                                                   ; a018: 9d 37 02    .7.
     dex                                                               ; a01b: ca          .
     bne loop_ca015                                                    ; a01c: d0 f7       ..
     lda irqvec                                                        ; a01e: ad 04 02    ...
@@ -205,7 +199,7 @@ oswrch              = &fff4
     equw do_rts                                                       ; a07d: ba a0       ..
     equb 0, 0, 2                                                      ; a07f: 00 00 02    ...
 
-    jmp ca2ee                                                         ; a082: 4c ee a2    L..
+    jmp transmit_handler                                              ; a082: 4c ee a2    L..
 
 .banner_version
     equb   5,   3, &0f, &0e,   5, &14                                 ; a085: 05 03 0f... ...
@@ -285,7 +279,7 @@ oswrch              = &fff4
     txa                                                               ; a100: 8a          .
     pha                                                               ; a101: 48          H
     tsx                                                               ; a102: ba          .
-    stx l00ff                                                         ; a103: 86 ff       ..
+    stx temp_sp                                                       ; a103: 86 ff       ..
     ldx #0                                                            ; a105: a2 00       ..
     ldy #&f4                                                          ; a107: a0 f4       ..
     jsr ca295                                                         ; a109: 20 95 a2     ..
@@ -301,9 +295,9 @@ oswrch              = &fff4
     jmp ca242                                                         ; a11d: 4c 42 a2    LB.
 
 .ca120
-    lda l0230                                                         ; a120: ad 30 02    .0.
+    lda rxcvb                                                         ; a120: ad 30 02    .0.
     sta l00b4                                                         ; a123: 85 b4       ..
-    lda l0231                                                         ; a125: ad 31 02    .1.
+    lda rxcvb + 1                                                     ; a125: ad 31 02    .1.
     sta l00b5                                                         ; a128: 85 b5       ..
     jsr sub_ca1aa                                                     ; a12a: 20 aa a1     ..
     tya                                                               ; a12d: 98          .
@@ -378,7 +372,7 @@ oswrch              = &fff4
     rts                                                               ; a1a9: 60          `
 
 .sub_ca1aa
-    bit l023a                                                         ; a1aa: 2c 3a 02    ,:.
+    bit flags                                                         ; a1aa: 2c 3a 02    ,:.
     bpl ca1db                                                         ; a1ad: 10 2c       .,
     ldy #0                                                            ; a1af: a0 00       ..
 .ca1b1
@@ -493,7 +487,7 @@ oswrch              = &fff4
     inx                                                               ; a23d: e8          .
     inx                                                               ; a23e: e8          .
 .ca23f
-    ldx l00ff                                                         ; a23f: a6 ff       ..
+    ldx temp_sp                                                       ; a23f: a6 ff       ..
     txs                                                               ; a241: 9a          .
 .ca242
     jsr sub_ca095                                                     ; a242: 20 95 a0     ..
@@ -596,7 +590,7 @@ oswrch              = &fff4
     sty l00b3                                                         ; a2eb: 84 b3       ..
     rts                                                               ; a2ed: 60          `
 
-.ca2ee
+.transmit_handler
     php                                                               ; a2ee: 08          .
     pha                                                               ; a2ef: 48          H
     tya                                                               ; a2f0: 98          .
@@ -608,7 +602,7 @@ oswrch              = &fff4
     stx l00b4                                                         ; a2f6: 86 b4       ..
     sty l00b5                                                         ; a2f8: 84 b5       ..
     tsx                                                               ; a2fa: ba          .
-    stx l00ff                                                         ; a2fb: 86 ff       ..
+    stx temp_sp                                                       ; a2fb: 86 ff       ..
     lda #&20                                                          ; a2fd: a9 20       .
     and reg_adlc_status2                                              ; a2ff: 2d 01 b4    -..
     beq ca307                                                         ; a302: f0 03       ..
@@ -731,7 +725,7 @@ oswrch              = &fff4
     txa                                                               ; a3a8: 8a          .
     ora #&40                                                          ; a3a9: 09 40       .@
     sta (l00b4),y                                                     ; a3ab: 91 b4       ..
-    ldx l00ff                                                         ; a3ad: a6 ff       ..
+    ldx temp_sp                                                       ; a3ad: a6 ff       ..
     txs                                                               ; a3af: 9a          .
 .ca3b0
     jsr sub_ca095                                                     ; a3b0: 20 95 a0     ..
@@ -881,35 +875,35 @@ oswrch              = &fff4
     bcc ca4a8                                                         ; a499: 90 0d       ..
     cpy #&89                                                          ; a49b: c0 89       ..
     bcs ca4a8                                                         ; a49d: b0 09       ..
-    lda jump1_table_hi-&81,y                                          ; a49f: b9 32 a4    .2.
+    lda tx_cmd_table_hi-&81,y                                         ; a49f: b9 32 a4    .2.
     pha                                                               ; a4a2: 48          H
-    lda jump1_table_lo-&81,y                                          ; a4a3: b9 2a a4    .*.
+    lda tx_cmd_table_lo-&81,y                                         ; a4a3: b9 2a a4    .*.
     pha                                                               ; a4a6: 48          H
     rts                                                               ; a4a7: 60          `
 
 .ca4a8
     jmp ca39b                                                         ; a4a8: 4c 9b a3    L..
 
-.jump1_table_lo
-    equb <(jump1_81_88-1)                                             ; a4ab: ba          .
-    equb <(jump1_82-1)                                                ; a4ac: f6          .
-    equb <(jump1_83_84_85-1)                                          ; a4ad: 18          .
-    equb <(jump1_83_84_85-1)                                          ; a4ae: 18          .
-    equb <(jump1_83_84_85-1)                                          ; a4af: 18          .
-    equb <(jump1_86_87-1)                                             ; a4b0: 34          4
-    equb <(jump1_86_87-1)                                             ; a4b1: 34          4
-    equb <(jump1_81_88-1)                                             ; a4b2: ba          .
-.jump1_table_hi
-    equb >(jump1_81_88-1)                                             ; a4b3: a4          .
-    equb >(jump1_82-1)                                                ; a4b4: a4          .
-    equb >(jump1_83_84_85-1)                                          ; a4b5: a5          .
-    equb >(jump1_83_84_85-1)                                          ; a4b6: a5          .
-    equb >(jump1_83_84_85-1)                                          ; a4b7: a5          .
-    equb >(jump1_86_87-1)                                             ; a4b8: a5          .
-    equb >(jump1_86_87-1)                                             ; a4b9: a5          .
-    equb >(jump1_81_88-1)                                             ; a4ba: a4          .
+.tx_cmd_table_lo
+    equb <(tx_cmd_81_88_peek-1)                                       ; a4ab: ba          .
+    equb <(tx_cmd_82_poke-1)                                          ; a4ac: f6          .
+    equb <(tx_cmd_83_84_85_remote-1)                                  ; a4ad: 18          .
+    equb <(tx_cmd_83_84_85_remote-1)                                  ; a4ae: 18          .
+    equb <(tx_cmd_83_84_85_remote-1)                                  ; a4af: 18          .
+    equb <(tx_cmd_86_87_halt_resume-1)                                ; a4b0: 34          4
+    equb <(tx_cmd_86_87_halt_resume-1)                                ; a4b1: 34          4
+    equb <(tx_cmd_81_88_peek-1)                                       ; a4b2: ba          .
+.tx_cmd_table_hi
+    equb >(tx_cmd_81_88_peek-1)                                       ; a4b3: a4          .
+    equb >(tx_cmd_82_poke-1)                                          ; a4b4: a4          .
+    equb >(tx_cmd_83_84_85_remote-1)                                  ; a4b5: a5          .
+    equb >(tx_cmd_83_84_85_remote-1)                                  ; a4b6: a5          .
+    equb >(tx_cmd_83_84_85_remote-1)                                  ; a4b7: a5          .
+    equb >(tx_cmd_86_87_halt_resume-1)                                ; a4b8: a5          .
+    equb >(tx_cmd_86_87_halt_resume-1)                                ; a4b9: a5          .
+    equb >(tx_cmd_81_88_peek-1)                                       ; a4ba: a4          .
 
-.jump1_81_88
+.tx_cmd_81_88_peek
     ldy #4                                                            ; a4bb: a0 04       ..
     jsr ca443                                                         ; a4bd: 20 43 a4     C.
     jsr sub_ca40d                                                     ; a4c0: 20 0d a4     ..
@@ -940,7 +934,7 @@ oswrch              = &fff4
     ldy l00b1                                                         ; a4f2: a4 b1       ..
     jmp ca295                                                         ; a4f4: 4c 95 a2    L..
 
-.jump1_82
+.tx_cmd_82_poke
     ldy #4                                                            ; a4f7: a0 04       ..
     jsr ca443                                                         ; a4f9: 20 43 a4     C.
     jsr sub_ca40d                                                     ; a4fc: 20 0d a4     ..
@@ -958,7 +952,7 @@ oswrch              = &fff4
     jsr ca336                                                         ; a515: 20 36 a3     6.
     rts                                                               ; a518: 60          `
 
-.jump1_83_84_85
+.tx_cmd_83_84_85_remote
     ldy #4                                                            ; a519: a0 04       ..
     jsr ca443                                                         ; a51b: 20 43 a4     C.
     jsr sub_ca40d                                                     ; a51e: 20 0d a4     ..
@@ -973,7 +967,7 @@ oswrch              = &fff4
     jsr ca336                                                         ; a531: 20 36 a3     6.
     rts                                                               ; a534: 60          `
 
-.jump1_86_87
+.tx_cmd_86_87_halt_resume
     jsr sub_ca40d                                                     ; a535: 20 0d a4     ..
     clc                                                               ; a538: 18          .
     jsr sub_ca351                                                     ; a539: 20 51 a3     Q.
@@ -994,7 +988,7 @@ oswrch              = &fff4
     sec                                                               ; a552: 38          8
     sbc #&81                                                          ; a553: e9 81       ..
     tay                                                               ; a555: a8          .
-    lda l023b                                                         ; a556: ad 3b 02    .;.
+    lda prot_mask                                                     ; a556: ad 3b 02    .;.
 .loop_ca559
     ror a                                                             ; a559: 6a          j
     dey                                                               ; a55a: 88          .
@@ -1004,9 +998,9 @@ oswrch              = &fff4
 
 .ca562
     ldy l00b8                                                         ; a562: a4 b8       ..
-    lda jump2_table_hi-&81,y                                          ; a564: b9 fa a4    ...
+    lda rx_cmd_table_hi-&81,y                                         ; a564: b9 fa a4    ...
     pha                                                               ; a567: 48          H
-    lda jump2_table_lo-&81,y                                          ; a568: b9 f2 a4    ...
+    lda rx_cmd_table_lo-&81,y                                         ; a568: b9 f2 a4    ...
     pha                                                               ; a56b: 48          H
     rts                                                               ; a56c: 60          `
 
@@ -1017,26 +1011,26 @@ oswrch              = &fff4
     txa                                                               ; a56f: 8a          .
     jmp ca235                                                         ; a570: 4c 35 a2    L5.
 
-.jump2_table_lo
-    equb <(jump2_81-1)                                                ; a573: 93          .
-    equb <(jump2_82-1)                                                ; a574: ac          .
-    equb <(jump2_83-1)                                                ; a575: d5          .
-    equb <(jump2_84-1)                                                ; a576: c0          .
-    equb <(jump2_85-1)                                                ; a577: c9          .
-    equb <(jump2_86-1)                                                ; a578: 13          .
-    equb <(jump2_87-1)                                                ; a579: 2f          /
-    equb <(jump2_88-1)                                                ; a57a: 82          .
-.jump2_table_hi
-    equb >(jump2_81-1)                                                ; a57b: a5          .
-    equb >(jump2_82-1)                                                ; a57c: a5          .
-    equb >(jump2_83-1)                                                ; a57d: a5          .
-    equb >(jump2_84-1)                                                ; a57e: a5          .
-    equb >(jump2_85-1)                                                ; a57f: a5          .
-    equb >(jump2_86-1)                                                ; a580: a6          .
-    equb >(jump2_87-1)                                                ; a581: a6          .
-    equb >(jump2_88-1)                                                ; a582: a5          .
+.rx_cmd_table_lo
+    equb <(rx_cmd_81_peek-1)                                          ; a573: 93          .
+    equb <(rx_cmd_82_poke-1)                                          ; a574: ac          .
+    equb <(rx_cmd_83_jsr-1)                                           ; a575: d5          .
+    equb <(rx_cmd_84_user_proc-1)                                     ; a576: c0          .
+    equb <(rx_cmd_85_os_proc-1)                                       ; a577: c9          .
+    equb <(rx_cmd_86_halt-1)                                          ; a578: 13          .
+    equb <(rx_cmd_87_resume-1)                                        ; a579: 2f          /
+    equb <(rx_cmd_88_machine_peek-1)                                  ; a57a: 82          .
+.rx_cmd_table_hi
+    equb >(rx_cmd_81_peek-1)                                          ; a57b: a5          .
+    equb >(rx_cmd_82_poke-1)                                          ; a57c: a5          .
+    equb >(rx_cmd_83_jsr-1)                                           ; a57d: a5          .
+    equb >(rx_cmd_84_user_proc-1)                                     ; a57e: a5          .
+    equb >(rx_cmd_85_os_proc-1)                                       ; a57f: a5          .
+    equb >(rx_cmd_86_halt-1)                                          ; a580: a6          .
+    equb >(rx_cmd_87_resume-1)                                        ; a581: a6          .
+    equb >(rx_cmd_88_machine_peek-1)                                  ; a582: a5          .
 
-.jump2_88
+.rx_cmd_88_machine_peek
     clc                                                               ; a583: 18          .
     lda #<function6                                                   ; a584: a9 12       ..
     sta l00ba                                                         ; a586: 85 ba       ..
@@ -1046,7 +1040,7 @@ oswrch              = &fff4
     sta l00be                                                         ; a58e: 85 be       ..
     lda #>function7                                                   ; a590: a9 a7       ..
     sta l00bf                                                         ; a592: 85 bf       ..
-.jump2_81
+.rx_cmd_81_peek
     ldy #4                                                            ; a594: a0 04       ..
     jsr sub_ca426                                                     ; a596: 20 26 a4     &.
     lda reg_adlc_status1                                              ; a599: ad 00 b4    ...
@@ -1058,7 +1052,7 @@ oswrch              = &fff4
     jsr ca336                                                         ; a5a7: 20 36 a3     6.
     jmp ca0bb                                                         ; a5aa: 4c bb a0    L..
 
-.jump2_82
+.rx_cmd_82_poke
     ldy #4                                                            ; a5ad: a0 04       ..
     jsr sub_ca426                                                     ; a5af: 20 26 a4     &.
     jsr sub_ca24b                                                     ; a5b2: 20 4b a2     K.
@@ -1068,12 +1062,12 @@ oswrch              = &fff4
     jsr sub_ca24b                                                     ; a5bd: 20 4b a2     K.
     rts                                                               ; a5c0: 60          `
 
-.jump2_84
-    lda l0238                                                         ; a5c1: ad 38 02    .8.
-    ldy l0239                                                         ; a5c4: ac 39 02    .9.
+.rx_cmd_84_user_proc
+    lda proc_jmp_ind                                                  ; a5c1: ad 38 02    .8.
+    ldy proc_jmp_ind + 1                                              ; a5c4: ac 39 02    .9.
     jmp ca5ce                                                         ; a5c7: 4c ce a5    L..
 
-.jump2_85
+.rx_cmd_85_os_proc
     lda #<function4                                                   ; a5ca: a9 0c       ..
     ldy #>function4                                                   ; a5cc: a0 a7       ..
 .ca5ce
@@ -1081,7 +1075,7 @@ oswrch              = &fff4
     ldy l00ba                                                         ; a5d0: a4 ba       ..
     sty l00bc                                                         ; a5d2: 84 bc       ..
     sta l00ba                                                         ; a5d4: 85 ba       ..
-.jump2_83
+.rx_cmd_83_jsr
     lda #&f8                                                          ; a5d6: a9 f8       ..
     sta l00b1                                                         ; a5d8: 85 b1       ..
     lda #1                                                            ; a5da: a9 01       ..
@@ -1096,8 +1090,8 @@ oswrch              = &fff4
     jsr ca295                                                         ; a5ee: 20 95 a2     ..
     jsr sub_ca24b                                                     ; a5f1: 20 4b a2     K.
     lda #&1c                                                          ; a5f4: a9 1c       ..
-    ora l023b                                                         ; a5f6: 0d 3b 02    .;.
-    sta l023b                                                         ; a5f9: 8d 3b 02    .;.
+    ora prot_mask                                                     ; a5f6: 0d 3b 02    .;.
+    sta prot_mask                                                     ; a5f9: 8d 3b 02    .;.
     jsr sub_ca095                                                     ; a5fc: 20 95 a0     ..
     cli                                                               ; a5ff: 58          X
     lda l00b8                                                         ; a600: a5 b8       ..
@@ -1113,27 +1107,27 @@ oswrch              = &fff4
     ldx l00b6                                                         ; a60f: a6 b6       ..
     jmp (l00ba)                                                       ; a611: 6c ba 00    l..
 
-.jump2_86
+.rx_cmd_86_halt
     jsr sub_ca24b                                                     ; a614: 20 4b a2     K.
     lda #&40                                                          ; a617: a9 40       .@
-    bit l023a                                                         ; a619: 2c 3a 02    ,:.
+    bit flags                                                         ; a619: 2c 3a 02    ,:.
     bne ca62f                                                         ; a61c: d0 11       ..
-    ora l023a                                                         ; a61e: 0d 3a 02    .:.
-    sta l023a                                                         ; a621: 8d 3a 02    .:.
+    ora flags                                                         ; a61e: 0d 3a 02    .:.
+    sta flags                                                         ; a621: 8d 3a 02    .:.
     jsr sub_ca095                                                     ; a624: 20 95 a0     ..
     cli                                                               ; a627: 58          X
     lda #&40                                                          ; a628: a9 40       .@
 .loop_ca62a
-    bit l023a                                                         ; a62a: 2c 3a 02    ,:.
+    bit flags                                                         ; a62a: 2c 3a 02    ,:.
     bne loop_ca62a                                                    ; a62d: d0 fb       ..
 .ca62f
     rts                                                               ; a62f: 60          `
 
-.jump2_87
+.rx_cmd_87_resume
     jsr sub_ca24b                                                     ; a630: 20 4b a2     K.
     lda #&bf                                                          ; a633: a9 bf       ..
-    and l023a                                                         ; a635: 2d 3a 02    -:.
-    sta l023a                                                         ; a638: 8d 3a 02    .:.
+    and flags                                                         ; a635: 2d 3a 02    -:.
+    sta flags                                                         ; a638: 8d 3a 02    .:.
     rts                                                               ; a63b: 60          `
 
     equs "CB5 8AF"                                                    ; a63c: 43 42 35... CB5
@@ -1177,9 +1171,9 @@ oswrch              = &fff4
 
 .ca690
     pha                                                               ; a690: 48          H
-    lda l023a                                                         ; a691: ad 3a 02    .:.
+    lda flags                                                         ; a691: ad 3a 02    .:.
     and #&7f                                                          ; a694: 29 7f       ).
-    sta l023a                                                         ; a696: 8d 3a 02    .:.
+    sta flags                                                         ; a696: 8d 3a 02    .:.
     pla                                                               ; a699: 68          h
     rts                                                               ; a69a: 60          `
 
@@ -1210,9 +1204,9 @@ oswrch              = &fff4
     ldy #&30                                                          ; a6cb: a0 30       .0
     jmp ca818                                                         ; a6cd: 4c 18 a8    L..
 
-.handler1
+.error_handler1
     jsr sub_caff1                                                     ; a6d0: 20 f1 af     ..
-    lsr l00fe                                                         ; a6d3: 46 fe       F.
+    lsr char_not_sent_to_printer                                      ; a6d3: 46 fe       F.
     jmp ca83c                                                         ; a6d5: 4c 3c a8    L<.
 
 .sub_ca6d8
@@ -1225,8 +1219,9 @@ oswrch              = &fff4
     rts                                                               ; a6e3: 60          `
 
 .init_0228_022f
-    equb         0,         0, <handler2, >handler2,       &fe        ; a6e4: 00 00 f9... ...
-    equb         0,       &eb,         0                              ; a6e9: 00 eb 00    ...
+    equb               0,               0, <error_handler2            ; a6e4: 00 00 f9    ...
+    equb >error_handler2,             &fe,               0            ; a6e7: a8 fe 00    ...
+    equb             &eb,               0                             ; a6ea: eb 00       ..
 .init_00d4_00d9
     equb &48,   1, &4d,   1,   0                                      ; a6ec: 48 01 4d... H.M
 
@@ -1266,14 +1261,14 @@ oswrch              = &fff4
 
 .function7
     pha                                                               ; a716: 48          H
-    lda l023b                                                         ; a717: ad 3b 02    .;.
+    lda prot_mask                                                     ; a717: ad 3b 02    .;.
     and #&e3                                                          ; a71a: 29 e3       ).
-    sta l023b                                                         ; a71c: 8d 3b 02    .;.
+    sta prot_mask                                                     ; a71c: 8d 3b 02    .;.
     pla                                                               ; a71f: 68          h
     cmp #1                                                            ; a720: c9 01       ..
     bne ca72b                                                         ; a722: d0 07       ..
-    stx l0228                                                         ; a724: 8e 28 02    .(.
-    sty l0229                                                         ; a727: 8c 29 02    .).
+    stx notifying_stn                                                 ; a724: 8e 28 02    .(.
+    sty notifying_stn + 1                                             ; a727: 8c 29 02    .).
 .loop_ca72a
     rts                                                               ; a72a: 60          `
 
@@ -1296,7 +1291,7 @@ oswrch              = &fff4
     ldx #7                                                            ; a744: a2 07       ..
 .ca746
     lda init_0228_022f,x                                              ; a746: bd e4 a6    ...
-    sta l0228,x                                                       ; a749: 9d 28 02    .(.
+    sta notifying_stn,x                                               ; a749: 9d 28 02    .(.
     dex                                                               ; a74c: ca          .
     bpl ca746                                                         ; a74d: 10 f7       ..
     rts                                                               ; a74f: 60          `
@@ -1361,9 +1356,9 @@ oswrch              = &fff4
     beq ca7c3                                                         ; a7b6: f0 0b       ..
     asl a                                                             ; a7b8: 0a          .
     tax                                                               ; a7b9: aa          .
-    lda jump3_table - 1,x                                             ; a7ba: bd cf a7    ...
+    lda fserv_table - 1,x                                             ; a7ba: bd cf a7    ...
     pha                                                               ; a7bd: 48          H
-    lda jump3_table - 2,x                                             ; a7be: bd ce a7    ...
+    lda fserv_table - 2,x                                             ; a7be: bd ce a7    ...
     pha                                                               ; a7c1: 48          H
     rts                                                               ; a7c2: 60          `
 
@@ -1378,16 +1373,16 @@ oswrch              = &fff4
     pla                                                               ; a7ce: 68          h
     rts                                                               ; a7cf: 60          `
 
-.jump3_table
-    equw jump3_00-1                                                   ; a7d0: 9e a9       ..
-    equw jump3_01-1                                                   ; a7d2: 71 aa       q.
-    equw jump3_02-1                                                   ; a7d4: 11 ac       ..
-    equw jump3_03-1                                                   ; a7d6: 89 ac       ..
-    equw jump3_04_05-1                                                ; a7d8: 39 a9       9.
-    equw jump3_04_05-1                                                ; a7da: 39 a9       9.
-    equw jump3_06-1                                                   ; a7dc: be ac       ..
-    equw jump3_07-1                                                   ; a7de: b1 ac       ..
-    equw jump3_08-1                                                   ; a7e0: c5 ac       ..
+.fserv_table
+    equw fserv_01_save-1                                              ; a7d0: 9e a9       ..
+    equw fserv_02_load-1                                              ; a7d2: 71 aa       q.
+    equw fserv_03-1                                                   ; a7d4: 11 ac       ..
+    equw fserv_04_info-1                                              ; a7d6: 89 ac       ..
+    equw fserv_05_sdisc_06_iam-1                                      ; a7d8: 39 a9       9.
+    equw fserv_05_sdisc_06_iam-1                                      ; a7da: 39 a9       9.
+    equw fserv_07_dir-1                                               ; a7dc: be ac       ..
+    equw fserv_08_unrecognised-1                                      ; a7de: b1 ac       ..
+    equw fserv_09_lib-1                                               ; a7e0: c5 ac       ..
 
 .sub_ca7e2
     lda #5                                                            ; a7e2: a9 05       ..
@@ -1410,7 +1405,7 @@ oswrch              = &fff4
     pha                                                               ; a7ff: 48          H
     ldx #2                                                            ; a800: a2 02       ..
 .loop_ca802
-    lda l0224,x                                                       ; a802: bd 24 02    .$.
+    lda handle_urd,x                                                  ; a802: bd 24 02    .$.
     sta l0118,x                                                       ; a805: 9d 18 01    ...
     dex                                                               ; a808: ca          .
     bpl loop_ca802                                                    ; a809: 10 f7       ..
@@ -1419,9 +1414,9 @@ oswrch              = &fff4
     rts                                                               ; a80c: 60          `
 
 .sub_ca80d
-    lda l022c                                                         ; a80d: ad 2c 02    .,.
+    lda fileserver_stn                                                ; a80d: ad 2c 02    .,.
     sta l00d2                                                         ; a810: 85 d2       ..
-    lda l022d                                                         ; a812: ad 2d 02    .-.
+    lda fileserver_stn + 1                                            ; a812: ad 2d 02    .-.
     sta l00d3                                                         ; a815: 85 d3       ..
     rts                                                               ; a817: 60          `
 
@@ -1434,7 +1429,7 @@ oswrch              = &fff4
     lda l0000,x                                                       ; a81d: b5 00       ..
     pha                                                               ; a81f: 48          H
     ldy #0                                                            ; a820: a0 00       ..
-    jsr l023d                                                         ; a822: 20 3d 02     =.
+    jsr transmit                                                      ; a822: 20 3d 02     =.
     lda l0000,x                                                       ; a825: b5 00       ..
     rol a                                                             ; a827: 2a          *
     bpl ca843                                                         ; a828: 10 19       ..
@@ -1453,7 +1448,7 @@ oswrch              = &fff4
 .ca83c
     ldx #&19                                                          ; a83c: a2 19       ..
     ldy #1                                                            ; a83e: a0 01       ..
-    jmp (l022a)                                                       ; a840: 6c 2a 02    l*.
+    jmp (error_handler)                                               ; a840: 6c 2a 02    l*.
 
 .ca843
     pla                                                               ; a843: 68          h
@@ -1487,11 +1482,11 @@ oswrch              = &fff4
     ldx #0                                                            ; a85f: a2 00       ..
 .sub_ca861
     jsr ca690                                                         ; a861: 20 90 a6     ..
-    sta l0230                                                         ; a864: 8d 30 02    .0.
-    stx l0231                                                         ; a867: 8e 31 02    .1.
-    lda l023a                                                         ; a86a: ad 3a 02    .:.
+    sta rxcvb                                                         ; a864: 8d 30 02    .0.
+    stx rxcvb + 1                                                     ; a867: 8e 31 02    .1.
+    lda flags                                                         ; a86a: ad 3a 02    .:.
     ora #&80                                                          ; a86d: 09 80       ..
-    sta l023a                                                         ; a86f: 8d 3a 02    .:.
+    sta flags                                                         ; a86f: 8d 3a 02    .:.
     rts                                                               ; a872: 60          `
 
 .sub_ca873
@@ -1576,7 +1571,7 @@ oswrch              = &fff4
     nop                                                               ; a8f7: ea          .
     brk                                                               ; a8f8: 00          .
 
-.handler2
+.error_handler2
     cmp #&10                                                          ; a8f9: c9 10       ..
     bcs ca922                                                         ; a8fb: b0 25       .%
     cmp #1                                                            ; a8fd: c9 01       ..
@@ -1610,11 +1605,11 @@ oswrch              = &fff4
     jsr ca690                                                         ; a936: 20 90 a6     ..
     brk                                                               ; a939: 00          .
 
-.jump3_04_05
+.fserv_05_sdisc_06_iam
     ldx #2                                                            ; a93a: a2 02       ..
 .loop_ca93c
     lda l011b,x                                                       ; a93c: bd 1b 01    ...
-    sta l0224,x                                                       ; a93f: 9d 24 02    .$.
+    sta handle_urd,x                                                  ; a93f: 9d 24 02    .$.
     dex                                                               ; a942: ca          .
     bpl loop_ca93c                                                    ; a943: 10 f7       ..
     jmp ca7c3                                                         ; a945: 4c c3 a7    L..
@@ -1631,7 +1626,7 @@ oswrch              = &fff4
     sta l00d4                                                         ; a95c: 85 d4       ..
     lda #1                                                            ; a95e: a9 01       ..
     sta l00d5                                                         ; a960: 85 d5       ..
-    lda l0227                                                         ; a962: ad 27 02    .'.
+    lda sequenceno                                                    ; a962: ad 27 02    .'.
     ldx #8                                                            ; a965: a2 08       ..
 .loop_ca967
     lsr l00da                                                         ; a967: 46 da       F.
@@ -1666,7 +1661,7 @@ oswrch              = &fff4
     lda l0112                                                         ; a99b: ad 12 01    ...
     rts                                                               ; a99e: 60          `
 
-.jump3_00
+.fserv_01_save
     clc                                                               ; a99f: 18          .
     lda l011b                                                         ; a9a0: ad 1b 01    ...
     sta l013c                                                         ; a9a3: 8d 3c 01    .<.
@@ -1769,7 +1764,7 @@ oswrch              = &fff4
     jsr sub_ca65e                                                     ; aa6c: 20 5e a6     ^.
     jmp ca7c3                                                         ; aa6f: 4c c3 a7    L..
 
-.jump3_01
+.fserv_02_load
     lda l011b                                                         ; aa72: ad 1b 01    ...
     sta l013d                                                         ; aa75: 8d 3d 01    .=.
     lda l011c                                                         ; aa78: ad 1c 01    ...
@@ -1880,8 +1875,8 @@ oswrch              = &fff4
 .cab4e
     clc                                                               ; ab4e: 18          .
     sbc l011b                                                         ; ab4f: ed 1b 01    ...
-    and l0227                                                         ; ab52: 2d 27 02    -'.
-    sta l0227                                                         ; ab55: 8d 27 02    .'.
+    and sequenceno                                                    ; ab52: 2d 27 02    -'.
+    sta sequenceno                                                    ; ab55: 8d 27 02    .'.
     lda l011b                                                         ; ab58: ad 1b 01    ...
 .cab5b
     jmp ca7c3                                                         ; ab5b: 4c c3 a7    L..
@@ -1915,7 +1910,7 @@ oswrch              = &fff4
 .cab89
     ldx #&12                                                          ; ab89: a2 12       ..
     ldy #1                                                            ; ab8b: a0 01       ..
-    jmp (l022a)                                                       ; ab8d: 6c 2a 02    l*.
+    jmp (error_handler)                                               ; ab8d: 6c 2a 02    l*.
 
 .cab90
     lda l0115                                                         ; ab90: ad 15 01    ...
@@ -1924,8 +1919,8 @@ oswrch              = &fff4
 .cab95
     pla                                                               ; ab95: 68          h
     tay                                                               ; ab96: a8          .
-    eor l0227                                                         ; ab97: 4d 27 02    M'.
-    sta l0227                                                         ; ab9a: 8d 27 02    .'.
+    eor sequenceno                                                    ; ab97: 4d 27 02    M'.
+    sta sequenceno                                                    ; ab9a: 8d 27 02    .'.
     pla                                                               ; ab9d: 68          h
     tax                                                               ; ab9e: aa          .
     lda l0114                                                         ; ab9f: ad 14 01    ...
@@ -1996,13 +1991,13 @@ oswrch              = &fff4
     ldx #&d0                                                          ; ac00: a2 d0       ..
     jsr sub_ca873                                                     ; ac02: 20 73 a8     s.
     lda l00d0                                                         ; ac05: a5 d0       ..
-    sta l022c                                                         ; ac07: 8d 2c 02    .,.
+    sta fileserver_stn                                                ; ac07: 8d 2c 02    .,.
     lda l00d1                                                         ; ac0a: a5 d1       ..
-    sta l022d                                                         ; ac0c: 8d 2d 02    .-.
+    sta fileserver_stn + 1                                            ; ac0c: 8d 2d 02    .-.
 .cac0f
     jmp cmd_UNKNOWN                                                   ; ac0f: 4c 9f a7    L..
 
-.jump3_02
+.fserv_03
     ldy #0                                                            ; ac12: a0 00       ..
 .loop_cac14
     lda l011b,y                                                       ; ac14: b9 1b 01    ...
@@ -2045,7 +2040,7 @@ oswrch              = &fff4
     beq cac70                                                         ; ac67: f0 07       ..
     ldx #&16                                                          ; ac69: a2 16       ..
     ldy #1                                                            ; ac6b: a0 01       ..
-    jmp (l022a)                                                       ; ac6d: 6c 2a 02    l*.
+    jmp (error_handler)                                               ; ac6d: 6c 2a 02    l*.
 
 .cac70
     lda l0118                                                         ; ac70: ad 18 01    ...
@@ -2063,7 +2058,7 @@ oswrch              = &fff4
 .init_00d0_00d8_alt1
     equb &7f, &88,   0,   0, &16,   1, &ff, &ff,   0                  ; ac81: 7f 88 00... ...
 
-.jump3_03
+.fserv_04_info
     lda #&0d                                                          ; ac8a: a9 0d       ..
     sta l0157                                                         ; ac8c: 8d 57 01    .W.
     ldx #0                                                            ; ac8f: a2 00       ..
@@ -2089,21 +2084,21 @@ oswrch              = &fff4
 .cacb1
     rts                                                               ; acb1: 60          `
 
-.jump3_07
+.fserv_08_unrecognised
     lda #0                                                            ; acb2: a9 00       ..
     sta l013f                                                         ; acb4: 8d 3f 01    .?.
     ldy #5                                                            ; acb7: a0 05       ..
     jsr sub_caaa9                                                     ; acb9: 20 a9 aa     ..
     jmp (l00d0)                                                       ; acbc: 6c d0 00    l..
 
-.jump3_06
+.fserv_07_dir
     lda l011b                                                         ; acbf: ad 1b 01    ...
-    sta l0225                                                         ; acc2: 8d 25 02    .%.
+    sta handle_csd                                                    ; acc2: 8d 25 02    .%.
     rts                                                               ; acc5: 60          `
 
-.jump3_08
+.fserv_09_lib
     lda l011b                                                         ; acc6: ad 1b 01    ...
-    sta l0226                                                         ; acc9: 8d 26 02    .&.
+    sta handle_lib                                                    ; acc9: 8d 26 02    .&.
     rts                                                               ; accc: 60          `
 
 .command_table
@@ -2186,10 +2181,10 @@ oswrch              = &fff4
     equb &f6,   0, &f7,   0,   0                                      ; ad39: f6 00 f7... ...
 
 .sub_cad3e
-    lda #<handler3                                                    ; ad3e: a9 62       .b
-    sta l022a                                                         ; ad40: 8d 2a 02    .*.
-    lda #>handler3                                                    ; ad43: a9 ad       ..
-    sta l022b                                                         ; ad45: 8d 2b 02    .+.
+    lda #<error_handler3                                              ; ad3e: a9 62       .b
+    sta error_handler                                                 ; ad40: 8d 2a 02    .*.
+    lda #>error_handler3                                              ; ad43: a9 ad       ..
+    sta error_handler + 1                                             ; ad45: 8d 2b 02    .+.
     lda #&80                                                          ; ad48: a9 80       ..
     sta l00ed                                                         ; ad4a: 85 ed       ..
     lda #&ff                                                          ; ad4c: a9 ff       ..
@@ -2198,14 +2193,14 @@ oswrch              = &fff4
     jsr ca81a                                                         ; ad52: 20 1a a8     ..
 .sub_cad55
     pha                                                               ; ad55: 48          H
-    lda #<handler2                                                    ; ad56: a9 f9       ..
-    sta l022a                                                         ; ad58: 8d 2a 02    .*.
-    lda #>handler2                                                    ; ad5b: a9 a8       ..
-    sta l022b                                                         ; ad5d: 8d 2b 02    .+.
+    lda #<error_handler2                                              ; ad56: a9 f9       ..
+    sta error_handler                                                 ; ad58: 8d 2a 02    .*.
+    lda #>error_handler2                                              ; ad5b: a9 a8       ..
+    sta error_handler + 1                                             ; ad5d: 8d 2b 02    .+.
     pla                                                               ; ad60: 68          h
     rts                                                               ; ad61: 60          `
 
-.handler3
+.error_handler3
     jsr sub_cad55                                                     ; ad62: 20 55 ad     U.
     jsr sub_ca6d8                                                     ; ad65: 20 d8 a6     ..
     jmp ca90f                                                         ; ad68: 4c 0f a9    L..
@@ -2396,7 +2391,7 @@ oswrch              = &fff4
     pha                                                               ; ae9b: 48          H
     tya                                                               ; ae9c: 98          .
     pha                                                               ; ae9d: 48          H
-    lda l0228                                                         ; ae9e: ad 28 02    .(.
+    lda notifying_stn                                                 ; ae9e: ad 28 02    .(.
     bne caea6                                                         ; aea1: d0 03       ..
     jmp caf2e                                                         ; aea3: 4c 2e af    L..
 
@@ -2410,12 +2405,12 @@ oswrch              = &fff4
     bpl loop_caea9                                                    ; aeaf: 10 f8       ..
     pla                                                               ; aeb1: 68          h
     sta l00d2                                                         ; aeb2: 85 d2       ..
-    lda l0229                                                         ; aeb4: ad 29 02    .).
+    lda notifying_stn + 1                                             ; aeb4: ad 29 02    .).
     sta l00d3                                                         ; aeb7: 85 d3       ..
-    lda #<handler4                                                    ; aeb9: a9 27       .'
-    sta l022a                                                         ; aebb: 8d 2a 02    .*.
-    lda #>handler4                                                    ; aebe: a9 af       ..
-    sta l022b                                                         ; aec0: 8d 2b 02    .+.
+    lda #<error_handler4                                              ; aeb9: a9 27       .'
+    sta error_handler                                                 ; aebb: 8d 2a 02    .*.
+    lda #>error_handler4                                              ; aebe: a9 af       ..
+    sta error_handler + 1                                             ; aec0: 8d 2b 02    .+.
     lda #5                                                            ; aec3: a9 05       ..
     sta l00da                                                         ; aec5: 85 da       ..
     lda #&10                                                          ; aec7: a9 10       ..
@@ -2473,7 +2468,7 @@ oswrch              = &fff4
     cpx #5                                                            ; af21: e0 05       ..
     bcc loop_caf16                                                    ; af23: 90 f1       ..
     bcs loop_caf06                                                    ; af25: b0 df       ..
-.handler4
+.error_handler4
     pla                                                               ; af27: 68          h
     pla                                                               ; af28: 68          h
 .caf29
@@ -2495,16 +2490,16 @@ oswrch              = &fff4
     equb &81,   0,   0,   0, &da,   0, &db,   0, &28,   2             ; af3e: 81 00 00... ...
 
 .eco_wrch
-    bit l00fe                                                         ; af48: 24 fe       $.
+    bit char_not_sent_to_printer                                      ; af48: 24 fe       $.
     bmi caf61                                                         ; af4a: 30 15       0.
     cmp #2                                                            ; af4c: c9 02       ..
     beq caf53                                                         ; af4e: f0 03       ..
     jmp cafee                                                         ; af50: 4c ee af    L..
 
 .caf53
-    ror l00fe                                                         ; af53: 66 fe       f.
+    ror char_not_sent_to_printer                                      ; af53: 66 fe       f.
     lda #5                                                            ; af55: a9 05       ..
-    sta l0236                                                         ; af57: 8d 36 02    .6.
+    sta internal0                                                     ; af57: 8d 36 02    .6.
     lda #0                                                            ; af5a: a9 00       ..
     sta l0223                                                         ; af5c: 8d 23 02    .#.
     sta l00ca                                                         ; af5f: 85 ca       ..
@@ -2516,10 +2511,10 @@ oswrch              = &fff4
     tya                                                               ; af67: 98          .
     pha                                                               ; af68: 48          H
     lda l0112                                                         ; af69: ad 12 01    ...
-    ldx l0236                                                         ; af6c: ae 36 02    .6.
+    ldx internal0                                                     ; af6c: ae 36 02    .6.
     sta l00ca,x                                                       ; af6f: 95 ca       ..
     inx                                                               ; af71: e8          .
-    stx l0236                                                         ; af72: 8e 36 02    .6.
+    stx internal0                                                     ; af72: 8e 36 02    .6.
     cmp #3                                                            ; af75: c9 03       ..
     bne caf7f                                                         ; af77: d0 06       ..
     ldy l0223                                                         ; af79: ac 23 02    .#.
@@ -2535,38 +2530,38 @@ oswrch              = &fff4
     pha                                                               ; af87: 48          H
     dex                                                               ; af88: ca          .
     bpl loop_caf85                                                    ; af89: 10 fa       ..
-    lda l022e                                                         ; af8b: ad 2e 02    ...
+    lda printserver_stn                                               ; af8b: ad 2e 02    ...
     sta l00d2                                                         ; af8e: 85 d2       ..
-    lda l022f                                                         ; af90: ad 2f 02    ./.
+    lda printserver_stn + 1                                           ; af90: ad 2f 02    ./.
     sta l00d3                                                         ; af93: 85 d3       ..
     lda #&d1                                                          ; af95: a9 d1       ..
     sta l00d1                                                         ; af97: 85 d1       ..
-    lda l022a                                                         ; af99: ad 2a 02    .*.
+    lda error_handler                                                 ; af99: ad 2a 02    .*.
     sta l0110                                                         ; af9c: 8d 10 01    ...
-    lda l022b                                                         ; af9f: ad 2b 02    .+.
+    lda error_handler + 1                                             ; af9f: ad 2b 02    .+.
     sta l0111                                                         ; afa2: 8d 11 01    ...
-    lda #<handler1                                                    ; afa5: a9 d0       ..
-    sta l022a                                                         ; afa7: 8d 2a 02    .*.
-    lda #>handler1                                                    ; afaa: a9 a6       ..
-    sta l022b                                                         ; afac: 8d 2b 02    .+.
+    lda #<error_handler1                                              ; afa5: a9 d0       ..
+    sta error_handler                                                 ; afa7: 8d 2a 02    .*.
+    lda #>error_handler1                                              ; afaa: a9 a6       ..
+    sta error_handler + 1                                             ; afac: 8d 2b 02    .+.
     lda #&ca                                                          ; afaf: a9 ca       ..
     sta l00d4                                                         ; afb1: 85 d4       ..
     lda #0                                                            ; afb3: a9 00       ..
     sta l00d5                                                         ; afb5: 85 d5       ..
-    lda l0227                                                         ; afb7: ad 27 02    .'.
+    lda sequenceno                                                    ; afb7: ad 27 02    .'.
     eor #1                                                            ; afba: 49 01       I.
-    sta l0227                                                         ; afbc: 8d 27 02    .'.
+    sta sequenceno                                                    ; afbc: 8d 27 02    .'.
     and #1                                                            ; afbf: 29 01       ).
     bcs cafc5                                                         ; afc1: b0 02       ..
     ora #4                                                            ; afc3: 09 04       ..
 .cafc5
     pha                                                               ; afc5: 48          H
-    ldx l0236                                                         ; afc6: ae 36 02    .6.
+    ldx internal0                                                     ; afc6: ae 36 02    .6.
     ldy #2                                                            ; afc9: a0 02       ..
     jsr sub_ca973                                                     ; afcb: 20 73 a9     s.
     jsr sub_caff1                                                     ; afce: 20 f1 af     ..
     lda #0                                                            ; afd1: a9 00       ..
-    sta l0236                                                         ; afd3: 8d 36 02    .6.
+    sta internal0                                                     ; afd3: 8d 36 02    .6.
     tax                                                               ; afd6: aa          .
     pla                                                               ; afd7: 68          h
     tay                                                               ; afd8: a8          .
@@ -2587,15 +2582,15 @@ oswrch              = &fff4
     tax                                                               ; afe8: aa          .
     pla                                                               ; afe9: 68          h
     bcc cafee                                                         ; afea: 90 02       ..
-    lsr l00fe                                                         ; afec: 46 fe       F.
+    lsr char_not_sent_to_printer                                      ; afec: 46 fe       F.
 .cafee
     jmp kern_nvwrch                                                   ; afee: 4c 55 fe    LU.
 
 .sub_caff1
     ldx l0110                                                         ; aff1: ae 10 01    ...
-    stx l022a                                                         ; aff4: 8e 2a 02    .*.
+    stx error_handler                                                 ; aff4: 8e 2a 02    .*.
     ldx l0111                                                         ; aff7: ae 11 01    ...
-    stx l022b                                                         ; affa: 8e 2b 02    .+.
+    stx error_handler + 1                                             ; affa: 8e 2b 02    .+.
     rts                                                               ; affd: 60          `
 
     equb &41, &52                                                     ; affe: 41 52       AR
@@ -2608,52 +2603,52 @@ oswrch              = &fff4
     assert <(cmd_NOTIFY-1) == &d7
     assert <(cmd_ROFF-1) == &83
     assert <(cmd_UNKNOWN-1) == &9e
-    assert <(jump1_81_88-1) == &ba
-    assert <(jump1_82-1) == &f6
-    assert <(jump1_83_84_85-1) == &18
-    assert <(jump1_86_87-1) == &34
-    assert <(jump2_81-1) == &93
-    assert <(jump2_82-1) == &ac
-    assert <(jump2_83-1) == &d5
-    assert <(jump2_84-1) == &c0
-    assert <(jump2_85-1) == &c9
-    assert <(jump2_86-1) == &13
-    assert <(jump2_87-1) == &2f
-    assert <(jump2_88-1) == &82
     assert <(kern_cli_handler-1) == &ee
+    assert <(rx_cmd_81_peek-1) == &93
+    assert <(rx_cmd_82_poke-1) == &ac
+    assert <(rx_cmd_83_jsr-1) == &d5
+    assert <(rx_cmd_84_user_proc-1) == &c0
+    assert <(rx_cmd_85_os_proc-1) == &c9
+    assert <(rx_cmd_86_halt-1) == &13
+    assert <(rx_cmd_87_resume-1) == &2f
+    assert <(rx_cmd_88_machine_peek-1) == &82
+    assert <(tx_cmd_81_88_peek-1) == &ba
+    assert <(tx_cmd_82_poke-1) == &f6
+    assert <(tx_cmd_83_84_85_remote-1) == &18
+    assert <(tx_cmd_86_87_halt_resume-1) == &34
+    assert <error_handler1 == &d0
+    assert <error_handler2 == &f9
+    assert <error_handler3 == &62
+    assert <error_handler4 == &27
     assert <function4 == &0c
     assert <function6 == &12
     assert <function7 == &16
-    assert <handler1 == &d0
-    assert <handler2 == &f9
-    assert <handler3 == &62
-    assert <handler4 == &27
     assert <irq_handler == &dc
     assert >(cmd_COS-1) == &a7
     assert >(cmd_I_AM-1) == &ab
     assert >(cmd_NOTIFY-1) == &ad
     assert >(cmd_ROFF-1) == &ad
     assert >(cmd_UNKNOWN-1) == &a7
-    assert >(jump1_81_88-1) == &a4
-    assert >(jump1_82-1) == &a4
-    assert >(jump1_83_84_85-1) == &a5
-    assert >(jump1_86_87-1) == &a5
-    assert >(jump2_81-1) == &a5
-    assert >(jump2_82-1) == &a5
-    assert >(jump2_83-1) == &a5
-    assert >(jump2_84-1) == &a5
-    assert >(jump2_85-1) == &a5
-    assert >(jump2_86-1) == &a6
-    assert >(jump2_87-1) == &a6
-    assert >(jump2_88-1) == &a5
     assert >(kern_cli_handler-1) == &f8
+    assert >(rx_cmd_81_peek-1) == &a5
+    assert >(rx_cmd_82_poke-1) == &a5
+    assert >(rx_cmd_83_jsr-1) == &a5
+    assert >(rx_cmd_84_user_proc-1) == &a5
+    assert >(rx_cmd_85_os_proc-1) == &a5
+    assert >(rx_cmd_86_halt-1) == &a6
+    assert >(rx_cmd_87_resume-1) == &a6
+    assert >(rx_cmd_88_machine_peek-1) == &a5
+    assert >(tx_cmd_81_88_peek-1) == &a4
+    assert >(tx_cmd_82_poke-1) == &a4
+    assert >(tx_cmd_83_84_85_remote-1) == &a5
+    assert >(tx_cmd_86_87_halt_resume-1) == &a5
+    assert >error_handler1 == &a6
+    assert >error_handler2 == &a8
+    assert >error_handler3 == &ad
+    assert >error_handler4 == &af
     assert >function4 == &a7
     assert >function6 == &a7
     assert >function7 == &a7
-    assert >handler1 == &a6
-    assert >handler2 == &a8
-    assert >handler3 == &ad
-    assert >handler4 == &af
     assert >irq_handler == &a0
     assert do_rts == &a0ba
     assert eco_bget == &ab7b
@@ -2669,13 +2664,13 @@ oswrch              = &fff4
     assert eco_star == &aba3
     assert eco_wrch == &af48
     assert eco_wrch2 == &adc2
-    assert jump3_00-1 == &a99e
-    assert jump3_01-1 == &aa71
-    assert jump3_02-1 == &ac11
-    assert jump3_03-1 == &ac89
-    assert jump3_04_05-1 == &a939
-    assert jump3_06-1 == &acbe
-    assert jump3_07-1 == &acb1
-    assert jump3_08-1 == &acc5
+    assert fserv_01_save-1 == &a99e
+    assert fserv_02_load-1 == &aa71
+    assert fserv_03-1 == &ac11
+    assert fserv_04_info-1 == &ac89
+    assert fserv_05_sdisc_06_iam-1 == &a939
+    assert fserv_07_dir-1 == &acbe
+    assert fserv_08_unrecognised-1 == &acb1
+    assert fserv_09_lib-1 == &acc5
 
 save pydis_start, pydis_end
