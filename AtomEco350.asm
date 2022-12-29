@@ -1,3 +1,7 @@
+BASE =? &A000
+
+IO =? &B400
+
 ; Memory locations
 l0000                   = &0000
 l0001                   = &0001
@@ -101,14 +105,15 @@ prot_mask               = &023b
 transmit                = &023d
 l48ac                   = &48ac
 screen                  = &8000
-reg_adlc_control1       = &b400
-reg_adlc_status1        = &b400
-reg_adlc_control23      = &b401
-reg_adlc_status2        = &b401
-reg_adlc_rxdata         = &b402
-reg_adlc_txdata         = &b402
-reg_adlc_control4       = &b403
-reg_stationid           = &b404
+pia                     = &B000
+reg_adlc_control1       = IO
+reg_adlc_status1        = IO
+reg_adlc_control23      = IO + 1
+reg_adlc_status2        = IO + 1
+reg_adlc_rxdata         = IO + 2
+reg_adlc_txdata         = IO + 2
+reg_adlc_control4       = IO + 3
+reg_stationid           = IO + 4
 basic_warm_start        = &c2ca
 kern_print_string       = &f7d1
 kern_skip_spaces        = &f876
@@ -121,7 +126,7 @@ osasci                  = &ffe9
 oscrlf                  = &ffed
 oswrch                  = &fff4
 
-    org &a000
+    org BASE
 
 .initialize
 .pydis_start
@@ -130,8 +135,12 @@ oswrch                  = &fff4
     jsr sub_ca095                                                     ; a005: 20 95 a0     ..
     lda #&c0                                                          ; a008: a9 c0       ..
     sta reg_adlc_control1                                             ; a00a: 8d 00 b4    ...
+IF (BASE = &A000)
     pla                                                               ; a00d: 68          h
     rti                                                               ; a00e: 40          @
+ELSE
+    jmp $c2b2
+ENDIF
 
 .ca00f
     tya                                                               ; a00f: 98          .
@@ -192,8 +201,12 @@ oswrch                  = &fff4
     tax                                                               ; a078: aa          .
     pla                                                               ; a079: 68          h
     tay                                                               ; a07a: a8          .
+IF (BASE = &A000)
     pla                                                               ; a07b: 68          h
     rti                                                               ; a07c: 40          @
+ELSE
+    jmp $c2b2
+ENDIF
 
 .init_0238_023F
     equw do_rts                                                       ; a07d: ba a0       ..
@@ -1236,7 +1249,9 @@ oswrch                  = &fff4
     pla                                                               ; a6fc: 68          h
     rts                                                               ; a6fd: 60          `
 
+IF (BASE = &A000)
     equb 4, 4                                                         ; a6fe: 04 04       ..
+ENDIF
 
 .function0
     jmp ca732                                                         ; a700: 4c 32 a7    L2.
@@ -2594,8 +2609,8 @@ oswrch                  = &fff4
     rts                                                               ; affd: 60          `
 
     equb &41, &52                                                     ; affe: 41 52       AR
-.pia
 .pydis_end
+IF (BASE = &A000)
     assert '0' - 1 == &2f
     assert 100 == &64
     assert <(cmd_COS-1) == &4f
@@ -2672,5 +2687,6 @@ oswrch                  = &fff4
     assert fserv_07_dir-1 == &acbe
     assert fserv_08_unrecognised-1 == &acb1
     assert fserv_09_lib-1 == &acc5
+ENDIF
 
 save pydis_start, pydis_end
