@@ -103,6 +103,7 @@ proc_jmp_ind            = &0238
 flags                   = &023a
 prot_mask               = &023b
 transmit                = &023d
+fkidx                   = &03ca         ; B - fake key index
 l48ac                   = &48ac
 screen                  = &8000
 pia                     = &B000
@@ -127,11 +128,18 @@ oscrlf                  = &ffed
 oswrch                  = &fff4
 
     org BASE
+    guard BASE + $1000
 
 .initialize
 .pydis_start
     bit pia + 1                                                       ; a000: 2c 01 b0    ,..
+IF (BASE = &A000)
+    ;; the original Econet ROM uses SHIFT to bypass initialization
     bmi ca00f                                                         ; a003: 30 0a       0.
+ELSE
+    ;; our E000 version uses CTRL, like AtoMMC
+    bvs ca00f                                                         ; a003: 30 0a       0.
+ENDIF
     jsr sub_ca095                                                     ; a005: 20 95 a0     ..
     lda #&c0                                                          ; a008: a9 c0       ..
     sta reg_adlc_control1                                             ; a00a: 8d 00 b4    ...
@@ -139,7 +147,7 @@ IF (BASE = &A000)
     pla                                                               ; a00d: 68          h
     rti                                                               ; a00e: 40          @
 ELSE
-    jmp $c2b2
+    bne warm_start_basic
 ENDIF
 
 .ca00f
@@ -153,6 +161,10 @@ ENDIF
     sta internal1,x                                                   ; a018: 9d 37 02    .7.
     dex                                                               ; a01b: ca          .
     bne loop_ca015                                                    ; a01c: d0 f7       ..
+IF (BASE <> &a000)
+    ;; Zero the fake key index, used by the Shift-BREAK *MENU code
+    stx fkidx
+ENDIF
     lda irqvec                                                        ; a01e: ad 04 02    ...
     sta irqvecl_old                                                   ; a021: 8d 1c 02    ...
     lda irqvec + 1                                                    ; a024: ad 05 02    ...
@@ -197,6 +209,18 @@ ENDIF
     bne loop_ca06b                                                    ; a072: d0 f7       ..
 .ca074
     jsr function0                                                     ; a074: 20 00 a7     ..
+
+IF (BASE <> &A000)
+    ;; Test the CTRL key
+    bit   pia + 1
+    bmi   unpatched
+    ;; Revector to fake the entry of *MENU
+    lda   #<osrdchmenu
+    sta   rdcvec
+    lda   #>osrdchmenu
+    sta   rdcvec+1
+.unpatched
+ENDIF
     pla                                                               ; a077: 68          h
     tax                                                               ; a078: aa          .
     pla                                                               ; a079: 68          h
@@ -205,7 +229,35 @@ IF (BASE = &A000)
     pla                                                               ; a07b: 68          h
     rti                                                               ; a07c: 40          @
 ELSE
+.warm_start_basic
     jmp $c2b2
+
+.osrdchmenu
+   php
+   cld
+   stx   $e4
+   sty   $e5
+
+   ldx   fkidx
+   lda   fakekeys,x
+   beq   restore_rdch
+
+   inc   fkidx
+
+   ldx   $e4
+;  ldy   $e5  ; not needed, because Y is not changed
+   plp
+   rts
+
+.restore_rdch
+   jsr   function0
+   lda   #$0d
+   pha
+   jmp   $fe5c
+
+.fakekeys
+   EQUS "*MENU"
+   EQUB 0
 ENDIF
 
 .init_0238_023F
@@ -1143,9 +1195,12 @@ ENDIF
     sta flags                                                         ; a638: 8d 3a 02    .:.
     rts                                                               ; a63b: 60          `
 
+IF (BASE = &A000)
+    ;; Save space in other versions - Paul Bond's postcode (!!!)
     equs "CB5 8AF"                                                    ; a63c: 43 42 35... CB5
     equb &0d                                                          ; a643: 0d          .
     equs ";*               Eng"                                       ; a644: 3b 2a 20... ;*
+ENDIF
 
 .ca658
     jsr sub_ca7f7                                                     ; a658: 20 f7 a7     ..
@@ -1238,6 +1293,8 @@ ENDIF
 .init_00d4_00d9
     equb &48,   1, &4d,   1,   0                                      ; a6ec: 48 01 4d... H.M
 
+IF (BASE = &A000)
+    ;; Save space in other versions
 .unreachable1
     pha                                                               ; a6f1: 48          H
     jsr kern_skip_spaces                                              ; a6f2: 20 76 f8     v.
@@ -1249,7 +1306,6 @@ ENDIF
     pla                                                               ; a6fc: 68          h
     rts                                                               ; a6fd: 60          `
 
-IF (BASE = &A000)
     equb 4, 4                                                         ; a6fe: 04 04       ..
 ENDIF
 
@@ -1594,14 +1650,26 @@ ENDIF
     jsr kern_print_string                                             ; a901: 20 d1 f7     ..
     equs "NO REPLY"                                                   ; a904: 4e 4f 20... NO
 
+IF (BASE = &A000)
     nop                                                               ; a90c: ea          .
     bmi ca936                                                         ; a90d: 30 27       0'
+ELSE
+    ;; Save space in other versions
+    bne ca936
+ENDIF
+
 .ca90f
     jsr kern_print_string                                             ; a90f: 20 d1 f7     ..
     equs "NOT LISTENING"                                              ; a912: 4e 4f 54... NOT
 
+IF (BASE = &A000)
     nop                                                               ; a91f: ea          .
     bmi ca936                                                         ; a920: 30 14       0.
+ELSE
+    ;; Save space in other versions
+    bne ca936
+ENDIF
+
 .ca922
     tya                                                               ; a922: 98          .
     pha                                                               ; a923: 48          H
@@ -2141,10 +2209,13 @@ ENDIF
     equb >(cmd_UNKNOWN-1)                                             ; acf1: a7          .
     equb <(cmd_UNKNOWN-1)                                             ; acf2: 9e          .
 
+IF (BASE = &A000)
+    ;; Save space in other versions
 .unreachable2
     ldx #&0c                                                          ; acf3: a2 0c       ..
     cld                                                               ; acf5: d8          .
     jmp cacfc                                                         ; acf6: 4c fc ac    L..
+ENDIF
 
 .eco_cli
     ldx #&ff                                                          ; acf9: a2 ff       ..
@@ -2325,8 +2396,11 @@ ENDIF
     jsr kern_print_string                                             ; ae12: 20 d1 f7     ..
     equs "BUSY"                                                       ; ae15: 42 55 53... BUS
 
+IF (BASE = &A000)
+    ;; Save space in other versions
     nop                                                               ; ae19: ea          .
     brk                                                               ; ae1a: 00          .
+ENDIF
 
 .cae1b
     ldx #0                                                            ; ae1b: a2 00       ..
@@ -2465,7 +2539,10 @@ ENDIF
     jsr kern_print_string                                             ; af00: 20 d1 f7     ..
     equs ": "                                                         ; af03: 3a 20       :
 
+IF (BASE = &A000)
+    ;; Save space in other versions
     nop                                                               ; af05: ea          .
+ENDIF
 .loop_caf06
     lda #&7f                                                          ; af06: a9 7f       ..
     sta l00d0                                                         ; af08: 85 d0       ..
@@ -2608,7 +2685,11 @@ ENDIF
     stx error_handler + 1                                             ; affa: 8e 2b 02    .+.
     rts                                                               ; affd: 60          `
 
+IF (BASE = &A000)
+    ;; Save space in other versions
     equb &41, &52                                                     ; affe: 41 52       AR
+ENDIF
+
 .pydis_end
 IF (BASE = &A000)
     assert '0' - 1 == &2f
