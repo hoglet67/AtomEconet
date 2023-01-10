@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-export PYTHONPATH=../../py8dis/py8dis:../common:$PATH
+export PYTHONPATH=../../../py8dis/py8dis
 
 file=AtomEco350
 python ${file}.py > ${file}.asm
