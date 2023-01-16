@@ -1329,9 +1329,8 @@ ENDIF
 .init_00d4_00d9
     equb &48,   1, &4d,   1,   0                                      ; a6ec: 48 01 4d... H.M
 
-IF (BASE = &A000)
-    ;; Save space in other versions
-.unreachable1
+    ;; Not used from the ROM, but used from the *VIEW and *REMOTE commands
+.sub_ca6f1
     pha                                                               ; a6f1: 48          H
     jsr kern_skip_spaces                                              ; a6f2: 20 76 f8     v.
     cmp #&0d                                                          ; a6f5: c9 0d       ..
@@ -1342,6 +1341,7 @@ IF (BASE = &A000)
     pla                                                               ; a6fc: 68          h
     rts                                                               ; a6fd: 60          `
 
+IF (BASE = &A000)
     equb 4, 4                                                         ; a6fe: 04 04       ..
 ENDIF
 
