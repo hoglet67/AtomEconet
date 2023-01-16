@@ -1019,21 +1019,32 @@ ENDIF
     ldy #4                                                            ; a4ff: a0 04       ..
     sec                                                               ; a501: 38          8
     jsr sub_ca382                                                     ; a502: 20 82 a3     ..
+IF (BASE = &A000)
     ldy #8                                                            ; a505: a0 08       ..
     sec                                                               ; a507: 38          8
+ELSE
+    sec
+.shared_tail
+    ldy #8
+ENDIF
     jsr sub_ca382                                                     ; a508: 20 82 a3     ..
     sec                                                               ; a50b: 38          8
     jsr sub_ca351                                                     ; a50c: 20 51 a3     Q.
     jsr sub_ca415                                                     ; a50f: 20 15 a4     ..
     clc                                                               ; a512: 18          .
     ldy l00b1                                                         ; a513: a4 b1       ..
+IF (BASE = &A000)
     jsr ca336                                                         ; a515: 20 36 a3     6.
     rts                                                               ; a518: 60          `
+ELSE
+    jmp ca336
+ENDIF
 
 .tx_cmd_83_84_85_remote
     ldy #4                                                            ; a519: a0 04       ..
     jsr ca443                                                         ; a51b: 20 43 a4     C.
     jsr sub_ca40d                                                     ; a51e: 20 0d a4     ..
+IF (BASE = &A000)
     ldy #8                                                            ; a521: a0 08       ..
     clc                                                               ; a523: 18          .
     jsr sub_ca382                                                     ; a524: 20 82 a3     ..
@@ -1044,12 +1055,20 @@ ENDIF
     ldy l00b1                                                         ; a52f: a4 b1       ..
     jsr ca336                                                         ; a531: 20 36 a3     6.
     rts                                                               ; a534: 60          `
+ELSE
+    clc
+    bcc shared_tail
+ENDIF
 
 .tx_cmd_86_87_halt_resume
     jsr sub_ca40d                                                     ; a535: 20 0d a4     ..
     clc                                                               ; a538: 18          .
+IF (BASE = &A000)
     jsr sub_ca351                                                     ; a539: 20 51 a3     Q.
     rts                                                               ; a53c: 60          `
+ELSE
+    jmp sub_ca351                                                     ; a539: 20 51 a3     Q.
+ENDIF
 
 .sub_ca53d
     ldy l00b8                                                         ; a53d: a4 b8       ..
@@ -1137,8 +1156,12 @@ ENDIF
     jsr ca1de                                                         ; a5b5: 20 de a1     ..
     ldy l00b1                                                         ; a5b8: a4 b1       ..
     jsr ca295                                                         ; a5ba: 20 95 a2     ..
+IF (BASE = &A000)
     jsr sub_ca24b                                                     ; a5bd: 20 4b a2     K.
     rts                                                               ; a5c0: 60          `
+ELSE
+    jmp sub_ca24b
+ENDIF
 
 .rx_cmd_84_user_proc
     lda proc_jmp_ind                                                  ; a5c1: ad 38 02    .8.
