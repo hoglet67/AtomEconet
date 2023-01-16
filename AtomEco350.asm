@@ -2,6 +2,8 @@ BASE =? &A000
 
 IO =? &B400
 
+ATOMMCHDR =? FALSE
+
 ; Memory locations
 l0000                   = &0000
 l0001                   = &0001
@@ -127,11 +129,22 @@ osasci                  = &ffe9
 oscrlf                  = &ffed
 oswrch                  = &fff4
 
+if ATOMMCHDR
+    org BASE-22
+.pydis_start
+    EQUS "ECO350"+STR$~(BASE DIV &1000)
+    org BASE-6
+    EQUW BASE
+    EQUW BASE
+    EQUW &1000
+ELSE
     org BASE
+.pydis_start
+ENDIF
+
     guard BASE + $1000
 
 .initialize
-.pydis_start
     bit pia + 1                                                       ; a000: 2c 01 b0    ,..
 IF (BASE = &A000)
     ;; the original Econet ROM uses SHIFT to bypass initialization
@@ -2770,4 +2783,4 @@ IF (BASE = &A000)
     assert fserv_09_lib-1 == &acc5
 ENDIF
 
-save pydis_start, pydis_end
+save pydis_start, initialize + &1000
