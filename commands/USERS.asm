@@ -11,6 +11,16 @@ kern_print_string                   = &f7d1
 oscrlf                              = &ffed
 oswrch                              = &fff4
 
+;; In Econet v2 the format of the "read logged on users" user entry was
+;;    station id (2 bytes)
+;;    users id padded with spaces (4 bytes)
+;;    privilege (1 byte)
+;;
+;; In Econet v3 the format changed to
+;;    station id (2 bytes)
+;;    users id terminated with 0d (variable)
+;;    privilege (1 byte)
+
 include "econet.inc"
 
     org &2800
@@ -47,15 +57,31 @@ include "econet.inc"
     pha
     lda fs_cmd_handle_lib,x
     pha
-    ldy #4
+
+    ldy #10       ; the field width for the filename
+
 .loop_c2843
     lda fs_cmd_param0,x
+    cmp #$21
+    bcc skip_white_space
     jsr oswrch
-    inx
     dey
+    inx
     bne loop_c2843
+.skip_white_space
+    dex
+.skip_loop
+    inx
+    lda fs_cmd_param0,x
+    cmp #$0d
+    beq skip_loop
+    cmp #$20
+    beq skip_loop
     lda #&20
+.pad_loop
     jsr oswrch
+    dey
+    bpl pad_loop
     pla
     beq c285c
     jsr sub_c28a3

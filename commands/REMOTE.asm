@@ -7,6 +7,8 @@ blkd_d4_buffer_start_lo             = &00d4
 blkd_d5_buffer_start_hi             = &00d5
 blkd_d6_buffer_end_lo               = &00d6
 blkd_d7_buffer_end_hi               = &00d7
+blkd_d8_imm0                        = &00d8
+blkd_d9_imm1                        = &00d9
 blke_ed_flag                        = &00ed
 blke_ee_port                        = &00ee
 blke_ef_stn_lo                      = &00ef
@@ -33,15 +35,21 @@ include "econet.inc"
 .c280c
     jsr econet_check_end_of_line
 .c280f
-    lda #&9c
-    sta blkd_d0_flag
+    ;; The OS PROCEDURE command changed from 8C in Econet v2 to 85 in Econet v3
+    ldy #&85
+    sty blkd_d0_flag
     lda #0
     sta blkd_d1_port
-    sta blkd_d4_buffer_start_lo
+    ldy #$da
+    sty blkd_d4_buffer_start_lo
     sta blkd_d5_buffer_start_hi
-    sta blkd_d6_buffer_end_lo
-    lda #2
+    iny
+    sty blkd_d6_buffer_end_lo
     sta blkd_d7_buffer_end_hi
+    ;;  The procedure number also moved
+    ldy #2
+    sty blkd_d8_imm0
+    sta blkd_d9_imm1
     lda #&ff
     ldy #&14
     jsr econet_transmit_blk_d0_with_retries

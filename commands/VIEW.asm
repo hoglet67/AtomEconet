@@ -67,7 +67,8 @@ include "econet.inc"
     lda #&80
     sta blkd_d9_imm1
     sta blkd_d5_buffer_start_hi
-    lda #&84
+    ;; The PEEK command changed from 84 in Econet v2 to 81 in Econet v3
+    lda #&81
     sta blkd_d0_flag
     ldx #&d0
     ldy #&14
@@ -84,7 +85,8 @@ include "econet.inc"
 .l286a
     equb &84, &84, &88, &86, &8c, &8c, &98, &98
 .l2872
-    equb &84,   0,   0,   0, &db,   0, &dc,   0,   0, &b0
+    ;; The PEEK command changed from 84 in Econet v2 to 81 in Econet v3
+    equb &81,   0,   0,   0, &db,   0, &dc,   0,   0, &b0
 .pydis_end
 
 save pydis_start, pydis_end
