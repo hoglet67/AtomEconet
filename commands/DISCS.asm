@@ -8,15 +8,11 @@ fs_cmd_handle_cwd                   = &0119
 fs_cmd_handle_lib                   = &011a
 fs_cmd_param0                       = &011b
 fs_cmd_param1                       = &011c
-econet_wait_response                = &a670
-econet_file_server_send_command     = &a6bc
-econet_file_server_init_command_y   = &a7f7
-econet_set_fileserver_stn_in_d0     = &a80d
-econet_error_a                      = &a83c
-econet_set_rxcbv_to_d0              = &a85d
 kern_print_string                   = &f7d1
 oscrlf                              = &ffed
 oswrch                              = &fff4
+
+include "econet.inc"
 
     org &2800
 

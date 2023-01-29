@@ -1,5 +1,12 @@
 #!/bin/bash
 
+function make_include {
+    grep "^.econet_" $1 | cut -c2- > tmp.1
+    grep -A1 "^.econet_" $1 | grep -v "\.econet" | grep -v "\-\-" | awk '{print "= &"$1}' > tmp.2
+    paste -d" " tmp.1 tmp.2 > $2
+    rm -f tmp.1 tmp.2
+}
+
 BUILD=build/roms
 
 mkdir -p ${BUILD}
@@ -31,12 +38,16 @@ beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=0xB408 -v -o ${BUILD}/ECO350E.rom
 echo "Building new #E000 AtoMMC file"
 beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=0xB408 -D ATOMMCHDR=1 -v -o ${BUILD}/ECO350E > ${BUILD}/ECO350E.lst
 
-
 echo "Building commands"
 
-BUILD=build/commands
-mkdir -p ${BUILD}
-for i in DISCS INF PROT REMOTE RUN UNPROT USERS VIEW
+for i in 350A 350E
 do
-    beebasm -i commands/${i}.asm -v -o ${BUILD}/${i} > ${BUILD}/${i}.lst
+    echo "Building ${i} commands"
+    CBUILD=build/ATOMLIB${i}
+    mkdir -p ${CBUILD}
+    make_include ${BUILD}/ECO${i}.lst econet.inc
+    for j in DISCS INF PROT REMOTE RUN UNPROT USERS VIEW
+    do
+        beebasm -i commands/${j}.asm -v -o ${CBUILD}/${j} > ${CBUILD}/${j}.lst
+    done
 done

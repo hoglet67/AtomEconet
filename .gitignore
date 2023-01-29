@@ -3,3 +3,4 @@
 build/
 *.pyc
 not_in_git/
+econet.inc

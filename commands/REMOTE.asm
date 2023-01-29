@@ -13,18 +13,12 @@ blke_ef_stn_lo                      = &00ef
 blke_f0_stn_hi                      = &00f0
 blke_f6_imm1                        = &00f6
 command_line                        = &0100
-econet_clear_rxcbv_exists_flag      = &a690
-econet_check_end_of_line            = &a6f1
-econet_test_escape_in_z             = &a799
-econet_transmit_blk_d0_with_retries = &a818
-econet_set_rxcbv_to_x               = &a861
-econet_read_stn_or_user             = &a873
-econet_init_blk_ed                  = &ad2a
-econet_transmit_blk_ed_with_retries = &ad3e
 kern_print_string                   = &f7d1
 kern_syn_error                      = &fa7d
 kern_nvrdch                         = &fe94
 oswrch                              = &fff4
+
+include "econet.inc"
 
     org &2800
 

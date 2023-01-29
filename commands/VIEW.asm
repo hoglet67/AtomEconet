@@ -11,13 +11,11 @@ blkd_d9_imm1                        = &00d9
 l00da                               = &00da
 l00db                               = &00db
 command_line                        = &0100
-econet_check_end_of_line            = &a6f1
-econet_transmit_blk_x_with_retries  = &a81a
-econey_delay_approx_y_ms            = &a848
-econet_read_stn_or_user             = &a873
 pia                                 = &b000
 kern_print_string                   = &f7d1
 kern_syn_error                      = &fa7d
+
+include "econet.inc"
 
     org &2800
 

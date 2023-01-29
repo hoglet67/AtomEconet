@@ -9,18 +9,11 @@ fs_cmd_param0                                   = &011b
 fs_cmd_param1                                   = &011c
 fs_cmd_param2                                   = &011d
 fs_cmd_param3                                   = &011e
-econet_file_server_send_command_wait_response   = &a658
-econet_wait_response                            = &a670
-econet_file_server_send_command                 = &a6bc
-econet_osasci_string_011a                       = &a788
-econet_fill_0110_013d_0d                        = &a7c3
-econet_file_server_init_command_y               = &a7f7
-econet_set_fileserver_stn_in_d0                 = &a80d
-econet_error_a                                  = &a83c
-econet_set_rxcbv_to_d0                          = &a85d
 kern_print_string                               = &f7d1
 osasci                                          = &ffe9
 oscrlf                                          = &ffed
+
+include "econet.inc"
 
     org &2800
 
