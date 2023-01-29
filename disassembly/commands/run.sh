@@ -1,11 +1,13 @@
 #!/bin/bash
-export PYTHONPATH=../../../py8dis/py8dis
+export PYTHONPATH=../../../py8dis/py8dis:..
 
 for file in DISCS INF PROT REMOTE RUN UNPROT USERS VIEW
 do
 
 cat > ${file}.py <<EOF
 from commands import *
+
+from eco_common import *
 
 config.set_label_references(False)
 config.set_show_char_literals(False)
@@ -14,36 +16,7 @@ config.set_hex_dump(False)
 
 load(0x2800, "${file}", "6502")
 
-hook_subroutine(0xF7D1, "kern_print_string", stringhi_hook)
-optional_label(0xffe9, "osasci")
-optional_label(0xffed, "oscrlf")
-optional_label(0xfff4, "oswrch")
-optional_label(0xfff7, "oscli")
-optional_label(0xf876, "kern_skip_spaces")
-optional_label(0xfa7d, "kern_syn_error")
-optional_label(0xfe55, "kern_nvwrch")
-optional_label(0xfe94, "kern_nvrdch")
-
-optional_label(0xa658, "")
-optional_label(0xa670, "")
-optional_label(0xa690, "")
-optional_label(0xa6bc, "")
-optional_label(0xa6f1, "")
-optional_label(0xa788, "")
-optional_label(0xa799, "")
-optional_label(0xa7c3, "")
-optional_label(0xa7f7, "")
-optional_label(0xa80d, "")
-optional_label(0xa818, "")
-optional_label(0xa81a, "")
-optional_label(0xa83c, "")
-optional_label(0xa848, "")
-optional_label(0xa85d, "")
-optional_label(0xa861, "")
-optional_label(0xa873, "")
-optional_label(0xad2a, "")
-optional_label(0xad3e, "")
-
+add_common_labels()
 
 entry(0x2800, "START")
 go()

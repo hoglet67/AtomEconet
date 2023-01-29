@@ -1,125 +1,121 @@
 ; Memory locations
-l0000                   = &0000
-l0001                   = &0001
-l0002                   = &0002
-l0003                   = &0003
-l0004                   = &0004
-l0006                   = &0006
-l0007                   = &0007
-l0008                   = &0008
-l0009                   = &0009
-l00b0                   = &00b0
-l00b1                   = &00b1
-l00b2                   = &00b2
-l00b3                   = &00b3
-l00b4                   = &00b4
-l00b5                   = &00b5
-l00b6                   = &00b6
-l00b7                   = &00b7
-l00b8                   = &00b8
-l00b9                   = &00b9
-l00ba                   = &00ba
-l00bb                   = &00bb
-l00bc                   = &00bc
-l00bd                   = &00bd
-l00be                   = &00be
-l00bf                   = &00bf
-l00c0                   = &00c0
-l00c1                   = &00c1
-l00c2                   = &00c2
-l00ca                   = &00ca
-l00d0                   = &00d0
-l00d1                   = &00d1
-l00d2                   = &00d2
-l00d3                   = &00d3
-l00d4                   = &00d4
-l00d5                   = &00d5
-l00d6                   = &00d6
-l00d7                   = &00d7
-l00d8                   = &00d8
-l00d9                   = &00d9
-l00da                   = &00da
-l00db                   = &00db
-l00dc                   = &00dc
-l00ed                   = &00ed
-l00ee                   = &00ee
-l00ef                   = &00ef
-l00f0                   = &00f0
-l00f1                   = &00f1
-l00f6                   = &00f6
-char_not_sent_to_printer = &00fe
-temp_sp                 = &00ff
-l0100                   = &0100
-l0101                   = &0101
-l0102                   = &0102
-l0103                   = &0103
-l0110                   = &0110
-l0111                   = &0111
-l0112                   = &0112
-l0113                   = &0113
-l0114                   = &0114
-l0115                   = &0115
-l0116                   = &0116
-l0117                   = &0117
-l0118                   = &0118
-l0119                   = &0119
-l011a                   = &011a
-l011b                   = &011b
-l011c                   = &011c
-l011d                   = &011d
-l011f                   = &011f
-l0120                   = &0120
-l0123                   = &0123
-l0124                   = &0124
-l013c                   = &013c
-l013d                   = &013d
-l013e                   = &013e
-l013f                   = &013f
-l0148                   = &0148
-l0157                   = &0157
-irqvec                  = &0204
-comvec                  = &0206
-wrcvec                  = &0208
-rdcvec                  = &020a
-irqvecl_old             = &021c
-irqvech_old             = &021d
-l0223                   = &0223
-handle_urd              = &0224
-handle_csd              = &0225
-handle_lib              = &0226
-sequenceno              = &0227
-notifying_stn           = &0228
-error_handler           = &022a
-fileserver_stn          = &022c
-printserver_stn         = &022e
-rxcvb                   = &0230
-internal0               = &0236
-internal1               = &0237
-proc_jmp_ind            = &0238
-flags                   = &023a
-prot_mask               = &023b
-transmit                = &023d
-l48ac                   = &48ac
-screen                  = &8000
-reg_adlc_control1       = &b400
-reg_adlc_status1        = &b400
-reg_adlc_control23      = &b401
-reg_adlc_status2        = &b401
-reg_adlc_rxdata         = &b402
-reg_adlc_txdata         = &b402
-reg_adlc_control4       = &b403
-reg_stationid           = &b404
-basic_warm_start        = &c2ca
-kern_print_string       = &f7d1
-kern_skip_spaces        = &f876
-kern_cli_handler        = &f8ef
-kern_syn_error          = &fa7d
-kern_nvwrch             = &fe55
-kern_nvrdch             = &fe94
-kern_vectors            = &ff9a
-osasci                  = &ffe9
-oscrlf                  = &ffed
-oswrch                  = &fff4
+l0000                               = &0000
+l0001                               = &0001
+l0002                               = &0002
+l0003                               = &0003
+l0004                               = &0004
+l0006                               = &0006
+l0007                               = &0007
+l0008                               = &0008
+l0009                               = &0009
+l00b0                               = &00b0
+l00b1                               = &00b1
+l00b2                               = &00b2
+l00b3                               = &00b3
+l00b4                               = &00b4
+l00b5                               = &00b5
+l00b6                               = &00b6
+l00b7                               = &00b7
+l00b8                               = &00b8
+l00b9                               = &00b9
+l00ba                               = &00ba
+l00bb                               = &00bb
+l00bc                               = &00bc
+l00bd                               = &00bd
+l00be                               = &00be
+l00bf                               = &00bf
+l00c0                               = &00c0
+l00c1                               = &00c1
+l00c2                               = &00c2
+l00ca                               = &00ca
+blkd_d0_flag                        = &00d0
+blkd_d1_port                        = &00d1
+blkd_d2_stn_lo                      = &00d2
+blkd_d3_stn_hi                      = &00d3
+blkd_d4_buffer_start_lo             = &00d4
+blkd_d5_buffer_start_hi             = &00d5
+blkd_d6_buffer_end_lo               = &00d6
+blkd_d7_buffer_end_hi               = &00d7
+blkd_d8_imm0                        = &00d8
+blkd_d9_imm1                        = &00d9
+l00da                               = &00da
+l00db                               = &00db
+l00dc                               = &00dc
+blke_ed_flag                        = &00ed
+blke_ee_port                        = &00ee
+blke_ef_stn_lo                      = &00ef
+blke_f0_stn_hi                      = &00f0
+blke_f1_buffer_start_lo             = &00f1
+blke_f6_imm1                        = &00f6
+char_not_sent_to_printer            = &00fe
+temp_sp                             = &00ff
+command_line                        = &0100
+l0110                               = &0110
+l0111                               = &0111
+l0112                               = &0112
+l0113                               = &0113
+l0114                               = &0114
+l0115                               = &0115
+fs_cmd_reply_port                   = &0116
+fs_cmd_function_or_command_code     = &0117
+fs_cmd_handle_root_or_return_code   = &0118
+fs_cmd_handle_cwd                   = &0119
+fs_cmd_handle_lib                   = &011a
+fs_cmd_param0                       = &011b
+fs_cmd_param1                       = &011c
+fs_cmd_param2                       = &011d
+fs_cmd_param4                       = &011f
+l0120                               = &0120
+l0123                               = &0123
+l0124                               = &0124
+l013c                               = &013c
+l013d                               = &013d
+l013e                               = &013e
+l013f                               = &013f
+l0148                               = &0148
+l0157                               = &0157
+irqvec                              = &0204
+comvec                              = &0206
+wrcvec                              = &0208
+rdcvec                              = &020a
+irqvecl_old                         = &021c
+irqvech_old                         = &021d
+l0223                               = &0223
+handle_urd                          = &0224
+handle_csd                          = &0225
+handle_lib                          = &0226
+sequenceno                          = &0227
+notifying_stn                       = &0228
+error_handler                       = &022a
+fileserver_stn                      = &022c
+printserver_stn                     = &022e
+rxcbv                               = &0230
+internal0                           = &0236
+internal1                           = &0237
+proc_jmp_ind                        = &0238
+flags                               = &023a
+prot_mask                           = &023b
+transmit                            = &023d
+l48ac                               = &48ac
+screen                              = &8000
+reg_adlc_control1                   = &b400
+reg_adlc_control23                  = &b401
+reg_adlc_status2                    = &b401
+reg_adlc_rxdata                     = &b402
+reg_adlc_txdata                     = &b402
+reg_adlc_control4                   = &b403
+reg_stationid                       = &b404
+basic_warm_start                    = &c2ca
+kern_print_string                   = &f7d1
+kern_skip_spaces                    = &f876
+kern_cli_handler                    = &f8ef
+kern_syn_error                      = &fa7d
+kern_nvwrch                         = &fe55
+kern_nvrdch                         = &fe94
+kern_vectors                        = &ff9a
+osasci                              = &ffe9
+oscrlf                              = &ffed
+oswrch                              = &fff4
 
     org &a000
 
@@ -234,7 +230,7 @@ oswrch                  = &fff4
 .ca0bb
     lda #&10                                                          ; a0bb: a9 10       ..
 .loop_ca0bd
-    bit reg_adlc_status1                                              ; a0bd: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a0bd: 2c 00 b4    ,..
     beq loop_ca0bd                                                    ; a0c0: f0 fb       ..
     rts                                                               ; a0c2: 60          `
 
@@ -259,7 +255,7 @@ oswrch                  = &fff4
     rti                                                               ; a0db: 40          @
 
 .irq_handler
-    bit reg_adlc_status1                                              ; a0dc: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a0dc: 2c 00 b4    ,..
     bpl loop_ca0c3                                                    ; a0df: 10 e2       ..
     lda #1                                                            ; a0e1: a9 01       ..
     bit reg_adlc_status2                                              ; a0e3: 2c 01 b4    ,..
@@ -269,7 +265,7 @@ oswrch                  = &fff4
     bne ca0d5                                                         ; a0ee: d0 e5       ..
     lda #1                                                            ; a0f0: a9 01       ..
 .loop_ca0f2
-    bit reg_adlc_status1                                              ; a0f2: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a0f2: 2c 00 b4    ,..
     bpl loop_ca0f2                                                    ; a0f5: 10 fb       ..
     beq ca0cd                                                         ; a0f7: f0 d4       ..
     lda reg_adlc_rxdata                                               ; a0f9: ad 02 b4    ...
@@ -295,9 +291,9 @@ oswrch                  = &fff4
     jmp ca242                                                         ; a11d: 4c 42 a2    LB.
 
 .ca120
-    lda rxcvb                                                         ; a120: ad 30 02    .0.
+    lda rxcbv                                                         ; a120: ad 30 02    .0.
     sta l00b4                                                         ; a123: 85 b4       ..
-    lda rxcvb + 1                                                     ; a125: ad 31 02    .1.
+    lda rxcbv + 1                                                     ; a125: ad 31 02    .1.
     sta l00b5                                                         ; a128: 85 b5       ..
     jsr sub_ca1aa                                                     ; a12a: 20 aa a1     ..
     tya                                                               ; a12d: 98          .
@@ -342,21 +338,21 @@ oswrch                  = &fff4
     lda #4                                                            ; a16c: a9 04       ..
     bit reg_adlc_status2                                              ; a16e: 2c 01 b4    ,..
     beq ca182                                                         ; a171: f0 0f       ..
-    lda reg_adlc_status1                                              ; a173: ad 00 b4    ...
+    lda reg_adlc_control1                                             ; a173: ad 00 b4    ...
     lda #&67                                                          ; a176: a9 67       .g
     sta reg_adlc_control23                                            ; a178: 8d 01 b4    ...
     lda #&10                                                          ; a17b: a9 10       ..
-    bit reg_adlc_status1                                              ; a17d: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a17d: 2c 00 b4    ,..
     bne ca19c                                                         ; a180: d0 1a       ..
 .ca182
     lda #&67                                                          ; a182: a9 67       .g
     sta reg_adlc_control23                                            ; a184: 8d 01 b4    ...
     tsx                                                               ; a187: ba          .
-    inc l0101,x                                                       ; a188: fe 01 01    ...
+    inc command_line+1,x                                              ; a188: fe 01 01    ...
     bne ca16c                                                         ; a18b: d0 df       ..
-    inc l0102,x                                                       ; a18d: fe 02 01    ...
+    inc command_line+2,x                                              ; a18d: fe 02 01    ...
     bne ca16c                                                         ; a190: d0 da       ..
-    inc l0103,x                                                       ; a192: fe 03 01    ...
+    inc command_line+3,x                                              ; a192: fe 03 01    ...
     bne ca16c                                                         ; a195: d0 d5       ..
     ldx #&80                                                          ; a197: a2 80       ..
     jmp ca3a6                                                         ; a199: 4c a6 a3    L..
@@ -408,7 +404,7 @@ oswrch                  = &fff4
     jmp ca235                                                         ; a1db: 4c 35 a2    L5.
 
 .ca1de
-    bit reg_adlc_status1                                              ; a1de: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a1de: 2c 00 b4    ,..
     bpl ca1de                                                         ; a1e1: 10 fb       ..
     lda #1                                                            ; a1e3: a9 01       ..
     bit reg_adlc_status2                                              ; a1e5: 2c 01 b4    ,..
@@ -446,7 +442,7 @@ oswrch                  = &fff4
 .sub_ca218
     lda #1                                                            ; a218: a9 01       ..
 .loop_ca21a
-    bit reg_adlc_status1                                              ; a21a: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a21a: 2c 00 b4    ,..
     bpl loop_ca21a                                                    ; a21d: 10 fb       ..
     beq ca222                                                         ; a21f: f0 01       ..
     rts                                                               ; a221: 60          `
@@ -501,19 +497,19 @@ oswrch                  = &fff4
 .sub_ca24b
     lda #&44                                                          ; a24b: a9 44       .D
     sta reg_adlc_control1                                             ; a24d: 8d 00 b4    ...
-    lda reg_adlc_status1                                              ; a250: ad 00 b4    ...
+    lda reg_adlc_control1                                             ; a250: ad 00 b4    ...
     lda #&d7                                                          ; a253: a9 d7       ..
     sta reg_adlc_control23                                            ; a255: 8d 01 b4    ...
     lda l00b6                                                         ; a258: a5 b6       ..
 .loop_ca25a
-    bit reg_adlc_status1                                              ; a25a: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a25a: 2c 00 b4    ,..
     bpl loop_ca25a                                                    ; a25d: 10 fb       ..
     bvc ca239                                                         ; a25f: 50 d8       P.
     sta reg_adlc_txdata                                               ; a261: 8d 02 b4    ...
     lda l00b7                                                         ; a264: a5 b7       ..
     sta reg_adlc_txdata                                               ; a266: 8d 02 b4    ...
 .loop_ca269
-    bit reg_adlc_status1                                              ; a269: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a269: 2c 00 b4    ,..
     bpl loop_ca269                                                    ; a26c: 10 fb       ..
     bvc ca239                                                         ; a26e: 50 c9       P.
     lda reg_stationid                                                 ; a270: ad 04 b4    ...
@@ -523,7 +519,7 @@ oswrch                  = &fff4
     lda #&3b                                                          ; a27b: a9 3b       .;
     sta reg_adlc_control23                                            ; a27d: 8d 01 b4    ...
 .loop_ca280
-    bit reg_adlc_status1                                              ; a280: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a280: 2c 00 b4    ,..
     bpl loop_ca280                                                    ; a283: 10 fb       ..
     bvc ca239                                                         ; a285: 50 b2       P.
     lda #2                                                            ; a287: a9 02       ..
@@ -536,13 +532,13 @@ oswrch                  = &fff4
     jmp ca3a4                                                         ; a292: 4c a4 a3    L..
 
 .ca295
-    lda reg_adlc_status1                                              ; a295: ad 00 b4    ...
+    lda reg_adlc_control1                                             ; a295: ad 00 b4    ...
     lda #&43                                                          ; a298: a9 43       .C
     sta reg_adlc_control23                                            ; a29a: 8d 01 b4    ...
 .ca29d
     lda #1                                                            ; a29d: a9 01       ..
 .loop_ca29f
-    bit reg_adlc_status1                                              ; a29f: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a29f: 2c 00 b4    ,..
     bpl loop_ca29f                                                    ; a2a2: 10 fb       ..
     beq ca2bc                                                         ; a2a4: f0 16       ..
     lda reg_adlc_rxdata                                               ; a2a6: ad 02 b4    ...
@@ -638,7 +634,7 @@ oswrch                  = &fff4
 .ca336
     lda (l00b2),y                                                     ; a336: b1 b2       ..
 .loop_ca338
-    bit reg_adlc_status1                                              ; a338: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a338: 2c 00 b4    ,..
     bpl loop_ca338                                                    ; a33b: 10 fb       ..
     bvc ca36a                                                         ; a33d: 50 2b       P+
     sta reg_adlc_txdata                                               ; a33f: 8d 02 b4    ...
@@ -655,7 +651,7 @@ oswrch                  = &fff4
     lda #&3f                                                          ; a351: a9 3f       .?
     sta reg_adlc_control23                                            ; a353: 8d 01 b4    ...
 .loop_ca356
-    bit reg_adlc_status1                                              ; a356: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a356: 2c 00 b4    ,..
     bpl loop_ca356                                                    ; a359: 10 fb       ..
     bvc ca36a                                                         ; a35b: 50 0d       P.
     txa                                                               ; a35d: 8a          .
@@ -695,7 +691,7 @@ oswrch                  = &fff4
     bcc ca38f                                                         ; a38a: 90 03       ..
     lda l00b6,y                                                       ; a38c: b9 b6 00    ...
 .ca38f
-    bit reg_adlc_status1                                              ; a38f: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a38f: 2c 00 b4    ,..
     bpl ca38f                                                         ; a392: 10 fb       ..
     bvc ca370                                                         ; a394: 50 da       P.
     iny                                                               ; a396: c8          .
@@ -746,7 +742,7 @@ oswrch                  = &fff4
     tax                                                               ; a3c3: aa          .
     lda #1                                                            ; a3c4: a9 01       ..
 .loop_ca3c6
-    bit reg_adlc_status1                                              ; a3c6: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a3c6: 2c 00 b4    ,..
     bpl loop_ca3c6                                                    ; a3c9: 10 fb       ..
     bit reg_adlc_status2                                              ; a3cb: 2c 01 b4    ,..
     beq ca3a1                                                         ; a3ce: f0 d1       ..
@@ -916,7 +912,7 @@ oswrch                  = &fff4
     lda #&3f                                                          ; a4cf: a9 3f       .?
     sta reg_adlc_control23                                            ; a4d1: 8d 01 b4    ...
 .loop_ca4d4
-    bit reg_adlc_status1                                              ; a4d4: 2c 00 b4    ,..
+    bit reg_adlc_control1                                             ; a4d4: 2c 00 b4    ,..
     bpl loop_ca4d4                                                    ; a4d7: 10 fb       ..
     bvs ca4de                                                         ; a4d9: 70 03       p.
     jmp ca3a3                                                         ; a4db: 4c a3 a3    L..
@@ -1043,7 +1039,7 @@ oswrch                  = &fff4
 .rx_cmd_81_peek
     ldy #4                                                            ; a594: a0 04       ..
     jsr sub_ca426                                                     ; a596: 20 26 a4     &.
-    lda reg_adlc_status1                                              ; a599: ad 00 b4    ...
+    lda reg_adlc_control1                                             ; a599: ad 00 b4    ...
     jsr sub_ca402                                                     ; a59c: 20 02 a4     ..
     ldy #0                                                            ; a59f: a0 00       ..
     sec                                                               ; a5a1: 38          8
@@ -1134,23 +1130,23 @@ oswrch                  = &fff4
     equb &0d                                                          ; a643: 0d          .
     equs ";*               Eng"                                       ; a644: 3b 2a 20... ;*
 
-.ca658
-    jsr sub_ca7f7                                                     ; a658: 20 f7 a7     ..
+.econet_file_server_send_command_wait_response
+    jsr econet_file_server_init_command_y                             ; a658: 20 f7 a7     ..
 .sub_ca65b
-    jsr sub_ca6bc                                                     ; a65b: 20 bc a6     ..
+    jsr econet_file_server_send_command                               ; a65b: 20 bc a6     ..
 .sub_ca65e
     jsr sub_ca66d                                                     ; a65e: 20 6d a6     m.
-    lda l011a                                                         ; a661: ad 1a 01    ...
+    lda fs_cmd_handle_lib                                             ; a661: ad 1a 01    ...
     beq ca669                                                         ; a664: f0 03       ..
-    jmp ca83c                                                         ; a666: 4c 3c a8    L<.
+    jmp econet_error_a                                                ; a666: 4c 3c a8    L<.
 
 .ca669
-    lda l0119                                                         ; a669: ad 19 01    ...
+    lda fs_cmd_handle_cwd                                             ; a669: ad 19 01    ...
     rts                                                               ; a66c: 60          `
 
 .sub_ca66d
     jsr sub_ca69b                                                     ; a66d: 20 9b a6     ..
-.sub_ca670
+.econet_wait_response
     ldy #&d0                                                          ; a670: a0 d0       ..
     lda #&0f                                                          ; a672: a9 0f       ..
 .sub_ca674
@@ -1159,7 +1155,7 @@ oswrch                  = &fff4
     sta l00db                                                         ; a678: 85 db       ..
 .ca67a
     lda l0000,y                                                       ; a67a: b9 00 00    ...
-    bmi ca690                                                         ; a67d: 30 11       0.
+    bmi econet_clear_rxcbv_exists_flag                                ; a67d: 30 11       0.
     inc l00da                                                         ; a67f: e6 da       ..
     bne ca67a                                                         ; a681: d0 f7       ..
     inc l00db                                                         ; a683: e6 db       ..
@@ -1167,9 +1163,9 @@ oswrch                  = &fff4
     dec l00dc                                                         ; a687: c6 dc       ..
     bne ca67a                                                         ; a689: d0 ef       ..
     lda #2                                                            ; a68b: a9 02       ..
-    jmp ca83c                                                         ; a68d: 4c 3c a8    L<.
+    jmp econet_error_a                                                ; a68d: 4c 3c a8    L<.
 
-.ca690
+.econet_clear_rxcbv_exists_flag
     pha                                                               ; a690: 48          H
     lda flags                                                         ; a691: ad 3a 02    .:.
     and #&7f                                                          ; a694: 29 7f       ).
@@ -1181,33 +1177,33 @@ oswrch                  = &fff4
     ldx #8                                                            ; a69b: a2 08       ..
 .loop_ca69d
     lda init_00d0_00d8,x                                              ; a69d: bd b3 a6    ...
-    sta l00d0,x                                                       ; a6a0: 95 d0       ..
+    sta blkd_d0_flag,x                                                ; a6a0: 95 d0       ..
     dex                                                               ; a6a2: ca          .
     bpl loop_ca69d                                                    ; a6a3: 10 f8       ..
-    jsr sub_ca80d                                                     ; a6a5: 20 0d a8     ..
-    jmp ca85d                                                         ; a6a8: 4c 5d a8    L].
+    jsr econet_set_fileserver_stn_in_d0                               ; a6a5: 20 0d a8     ..
+    jmp econet_set_rxcbv_to_d0                                        ; a6a8: 4c 5d a8    L].
 
 .init_00d0_00d7
     equb &80, &99,   0,   0, &16,   1, &66,   1                       ; a6ab: 80 99 00... ...
 .init_00d0_00d8
     equb &7f, &88,   0,   0, &19,   1, &ff, &ff,   0                  ; a6b3: 7f 88 00... ...
 
-.sub_ca6bc
+.econet_file_server_send_command
     ldy #7                                                            ; a6bc: a0 07       ..
 .loop_ca6be
     ldx init_00d0_00d7,y                                              ; a6be: be ab a6    ...
-    stx l00d0,y                                                       ; a6c1: 96 d0       ..
+    stx blkd_d0_flag,y                                                ; a6c1: 96 d0       ..
     dey                                                               ; a6c3: 88          .
     bpl loop_ca6be                                                    ; a6c4: 10 f8       ..
-    jsr sub_ca80d                                                     ; a6c6: 20 0d a8     ..
+    jsr econet_set_fileserver_stn_in_d0                               ; a6c6: 20 0d a8     ..
     lda #&60                                                          ; a6c9: a9 60       .`
     ldy #&30                                                          ; a6cb: a0 30       .0
-    jmp ca818                                                         ; a6cd: 4c 18 a8    L..
+    jmp econet_transmit_blk_d0_with_retries                           ; a6cd: 4c 18 a8    L..
 
 .error_handler1
     jsr sub_caff1                                                     ; a6d0: 20 f1 af     ..
     lsr char_not_sent_to_printer                                      ; a6d3: 46 fe       F.
-    jmp ca83c                                                         ; a6d5: 4c 3c a8    L<.
+    jmp econet_error_a                                                ; a6d5: 4c 3c a8    L<.
 
 .sub_ca6d8
     ldx #3                                                            ; a6d8: a2 03       ..
@@ -1248,13 +1244,13 @@ oswrch                  = &fff4
     jmp ca75c                                                         ; a706: 4c 5c a7    L\.
 
 .function3
-    jmp ca658                                                         ; a709: 4c 58 a6    LX.
+    jmp econet_file_server_send_command_wait_response                 ; a709: 4c 58 a6    LX.
 
 .function4
     jmp function7                                                     ; a70c: 4c 16 a7    L..
 
 .function5
-    jmp ca81a                                                         ; a70f: 4c 1a a8    L..
+    jmp econet_transmit_blk_x_with_retries                            ; a70f: 4c 1a a8    L..
 
 .function6
     equb   2,   0, &50, &34                                           ; a712: 02 00 50... ..P
@@ -1275,7 +1271,7 @@ oswrch                  = &fff4
 .ca72b
     cmp #2                                                            ; a72b: c9 02       ..
     bne loop_ca72a                                                    ; a72d: d0 fb       ..
-    jmp cad6b                                                         ; a72f: 4c 6b ad    Lk.
+    jmp start_remote                                                  ; a72f: 4c 6b ad    Lk.
 
 .ca732
     lda #&70                                                          ; a732: a9 70       .p
@@ -1322,10 +1318,10 @@ oswrch                  = &fff4
     equw  eco_cli, eco_wrch, eco_rdch, eco_load, eco_save, eco_rdar   ; a772: f9 ac 48... ..H
     equw eco_star, eco_bget, eco_bput, eco_find, eco_shut             ; a77e: a3 ab 7b... ..{
 
-.sub_ca788
+.econet_osasci_string_011a
     ldx #0                                                            ; a788: a2 00       ..
 .loop_ca78a
-    lda l011a,x                                                       ; a78a: bd 1a 01    ...
+    lda fs_cmd_handle_lib,x                                           ; a78a: bd 1a 01    ...
     bmi ca79e                                                         ; a78d: 30 0f       0.
     bne ca793                                                         ; a78f: d0 02       ..
     lda #&0d                                                          ; a791: a9 0d       ..
@@ -1333,7 +1329,7 @@ oswrch                  = &fff4
     jsr osasci                                                        ; a793: 20 e9 ff     ..
     inx                                                               ; a796: e8          .
     bne loop_ca78a                                                    ; a797: d0 f1       ..
-.sub_ca799
+.econet_test_escape_in_z
     lda #&20                                                          ; a799: a9 20       .
     bit pia + 1                                                       ; a79b: 2c 01 b0    ,..
 .ca79e
@@ -1342,18 +1338,18 @@ oswrch                  = &fff4
 .cmd_UNKNOWN
     ldy #0                                                            ; a79f: a0 00       ..
 .loop_ca7a1
-    lda l0100,y                                                       ; a7a1: b9 00 01    ...
+    lda command_line,y                                                ; a7a1: b9 00 01    ...
     iny                                                               ; a7a4: c8          .
     cmp #&0d                                                          ; a7a5: c9 0d       ..
     bne loop_ca7a1                                                    ; a7a7: d0 f8       ..
 .loop_ca7a9
-    lda l0100,y                                                       ; a7a9: b9 00 01    ...
-    sta l011b,y                                                       ; a7ac: 99 1b 01    ...
+    lda command_line,y                                                ; a7a9: b9 00 01    ...
+    sta fs_cmd_param0,y                                               ; a7ac: 99 1b 01    ...
     dey                                                               ; a7af: 88          .
     bpl loop_ca7a9                                                    ; a7b0: 10 f7       ..
     iny                                                               ; a7b2: c8          .
-    jsr ca658                                                         ; a7b3: 20 58 a6     X.
-    beq ca7c3                                                         ; a7b6: f0 0b       ..
+    jsr econet_file_server_send_command_wait_response                 ; a7b3: 20 58 a6     X.
+    beq econet_fill_0110_013d_0d                                      ; a7b6: f0 0b       ..
     asl a                                                             ; a7b8: 0a          .
     tax                                                               ; a7b9: aa          .
     lda fserv_table - 1,x                                             ; a7ba: bd cf a7    ...
@@ -1362,7 +1358,7 @@ oswrch                  = &fff4
     pha                                                               ; a7c1: 48          H
     rts                                                               ; a7c2: 60          `
 
-.ca7c3
+.econet_fill_0110_013d_0d
     ldx #&2f                                                          ; a7c3: a2 2f       ./
     pha                                                               ; a7c5: 48          H
     lda #&0d                                                          ; a7c6: a9 0d       ..
@@ -1390,7 +1386,7 @@ oswrch                  = &fff4
     tay                                                               ; a7e4: a8          .
 .ca7e5
     lda (l0000,x)                                                     ; a7e5: a1 00       ..
-    sta l0116,y                                                       ; a7e7: 99 16 01    ...
+    sta fs_cmd_reply_port,y                                           ; a7e7: 99 16 01    ...
     cmp #&0d                                                          ; a7ea: c9 0d       ..
     beq ca80c                                                         ; a7ec: f0 1e       ..
     iny                                                               ; a7ee: c8          .
@@ -1398,31 +1394,31 @@ oswrch                  = &fff4
     bne ca7e5                                                         ; a7f1: d0 f2       ..
     inc l0001,x                                                       ; a7f3: f6 01       ..
     bne ca7e5                                                         ; a7f5: d0 ee       ..
-.sub_ca7f7
+.econet_file_server_init_command_y
     ldx #&88                                                          ; a7f7: a2 88       ..
-    stx l0116                                                         ; a7f9: 8e 16 01    ...
-    sty l0117                                                         ; a7fc: 8c 17 01    ...
+    stx fs_cmd_reply_port                                             ; a7f9: 8e 16 01    ...
+    sty fs_cmd_function_or_command_code                               ; a7fc: 8c 17 01    ...
     pha                                                               ; a7ff: 48          H
     ldx #2                                                            ; a800: a2 02       ..
 .loop_ca802
     lda handle_urd,x                                                  ; a802: bd 24 02    .$.
-    sta l0118,x                                                       ; a805: 9d 18 01    ...
+    sta fs_cmd_handle_root_or_return_code,x                           ; a805: 9d 18 01    ...
     dex                                                               ; a808: ca          .
     bpl loop_ca802                                                    ; a809: 10 f7       ..
     pla                                                               ; a80b: 68          h
 .ca80c
     rts                                                               ; a80c: 60          `
 
-.sub_ca80d
+.econet_set_fileserver_stn_in_d0
     lda fileserver_stn                                                ; a80d: ad 2c 02    .,.
-    sta l00d2                                                         ; a810: 85 d2       ..
+    sta blkd_d2_stn_lo                                                ; a810: 85 d2       ..
     lda fileserver_stn + 1                                            ; a812: ad 2d 02    .-.
-    sta l00d3                                                         ; a815: 85 d3       ..
+    sta blkd_d3_stn_hi                                                ; a815: 85 d3       ..
     rts                                                               ; a817: 60          `
 
-.ca818
+.econet_transmit_blk_d0_with_retries
     ldx #&d0                                                          ; a818: a2 d0       ..
-.ca81a
+.econet_transmit_blk_x_with_retries
     pha                                                               ; a81a: 48          H
     tya                                                               ; a81b: 98          .
     pha                                                               ; a81c: 48          H
@@ -1441,11 +1437,11 @@ oswrch                  = &fff4
     clc                                                               ; a830: 18          .
     sbc #0                                                            ; a831: e9 00       ..
     beq ca83a                                                         ; a833: f0 05       ..
-    jsr sub_ca848                                                     ; a835: 20 48 a8     H.
-    bne ca81a                                                         ; a838: d0 e0       ..
+    jsr econey_delay_approx_y_ms                                      ; a835: 20 48 a8     H.
+    bne econet_transmit_blk_x_with_retries                            ; a838: d0 e0       ..
 .ca83a
     lda #1                                                            ; a83a: a9 01       ..
-.ca83c
+.econet_error_a
     ldx #&19                                                          ; a83c: a2 19       ..
     ldy #1                                                            ; a83e: a0 01       ..
     jmp (error_handler)                                               ; a840: 6c 2a 02    l*.
@@ -1457,7 +1453,7 @@ oswrch                  = &fff4
     pla                                                               ; a846: 68          h
     rts                                                               ; a847: 60          `
 
-.sub_ca848
+.econey_delay_approx_y_ms
     cpy #0                                                            ; a848: c0 00       ..
     beq ca85c                                                         ; a84a: f0 10       ..
     pha                                                               ; a84c: 48          H
@@ -1477,30 +1473,30 @@ oswrch                  = &fff4
 .ca85c
     rts                                                               ; a85c: 60          `
 
-.ca85d
+.econet_set_rxcbv_to_d0
     lda #&d0                                                          ; a85d: a9 d0       ..
     ldx #0                                                            ; a85f: a2 00       ..
-.sub_ca861
-    jsr ca690                                                         ; a861: 20 90 a6     ..
-    sta rxcvb                                                         ; a864: 8d 30 02    .0.
-    stx rxcvb + 1                                                     ; a867: 8e 31 02    .1.
+.econet_set_rxcbv_to_x
+    jsr econet_clear_rxcbv_exists_flag                                ; a861: 20 90 a6     ..
+    sta rxcbv                                                         ; a864: 8d 30 02    .0.
+    stx rxcbv + 1                                                     ; a867: 8e 31 02    .1.
     lda flags                                                         ; a86a: ad 3a 02    .:.
     ora #&80                                                          ; a86d: 09 80       ..
     sta flags                                                         ; a86f: 8d 3a 02    .:.
     rts                                                               ; a872: 60          `
 
-.sub_ca873
+.econet_read_stn_or_user
     lda #0                                                            ; a873: a9 00       ..
     sta l0000,x                                                       ; a875: 95 00       ..
     sta l0001,x                                                       ; a877: 95 01       ..
     jsr kern_skip_spaces                                              ; a879: 20 76 f8     v.
-    lda l0100,y                                                       ; a87c: b9 00 01    ...
+    lda command_line,y                                                ; a87c: b9 00 01    ...
     cmp #&3a                                                          ; a87f: c9 3a       .:
     bcs ca8bd                                                         ; a881: b0 3a       .:
     sbc #&2f                                                          ; a883: e9 2f       ./
     bmi ca8bd                                                         ; a885: 30 36       06
 .ca887
-    lda l0100,y                                                       ; a887: b9 00 01    ...
+    lda command_line,y                                                ; a887: b9 00 01    ...
     cmp #&3a                                                          ; a88a: c9 3a       .:
     bcs ca8b8                                                         ; a88c: b0 2a       .*
     sbc #&2f                                                          ; a88e: e9 2f       ./
@@ -1538,29 +1534,29 @@ oswrch                  = &fff4
     pha                                                               ; a8be: 48          H
     ldx #0                                                            ; a8bf: a2 00       ..
 .loop_ca8c1
-    lda l0100,y                                                       ; a8c1: b9 00 01    ...
+    lda command_line,y                                                ; a8c1: b9 00 01    ...
     cmp #&20                                                          ; a8c4: c9 20       .
     beq ca8d3                                                         ; a8c6: f0 0b       ..
     cmp #&0d                                                          ; a8c8: c9 0d       ..
     beq ca8d3                                                         ; a8ca: f0 07       ..
-    sta l011b,x                                                       ; a8cc: 9d 1b 01    ...
+    sta fs_cmd_param0,x                                               ; a8cc: 9d 1b 01    ...
     inx                                                               ; a8cf: e8          .
     iny                                                               ; a8d0: c8          .
     bne loop_ca8c1                                                    ; a8d1: d0 ee       ..
 .ca8d3
     lda #&0d                                                          ; a8d3: a9 0d       ..
-    sta l011b,x                                                       ; a8d5: 9d 1b 01    ...
+    sta fs_cmd_param0,x                                               ; a8d5: 9d 1b 01    ...
     tya                                                               ; a8d8: 98          .
     pha                                                               ; a8d9: 48          H
     ldy #&18                                                          ; a8da: a0 18       ..
-    jsr ca658                                                         ; a8dc: 20 58 a6     X.
+    jsr econet_file_server_send_command_wait_response                 ; a8dc: 20 58 a6     X.
     pla                                                               ; a8df: 68          h
     tay                                                               ; a8e0: a8          .
     pla                                                               ; a8e1: 68          h
     tax                                                               ; a8e2: aa          .
-    lda l011c                                                         ; a8e3: ad 1c 01    ...
+    lda fs_cmd_param1                                                 ; a8e3: ad 1c 01    ...
     sta l0000,x                                                       ; a8e6: 95 00       ..
-    lda l011d                                                         ; a8e8: ad 1d 01    ...
+    lda fs_cmd_param2                                                 ; a8e8: ad 1d 01    ...
     sta l0001,x                                                       ; a8eb: 95 01       ..
     jmp ca8b8                                                         ; a8ed: 4c b8 a8    L..
 
@@ -1592,27 +1588,27 @@ oswrch                  = &fff4
     pha                                                               ; a923: 48          H
     ldy #2                                                            ; a924: a0 02       ..
 .loop_ca926
-    stx l00d0                                                         ; a926: 86 d0       ..
+    stx blkd_d0_flag                                                  ; a926: 86 d0       ..
     pla                                                               ; a928: 68          h
     pha                                                               ; a929: 48          H
-    sta l00d1                                                         ; a92a: 85 d1       ..
-    lda (l00d0),y                                                     ; a92c: b1 d0       ..
+    sta blkd_d1_port                                                  ; a92a: 85 d1       ..
+    lda (blkd_d0_flag),y                                              ; a92c: b1 d0       ..
     jsr osasci                                                        ; a92e: 20 e9 ff     ..
     iny                                                               ; a931: c8          .
     cmp #&0d                                                          ; a932: c9 0d       ..
     bne loop_ca926                                                    ; a934: d0 f0       ..
 .ca936
-    jsr ca690                                                         ; a936: 20 90 a6     ..
+    jsr econet_clear_rxcbv_exists_flag                                ; a936: 20 90 a6     ..
     brk                                                               ; a939: 00          .
 
 .fserv_05_sdisc_06_iam
     ldx #2                                                            ; a93a: a2 02       ..
 .loop_ca93c
-    lda l011b,x                                                       ; a93c: bd 1b 01    ...
+    lda fs_cmd_param0,x                                               ; a93c: bd 1b 01    ...
     sta handle_urd,x                                                  ; a93f: 9d 24 02    .$.
     dex                                                               ; a942: ca          .
     bpl loop_ca93c                                                    ; a943: 10 f7       ..
-    jmp ca7c3                                                         ; a945: 4c c3 a7    L..
+    jmp econet_fill_0110_013d_0d                                      ; a945: 4c c3 a7    L..
 
 .sub_ca948
     sta l00da                                                         ; a948: 85 da       ..
@@ -1620,12 +1616,12 @@ oswrch                  = &fff4
     sta l0114                                                         ; a94d: 8d 14 01    ...
     ldy #&99                                                          ; a950: a0 99       ..
     sty l0112                                                         ; a952: 8c 12 01    ...
-    sty l00d1                                                         ; a955: 84 d1       ..
-    jsr sub_ca80d                                                     ; a957: 20 0d a8     ..
+    sty blkd_d1_port                                                  ; a955: 84 d1       ..
+    jsr econet_set_fileserver_stn_in_d0                               ; a957: 20 0d a8     ..
     lda #&12                                                          ; a95a: a9 12       ..
-    sta l00d4                                                         ; a95c: 85 d4       ..
+    sta blkd_d4_buffer_start_lo                                       ; a95c: 85 d4       ..
     lda #1                                                            ; a95e: a9 01       ..
-    sta l00d5                                                         ; a960: 85 d5       ..
+    sta blkd_d5_buffer_start_hi                                       ; a960: 85 d5       ..
     lda sequenceno                                                    ; a962: ad 27 02    .'.
     ldx #8                                                            ; a965: a2 08       ..
 .loop_ca967
@@ -1639,35 +1635,35 @@ oswrch                  = &fff4
     ldx #4                                                            ; a971: a2 04       ..
 .sub_ca973
     ora #&80                                                          ; a973: 09 80       ..
-    sta l00d0                                                         ; a975: 85 d0       ..
+    sta blkd_d0_flag                                                  ; a975: 85 d0       ..
     clc                                                               ; a977: 18          .
     txa                                                               ; a978: 8a          .
-    adc l00d4                                                         ; a979: 65 d4       e.
-    sta l00d6                                                         ; a97b: 85 d6       ..
-    lda l00d5                                                         ; a97d: a5 d5       ..
+    adc blkd_d4_buffer_start_lo                                       ; a979: 65 d4       e.
+    sta blkd_d6_buffer_end_lo                                         ; a97b: 85 d6       ..
+    lda blkd_d5_buffer_start_hi                                       ; a97d: a5 d5       ..
     adc #0                                                            ; a97f: 69 00       i.
-    sta l00d7                                                         ; a981: 85 d7       ..
+    sta blkd_d7_buffer_end_hi                                         ; a981: 85 d7       ..
     lda #&ff                                                          ; a983: a9 ff       ..
-    jsr ca818                                                         ; a985: 20 18 a8     ..
+    jsr econet_transmit_blk_d0_with_retries                           ; a985: 20 18 a8     ..
     ldx #&7f                                                          ; a988: a2 7f       ..
-    stx l00d0                                                         ; a98a: 86 d0       ..
+    stx blkd_d0_flag                                                  ; a98a: 86 d0       ..
     ldx #&ff                                                          ; a98c: a2 ff       ..
-    stx l00d6                                                         ; a98e: 86 d6       ..
-    stx l00d7                                                         ; a990: 86 d7       ..
+    stx blkd_d6_buffer_end_lo                                         ; a98e: 86 d6       ..
+    stx blkd_d7_buffer_end_hi                                         ; a990: 86 d7       ..
     inx                                                               ; a992: e8          .
-    stx l00d8                                                         ; a993: 86 d8       ..
-    jsr ca85d                                                         ; a995: 20 5d a8     ].
-    jsr sub_ca670                                                     ; a998: 20 70 a6     p.
+    stx blkd_d8_imm0                                                  ; a993: 86 d8       ..
+    jsr econet_set_rxcbv_to_d0                                        ; a995: 20 5d a8     ].
+    jsr econet_wait_response                                          ; a998: 20 70 a6     p.
     lda l0112                                                         ; a99b: ad 12 01    ...
     rts                                                               ; a99e: 60          `
 
 .fserv_01_save
     clc                                                               ; a99f: 18          .
-    lda l011b                                                         ; a9a0: ad 1b 01    ...
+    lda fs_cmd_param0                                                 ; a9a0: ad 1b 01    ...
     sta l013c                                                         ; a9a3: 8d 3c 01    .<.
     adc l0123                                                         ; a9a6: 6d 23 01    m#.
     sta l013e                                                         ; a9a9: 8d 3e 01    .>.
-    lda l011c                                                         ; a9ac: ad 1c 01    ...
+    lda fs_cmd_param1                                                 ; a9ac: ad 1c 01    ...
     sta l013d                                                         ; a9af: 8d 3d 01    .=.
     adc l0124                                                         ; a9b2: 6d 24 01    m$.
     sta l013f                                                         ; a9b5: 8d 3f 01    .?.
@@ -1694,15 +1690,15 @@ oswrch                  = &fff4
     ldy #&0a                                                          ; a9e1: a0 0a       ..
     lda #0                                                            ; a9e3: a9 00       ..
 .loop_ca9e5
-    sta l011b,y                                                       ; a9e5: 99 1b 01    ...
+    sta fs_cmd_param0,y                                               ; a9e5: 99 1b 01    ...
     dey                                                               ; a9e8: 88          .
     bpl loop_ca9e5                                                    ; a9e9: 10 fa       ..
     iny                                                               ; a9eb: c8          .
 .loop_ca9ec
     lda l0002,x                                                       ; a9ec: b5 02       ..
-    sta l011b,y                                                       ; a9ee: 99 1b 01    ...
+    sta fs_cmd_param0,y                                               ; a9ee: 99 1b 01    ...
     lda l0003,x                                                       ; a9f1: b5 03       ..
-    sta l011c,y                                                       ; a9f3: 99 1c 01    ...
+    sta fs_cmd_param1,y                                               ; a9f3: 99 1c 01    ...
     iny                                                               ; a9f6: c8          .
     iny                                                               ; a9f7: c8          .
     iny                                                               ; a9f8: c8          .
@@ -1713,68 +1709,68 @@ oswrch                  = &fff4
     bne loop_ca9ec                                                    ; a9fe: d0 ec       ..
 .caa00
     ldy #1                                                            ; aa00: a0 01       ..
-    jsr sub_ca7f7                                                     ; aa02: 20 f7 a7     ..
+    jsr econet_file_server_init_command_y                             ; aa02: 20 f7 a7     ..
     lda #&77                                                          ; aa05: a9 77       .w
-    sta l0118                                                         ; aa07: 8d 18 01    ...
+    sta fs_cmd_handle_root_or_return_code                             ; aa07: 8d 18 01    ...
     jsr sub_ca65b                                                     ; aa0a: 20 5b a6     [.
     lda #0                                                            ; aa0d: a9 00       ..
     sta l0120                                                         ; aa0f: 8d 20 01    . .
 .caa12
     lda l013c                                                         ; aa12: ad 3c 01    .<.
-    sta l00d4                                                         ; aa15: 85 d4       ..
+    sta blkd_d4_buffer_start_lo                                       ; aa15: 85 d4       ..
     clc                                                               ; aa17: 18          .
-    adc l011c                                                         ; aa18: 6d 1c 01    m..
-    sta l00d6                                                         ; aa1b: 85 d6       ..
+    adc fs_cmd_param1                                                 ; aa18: 6d 1c 01    m..
+    sta blkd_d6_buffer_end_lo                                         ; aa1b: 85 d6       ..
     lda l013d                                                         ; aa1d: ad 3d 01    .=.
-    sta l00d5                                                         ; aa20: 85 d5       ..
-    adc l011d                                                         ; aa22: 6d 1d 01    m..
-    sta l00d7                                                         ; aa25: 85 d7       ..
+    sta blkd_d5_buffer_start_hi                                       ; aa20: 85 d5       ..
+    adc fs_cmd_param2                                                 ; aa22: 6d 1d 01    m..
+    sta blkd_d7_buffer_end_hi                                         ; aa25: 85 d7       ..
     bcs caa35                                                         ; aa27: b0 0c       ..
-    lda l00d6                                                         ; aa29: a5 d6       ..
+    lda blkd_d6_buffer_end_lo                                         ; aa29: a5 d6       ..
     cmp l013e                                                         ; aa2b: cd 3e 01    .>.
-    lda l00d7                                                         ; aa2e: a5 d7       ..
+    lda blkd_d7_buffer_end_hi                                         ; aa2e: a5 d7       ..
     sbc l013f                                                         ; aa30: ed 3f 01    .?.
     bcc caa42                                                         ; aa33: 90 0d       ..
 .caa35
     lda l013e                                                         ; aa35: ad 3e 01    .>.
-    sta l00d6                                                         ; aa38: 85 d6       ..
+    sta blkd_d6_buffer_end_lo                                         ; aa38: 85 d6       ..
     lda l013f                                                         ; aa3a: ad 3f 01    .?.
-    sta l00d7                                                         ; aa3d: 85 d7       ..
+    sta blkd_d7_buffer_end_hi                                         ; aa3d: 85 d7       ..
     inc l0120                                                         ; aa3f: ee 20 01    . .
 .caa42
-    lda l011b                                                         ; aa42: ad 1b 01    ...
-    sta l00d1                                                         ; aa45: 85 d1       ..
+    lda fs_cmd_param0                                                 ; aa42: ad 1b 01    ...
+    sta blkd_d1_port                                                  ; aa45: 85 d1       ..
     ldx #&d0                                                          ; aa47: a2 d0       ..
     ldy #&0a                                                          ; aa49: a0 0a       ..
     lda #&ff                                                          ; aa4b: a9 ff       ..
-    jsr ca81a                                                         ; aa4d: 20 1a a8     ..
+    jsr econet_transmit_blk_x_with_retries                            ; aa4d: 20 1a a8     ..
     lda l0120                                                         ; aa50: ad 20 01    . .
     bne caa6c                                                         ; aa53: d0 17       ..
-    lda l00d6                                                         ; aa55: a5 d6       ..
+    lda blkd_d6_buffer_end_lo                                         ; aa55: a5 d6       ..
     sta l013c                                                         ; aa57: 8d 3c 01    .<.
-    lda l00d7                                                         ; aa5a: a5 d7       ..
+    lda blkd_d7_buffer_end_hi                                         ; aa5a: a5 d7       ..
     sta l013d                                                         ; aa5c: 8d 3d 01    .=.
     jsr sub_ca69b                                                     ; aa5f: 20 9b a6     ..
     lda #&77                                                          ; aa62: a9 77       .w
-    sta l00d1                                                         ; aa64: 85 d1       ..
-    jsr sub_ca670                                                     ; aa66: 20 70 a6     p.
+    sta blkd_d1_port                                                  ; aa64: 85 d1       ..
+    jsr econet_wait_response                                          ; aa66: 20 70 a6     p.
     jmp caa12                                                         ; aa69: 4c 12 aa    L..
 
 .caa6c
     jsr sub_ca65e                                                     ; aa6c: 20 5e a6     ^.
-    jmp ca7c3                                                         ; aa6f: 4c c3 a7    L..
+    jmp econet_fill_0110_013d_0d                                      ; aa6f: 4c c3 a7    L..
 
 .fserv_02_load
-    lda l011b                                                         ; aa72: ad 1b 01    ...
+    lda fs_cmd_param0                                                 ; aa72: ad 1b 01    ...
     sta l013d                                                         ; aa75: 8d 3d 01    .=.
-    lda l011c                                                         ; aa78: ad 1c 01    ...
+    lda fs_cmd_param1                                                 ; aa78: ad 1c 01    ...
     sta l013e                                                         ; aa7b: 8d 3e 01    .>.
-    lda l011f                                                         ; aa7e: ad 1f 01    ...
+    lda fs_cmd_param4                                                 ; aa7e: ad 1f 01    ...
     sta l013f                                                         ; aa81: 8d 3f 01    .?.
     ldx #0                                                            ; aa84: a2 00       ..
 .loop_caa86
     lda l0120,x                                                       ; aa86: bd 20 01    . .
-    sta l011b,x                                                       ; aa89: 9d 1b 01    ...
+    sta fs_cmd_param0,x                                               ; aa89: 9d 1b 01    ...
     inx                                                               ; aa8c: e8          .
     cmp #&0d                                                          ; aa8d: c9 0d       ..
     bne loop_caa86                                                    ; aa8f: d0 f5       ..
@@ -1792,94 +1788,94 @@ oswrch                  = &fff4
 .caaa7
     ldy #2                                                            ; aaa7: a0 02       ..
 .sub_caaa9
-    jsr sub_ca7f7                                                     ; aaa9: 20 f7 a7     ..
+    jsr econet_file_server_init_command_y                             ; aaa9: 20 f7 a7     ..
     ldx #&2d                                                          ; aaac: a2 2d       .-
-    stx l0118                                                         ; aaae: 8e 18 01    ...
+    stx fs_cmd_handle_root_or_return_code                             ; aaae: 8e 18 01    ...
     jsr sub_ca65b                                                     ; aab1: 20 5b a6     [.
     bit l013f                                                         ; aab4: 2c 3f 01    ,?.
     bpl caac6                                                         ; aab7: 10 0d       ..
     lda l013d                                                         ; aab9: ad 3d 01    .=.
-    sta l00d4                                                         ; aabc: 85 d4       ..
+    sta blkd_d4_buffer_start_lo                                       ; aabc: 85 d4       ..
     lda l013e                                                         ; aabe: ad 3e 01    .>.
-    sta l00d5                                                         ; aac1: 85 d5       ..
+    sta blkd_d5_buffer_start_hi                                       ; aac1: 85 d5       ..
     jmp caad2                                                         ; aac3: 4c d2 aa    L..
 
 .caac6
-    lda l011b                                                         ; aac6: ad 1b 01    ...
-    sta l00d4                                                         ; aac9: 85 d4       ..
-    lda l011c                                                         ; aacb: ad 1c 01    ...
-    sta l00d5                                                         ; aace: 85 d5       ..
+    lda fs_cmd_param0                                                 ; aac6: ad 1b 01    ...
+    sta blkd_d4_buffer_start_lo                                       ; aac9: 85 d4       ..
+    lda fs_cmd_param1                                                 ; aacb: ad 1c 01    ...
+    sta blkd_d5_buffer_start_hi                                       ; aace: 85 d5       ..
     lda #8                                                            ; aad0: a9 08       ..
 .caad2
     pha                                                               ; aad2: 48          H
     clc                                                               ; aad3: 18          .
-    lda l00d4                                                         ; aad4: a5 d4       ..
+    lda blkd_d4_buffer_start_lo                                       ; aad4: a5 d4       ..
     adc l0123                                                         ; aad6: 6d 23 01    m#.
     sta l0123                                                         ; aad9: 8d 23 01    .#.
-    lda l00d5                                                         ; aadc: a5 d5       ..
+    lda blkd_d5_buffer_start_hi                                       ; aadc: a5 d5       ..
     adc l0124                                                         ; aade: 6d 24 01    m$.
     sta l0124                                                         ; aae1: 8d 24 01    .$.
     lda #&2d                                                          ; aae4: a9 2d       .-
-    sta l00d1                                                         ; aae6: 85 d1       ..
+    sta blkd_d1_port                                                  ; aae6: 85 d1       ..
 .caae8
     lda #&ff                                                          ; aae8: a9 ff       ..
-    sta l00d6                                                         ; aaea: 85 d6       ..
-    sta l00d7                                                         ; aaec: 85 d7       ..
+    sta blkd_d6_buffer_end_lo                                         ; aaea: 85 d6       ..
+    sta blkd_d7_buffer_end_hi                                         ; aaec: 85 d7       ..
     lda #&7f                                                          ; aaee: a9 7f       ..
-    sta l00d0                                                         ; aaf0: 85 d0       ..
-    jsr ca85d                                                         ; aaf2: 20 5d a8     ].
+    sta blkd_d0_flag                                                  ; aaf0: 85 d0       ..
+    jsr econet_set_rxcbv_to_d0                                        ; aaf2: 20 5d a8     ].
     ldy #&d0                                                          ; aaf5: a0 d0       ..
     pla                                                               ; aaf7: 68          h
     jsr sub_ca674                                                     ; aaf8: 20 74 a6     t.
-    lda l00d6                                                         ; aafb: a5 d6       ..
+    lda blkd_d6_buffer_end_lo                                         ; aafb: a5 d6       ..
     cmp l0123                                                         ; aafd: cd 23 01    .#.
-    lda l00d7                                                         ; ab00: a5 d7       ..
+    lda blkd_d7_buffer_end_hi                                         ; ab00: a5 d7       ..
     sbc l0124                                                         ; ab02: ed 24 01    .$.
     bcs cab15                                                         ; ab05: b0 0e       ..
-    lda l00d6                                                         ; ab07: a5 d6       ..
-    sta l00d4                                                         ; ab09: 85 d4       ..
-    lda l00d7                                                         ; ab0b: a5 d7       ..
-    sta l00d5                                                         ; ab0d: 85 d5       ..
+    lda blkd_d6_buffer_end_lo                                         ; ab07: a5 d6       ..
+    sta blkd_d4_buffer_start_lo                                       ; ab09: 85 d4       ..
+    lda blkd_d7_buffer_end_hi                                         ; ab0b: a5 d7       ..
+    sta blkd_d5_buffer_start_hi                                       ; ab0d: 85 d5       ..
     lda #8                                                            ; ab0f: a9 08       ..
     pha                                                               ; ab11: 48          H
     jmp caae8                                                         ; ab12: 4c e8 aa    L..
 
 .cab15
     jsr sub_ca65e                                                     ; ab15: 20 5e a6     ^.
-    lda l011f                                                         ; ab18: ad 1f 01    ...
-    sta l00d0                                                         ; ab1b: 85 d0       ..
+    lda fs_cmd_param4                                                 ; ab18: ad 1f 01    ...
+    sta blkd_d0_flag                                                  ; ab1b: 85 d0       ..
     lda l0120                                                         ; ab1d: ad 20 01    . .
-    sta l00d1                                                         ; ab20: 85 d1       ..
-    jmp ca7c3                                                         ; ab22: 4c c3 a7    L..
+    sta blkd_d1_port                                                  ; ab20: 85 d1       ..
+    jmp econet_fill_0110_013d_0d                                      ; ab22: 4c c3 a7    L..
 
 .eco_find
     lda #0                                                            ; ab25: a9 00       ..
-    sta l011c                                                         ; ab27: 8d 1c 01    ...
+    sta fs_cmd_param1                                                 ; ab27: 8d 1c 01    ...
     rol a                                                             ; ab2a: 2a          *
-    sta l011b                                                         ; ab2b: 8d 1b 01    ...
+    sta fs_cmd_param0                                                 ; ab2b: 8d 1b 01    ...
     lda #7                                                            ; ab2e: a9 07       ..
     jsr sub_ca7e4                                                     ; ab30: 20 e4 a7     ..
     ldy #6                                                            ; ab33: a0 06       ..
-    jsr sub_ca7f7                                                     ; ab35: 20 f7 a7     ..
-    jsr sub_ca6bc                                                     ; ab38: 20 bc a6     ..
+    jsr econet_file_server_init_command_y                             ; ab35: 20 f7 a7     ..
+    jsr econet_file_server_send_command                               ; ab38: 20 bc a6     ..
     jsr sub_ca66d                                                     ; ab3b: 20 6d a6     m.
-    lda l011a                                                         ; ab3e: ad 1a 01    ...
+    lda fs_cmd_handle_lib                                             ; ab3e: ad 1a 01    ...
     beq cab4e                                                         ; ab41: f0 0b       ..
     cmp #&43                                                          ; ab43: c9 43       .C
     beq cab4a                                                         ; ab45: f0 03       ..
-    jmp ca83c                                                         ; ab47: 4c 3c a8    L<.
+    jmp econet_error_a                                                ; ab47: 4c 3c a8    L<.
 
 .cab4a
     lda #0                                                            ; ab4a: a9 00       ..
     beq cab5b                                                         ; ab4c: f0 0d       ..
 .cab4e
     clc                                                               ; ab4e: 18          .
-    sbc l011b                                                         ; ab4f: ed 1b 01    ...
+    sbc fs_cmd_param0                                                 ; ab4f: ed 1b 01    ...
     and sequenceno                                                    ; ab52: 2d 27 02    -'.
     sta sequenceno                                                    ; ab55: 8d 27 02    .'.
-    lda l011b                                                         ; ab58: ad 1b 01    ...
+    lda fs_cmd_param0                                                 ; ab58: ad 1b 01    ...
 .cab5b
-    jmp ca7c3                                                         ; ab5b: 4c c3 a7    L..
+    jmp econet_fill_0110_013d_0d                                      ; ab5b: 4c c3 a7    L..
 
 .eco_bput
     sta l0115                                                         ; ab5e: 8d 15 01    ...
@@ -1929,39 +1925,39 @@ oswrch                  = &fff4
 .eco_star
     txa                                                               ; aba3: 8a          .
     pha                                                               ; aba4: 48          H
-    sty l011b                                                         ; aba5: 8c 1b 01    ...
+    sty fs_cmd_param0                                                 ; aba5: 8c 1b 01    ...
     ldy #0                                                            ; aba8: a0 00       ..
-    sty l011c                                                         ; abaa: 8c 1c 01    ...
+    sty fs_cmd_param1                                                 ; abaa: 8c 1c 01    ...
 .loop_cabad
     lda l0000,x                                                       ; abad: b5 00       ..
-    sta l011d,y                                                       ; abaf: 99 1d 01    ...
+    sta fs_cmd_param2,y                                               ; abaf: 99 1d 01    ...
     inx                                                               ; abb2: e8          .
     iny                                                               ; abb3: c8          .
     cpy #3                                                            ; abb4: c0 03       ..
     bne loop_cabad                                                    ; abb6: d0 f5       ..
     ldy #&0d                                                          ; abb8: a0 0d       ..
-    jsr ca658                                                         ; abba: 20 58 a6     X.
+    jsr econet_file_server_send_command_wait_response                 ; abba: 20 58 a6     X.
     pla                                                               ; abbd: 68          h
     tax                                                               ; abbe: aa          .
-    ldy l011b                                                         ; abbf: ac 1b 01    ...
+    ldy fs_cmd_param0                                                 ; abbf: ac 1b 01    ...
     rts                                                               ; abc2: 60          `
 
 .eco_rdar
-    sty l011b                                                         ; abc3: 8c 1b 01    ...
-    sta l011c                                                         ; abc6: 8d 1c 01    ...
+    sty fs_cmd_param0                                                 ; abc3: 8c 1b 01    ...
+    sta fs_cmd_param1                                                 ; abc6: 8d 1c 01    ...
     tya                                                               ; abc9: 98          .
     pha                                                               ; abca: 48          H
     txa                                                               ; abcb: 8a          .
     pha                                                               ; abcc: 48          H
     ldy #&0c                                                          ; abcd: a0 0c       ..
-    jsr ca658                                                         ; abcf: 20 58 a6     X.
+    jsr econet_file_server_send_command_wait_response                 ; abcf: 20 58 a6     X.
     pla                                                               ; abd2: 68          h
     tax                                                               ; abd3: aa          .
     inx                                                               ; abd4: e8          .
     inx                                                               ; abd5: e8          .
     ldy #2                                                            ; abd6: a0 02       ..
 .loop_cabd8
-    lda l011b,y                                                       ; abd8: b9 1b 01    ...
+    lda fs_cmd_param0,y                                               ; abd8: b9 1b 01    ...
     sta l0000,x                                                       ; abdb: 95 00       ..
     dex                                                               ; abdd: ca          .
     dey                                                               ; abde: 88          .
@@ -1974,25 +1970,25 @@ oswrch                  = &fff4
 .eco_shut
     tya                                                               ; abe5: 98          .
     pha                                                               ; abe6: 48          H
-    sta l011b                                                         ; abe7: 8d 1b 01    ...
+    sta fs_cmd_param0                                                 ; abe7: 8d 1b 01    ...
     ldy #7                                                            ; abea: a0 07       ..
-    jsr ca658                                                         ; abec: 20 58 a6     X.
+    jsr econet_file_server_send_command_wait_response                 ; abec: 20 58 a6     X.
     pla                                                               ; abef: 68          h
     tay                                                               ; abf0: a8          .
     rts                                                               ; abf1: 60          `
 
 .cmd_I_AM
     jsr kern_skip_spaces                                              ; abf2: 20 76 f8     v.
-    lda l0100,y                                                       ; abf5: b9 00 01    ...
+    lda command_line,y                                                ; abf5: b9 00 01    ...
     cmp #&30                                                          ; abf8: c9 30       .0
     bcc cac0f                                                         ; abfa: 90 13       ..
     cmp #&3a                                                          ; abfc: c9 3a       .:
     bcs cac0f                                                         ; abfe: b0 0f       ..
     ldx #&d0                                                          ; ac00: a2 d0       ..
-    jsr sub_ca873                                                     ; ac02: 20 73 a8     s.
-    lda l00d0                                                         ; ac05: a5 d0       ..
+    jsr econet_read_stn_or_user                                       ; ac02: 20 73 a8     s.
+    lda blkd_d0_flag                                                  ; ac05: a5 d0       ..
     sta fileserver_stn                                                ; ac07: 8d 2c 02    .,.
-    lda l00d1                                                         ; ac0a: a5 d1       ..
+    lda blkd_d1_port                                                  ; ac0a: a5 d1       ..
     sta fileserver_stn + 1                                            ; ac0c: 8d 2d 02    .-.
 .cac0f
     jmp cmd_UNKNOWN                                                   ; ac0f: 4c 9f a7    L..
@@ -2000,52 +1996,52 @@ oswrch                  = &fff4
 .fserv_03
     ldy #0                                                            ; ac12: a0 00       ..
 .loop_cac14
-    lda l011b,y                                                       ; ac14: b9 1b 01    ...
+    lda fs_cmd_param0,y                                               ; ac14: b9 1b 01    ...
     sta l0148,y                                                       ; ac17: 99 48 01    .H.
     iny                                                               ; ac1a: c8          .
     cmp #&0d                                                          ; ac1b: c9 0d       ..
     bne loop_cac14                                                    ; ac1d: d0 f5       ..
     ldy #4                                                            ; ac1f: a0 04       ..
-    jsr ca658                                                         ; ac21: 20 58 a6     X.
+    jsr econet_file_server_send_command_wait_response                 ; ac21: 20 58 a6     X.
     jsr sub_caca4                                                     ; ac24: 20 a4 ac     ..
     jsr oscrlf                                                        ; ac27: 20 ed ff     ..
     lda #0                                                            ; ac2a: a9 00       ..
 .cac2c
     pha                                                               ; ac2c: 48          H
-    sta l011c                                                         ; ac2d: 8d 1c 01    ...
+    sta fs_cmd_param1                                                 ; ac2d: 8d 1c 01    ...
     lda #3                                                            ; ac30: a9 03       ..
-    sta l011b                                                         ; ac32: 8d 1b 01    ...
+    sta fs_cmd_param0                                                 ; ac32: 8d 1b 01    ...
     lda #2                                                            ; ac35: a9 02       ..
-    sta l011d                                                         ; ac37: 8d 1d 01    ...
+    sta fs_cmd_param2                                                 ; ac37: 8d 1d 01    ...
     lda #&48                                                          ; ac3a: a9 48       .H
-    sta l00d0                                                         ; ac3c: 85 d0       ..
+    sta blkd_d0_flag                                                  ; ac3c: 85 d0       ..
     lda #1                                                            ; ac3e: a9 01       ..
-    sta l00d1                                                         ; ac40: 85 d1       ..
+    sta blkd_d1_port                                                  ; ac40: 85 d1       ..
     ldx #&d0                                                          ; ac42: a2 d0       ..
     lda #8                                                            ; ac44: a9 08       ..
     jsr sub_ca7e4                                                     ; ac46: 20 e4 a7     ..
     ldy #3                                                            ; ac49: a0 03       ..
-    jsr sub_ca7f7                                                     ; ac4b: 20 f7 a7     ..
-    jsr sub_ca6bc                                                     ; ac4e: 20 bc a6     ..
+    jsr econet_file_server_init_command_y                             ; ac4b: 20 f7 a7     ..
+    jsr econet_file_server_send_command                               ; ac4e: 20 bc a6     ..
     ldx #8                                                            ; ac51: a2 08       ..
 .loop_cac53
     lda init_00d0_00d8_alt1,x                                         ; ac53: bd 81 ac    ...
-    sta l00d0,x                                                       ; ac56: 95 d0       ..
+    sta blkd_d0_flag,x                                                ; ac56: 95 d0       ..
     dex                                                               ; ac58: ca          .
     bpl loop_cac53                                                    ; ac59: 10 f8       ..
-    jsr sub_ca80d                                                     ; ac5b: 20 0d a8     ..
-    jsr ca85d                                                         ; ac5e: 20 5d a8     ].
-    jsr sub_ca670                                                     ; ac61: 20 70 a6     p.
-    lda l0117                                                         ; ac64: ad 17 01    ...
+    jsr econet_set_fileserver_stn_in_d0                               ; ac5b: 20 0d a8     ..
+    jsr econet_set_rxcbv_to_d0                                        ; ac5e: 20 5d a8     ].
+    jsr econet_wait_response                                          ; ac61: 20 70 a6     p.
+    lda fs_cmd_function_or_command_code                               ; ac64: ad 17 01    ...
     beq cac70                                                         ; ac67: f0 07       ..
     ldx #&16                                                          ; ac69: a2 16       ..
     ldy #1                                                            ; ac6b: a0 01       ..
     jmp (error_handler)                                               ; ac6d: 6c 2a 02    l*.
 
 .cac70
-    lda l0118                                                         ; ac70: ad 18 01    ...
+    lda fs_cmd_handle_root_or_return_code                             ; ac70: ad 18 01    ...
     beq cac7f                                                         ; ac73: f0 0a       ..
-    jsr sub_ca788                                                     ; ac75: 20 88 a7     ..
+    jsr econet_osasci_string_011a                                     ; ac75: 20 88 a7     ..
     pla                                                               ; ac78: 68          h
     clc                                                               ; ac79: 18          .
     adc #2                                                            ; ac7a: 69 02       i.
@@ -2063,7 +2059,7 @@ oswrch                  = &fff4
     sta l0157                                                         ; ac8c: 8d 57 01    .W.
     ldx #0                                                            ; ac8f: a2 00       ..
 .loop_cac91
-    lda l011b,x                                                       ; ac91: bd 1b 01    ...
+    lda fs_cmd_param0,x                                               ; ac91: bd 1b 01    ...
     jsr osasci                                                        ; ac94: 20 e9 ff     ..
     inx                                                               ; ac97: e8          .
     cpx #&1c                                                          ; ac98: e0 1c       ..
@@ -2076,7 +2072,7 @@ oswrch                  = &fff4
 .sub_caca4
     ldx #0                                                            ; aca4: a2 00       ..
 .caca6
-    lda l011b,x                                                       ; aca6: bd 1b 01    ...
+    lda fs_cmd_param0,x                                               ; aca6: bd 1b 01    ...
     bmi cacb1                                                         ; aca9: 30 06       0.
     jsr osasci                                                        ; acab: 20 e9 ff     ..
     inx                                                               ; acae: e8          .
@@ -2089,15 +2085,15 @@ oswrch                  = &fff4
     sta l013f                                                         ; acb4: 8d 3f 01    .?.
     ldy #5                                                            ; acb7: a0 05       ..
     jsr sub_caaa9                                                     ; acb9: 20 a9 aa     ..
-    jmp (l00d0)                                                       ; acbc: 6c d0 00    l..
+    jmp (blkd_d0_flag)                                                ; acbc: 6c d0 00    l..
 
 .fserv_07_dir
-    lda l011b                                                         ; acbf: ad 1b 01    ...
+    lda fs_cmd_param0                                                 ; acbf: ad 1b 01    ...
     sta handle_csd                                                    ; acc2: 8d 25 02    .%.
     rts                                                               ; acc5: 60          `
 
 .fserv_09_lib
-    lda l011b                                                         ; acc6: ad 1b 01    ...
+    lda fs_cmd_param0                                                 ; acc6: ad 1b 01    ...
     sta handle_lib                                                    ; acc9: 8d 26 02    .&.
     rts                                                               ; accc: 60          `
 
@@ -2144,7 +2140,7 @@ oswrch                  = &fff4
 .loop_cad04
     lda command_table,x                                               ; ad04: bd cd ac    ...
     bmi cad21                                                         ; ad07: 30 18       0.
-    cmp l0100,y                                                       ; ad09: d9 00 01    ...
+    cmp command_line,y                                                ; ad09: d9 00 01    ...
     beq loop_cad02                                                    ; ad0c: f0 f4       ..
     dex                                                               ; ad0e: ca          .
 .loop_cad0f
@@ -2152,7 +2148,7 @@ oswrch                  = &fff4
     lda command_table,x                                               ; ad10: bd cd ac    ...
     bpl loop_cad0f                                                    ; ad13: 10 fa       ..
     inx                                                               ; ad15: e8          .
-    lda l0100,y                                                       ; ad16: b9 00 01    ...
+    lda command_line,y                                                ; ad16: b9 00 01    ...
     cmp #&2e                                                          ; ad19: c9 2e       ..
     bne cacfc                                                         ; ad1b: d0 df       ..
     iny                                                               ; ad1d: c8          .
@@ -2166,13 +2162,13 @@ oswrch                  = &fff4
     ldx #0                                                            ; ad27: a2 00       ..
     rts                                                               ; ad29: 60          `
 
-.sub_cad2a
-    stx l00ef                                                         ; ad2a: 86 ef       ..
-    sty l00f0                                                         ; ad2c: 84 f0       ..
+.econet_init_blk_ed
+    stx blke_ef_stn_lo                                                ; ad2a: 86 ef       ..
+    sty blke_f0_stn_hi                                                ; ad2c: 84 f0       ..
     ldx #4                                                            ; ad2e: a2 04       ..
 .loop_cad30
     lda init_00f1_00f5,x                                              ; ad30: bd 39 ad    .9.
-    sta l00f1,x                                                       ; ad33: 95 f1       ..
+    sta blke_f1_buffer_start_lo,x                                     ; ad33: 95 f1       ..
     dex                                                               ; ad35: ca          .
     bpl loop_cad30                                                    ; ad36: 10 f8       ..
     rts                                                               ; ad38: 60          `
@@ -2180,17 +2176,17 @@ oswrch                  = &fff4
 .init_00f1_00f5
     equb &f6,   0, &f7,   0,   0                                      ; ad39: f6 00 f7... ...
 
-.sub_cad3e
+.econet_transmit_blk_ed_with_retries
     lda #<error_handler3                                              ; ad3e: a9 62       .b
     sta error_handler                                                 ; ad40: 8d 2a 02    .*.
     lda #>error_handler3                                              ; ad43: a9 ad       ..
     sta error_handler + 1                                             ; ad45: 8d 2b 02    .+.
     lda #&80                                                          ; ad48: a9 80       ..
-    sta l00ed                                                         ; ad4a: 85 ed       ..
+    sta blke_ed_flag                                                  ; ad4a: 85 ed       ..
     lda #&ff                                                          ; ad4c: a9 ff       ..
     ldy #&14                                                          ; ad4e: a0 14       ..
     ldx #&ed                                                          ; ad50: a2 ed       ..
-    jsr ca81a                                                         ; ad52: 20 1a a8     ..
+    jsr econet_transmit_blk_x_with_retries                            ; ad52: 20 1a a8     ..
 .sub_cad55
     pha                                                               ; ad55: 48          H
     lda #<error_handler2                                              ; ad56: a9 f9       ..
@@ -2205,11 +2201,11 @@ oswrch                  = &fff4
     jsr sub_ca6d8                                                     ; ad65: 20 d8 a6     ..
     jmp ca90f                                                         ; ad68: 4c 0f a9    L..
 
-.cad6b
-    jsr sub_cad2a                                                     ; ad6b: 20 2a ad     *.
+.start_remote
+    jsr econet_init_blk_ed                                            ; ad6b: 20 2a ad     *.
     ldx #3                                                            ; ad6e: a2 03       ..
 .loop_cad70
-    lda vectors2,x                                                    ; ad70: bd 80 ad    ...
+    lda vectors_remote,x                                              ; ad70: bd 80 ad    ...
     sta wrcvec,x                                                      ; ad73: 9d 08 02    ...
     dex                                                               ; ad76: ca          .
     bpl loop_cad70                                                    ; ad77: 10 f7       ..
@@ -2217,66 +2213,66 @@ oswrch                  = &fff4
     stx pia                                                           ; ad7a: 8e 00 b0    ...
     jmp basic_warm_start                                              ; ad7d: 4c ca c2    L..
 
-.vectors2
-    equw eco_wrch2, eco_rdch2                                         ; ad80: c2 ad 9e... ...
+.vectors_remote
+    equw remote_wrch, remote_rdch                                     ; ad80: c2 ad 9e... ...
 
 .cmd_ROFF
     lda rdcvec                                                        ; ad84: ad 0a 02    ...
     cmp #&9e                                                          ; ad87: c9 9e       ..
     bne cad9d                                                         ; ad89: d0 12       ..
     lda #&c0                                                          ; ad8b: a9 c0       ..
-    sta l00ee                                                         ; ad8d: 85 ee       ..
-    jsr sub_cad3e                                                     ; ad8f: 20 3e ad     >.
+    sta blke_ee_port                                                  ; ad8d: 85 ee       ..
+    jsr econet_transmit_blk_ed_with_retries                           ; ad8f: 20 3e ad     >.
     jsr sub_ca6d8                                                     ; ad92: 20 d8 a6     ..
-    jsr ca690                                                         ; ad95: 20 90 a6     ..
+    jsr econet_clear_rxcbv_exists_flag                                ; ad95: 20 90 a6     ..
     lda #0                                                            ; ad98: a9 00       ..
     sta pia                                                           ; ad9a: 8d 00 b0    ...
 .cad9d
     rts                                                               ; ad9d: 60          `
 
-.eco_rdch2
+.remote_rdch
     txa                                                               ; ad9e: 8a          .
     pha                                                               ; ad9f: 48          H
     tya                                                               ; ada0: 98          .
     pha                                                               ; ada1: 48          H
     lda #&c1                                                          ; ada2: a9 c1       ..
-    sta l00ee                                                         ; ada4: 85 ee       ..
-    jsr sub_cad3e                                                     ; ada6: 20 3e ad     >.
+    sta blke_ee_port                                                  ; ada4: 85 ee       ..
+    jsr econet_transmit_blk_ed_with_retries                           ; ada6: 20 3e ad     >.
     lda #&7f                                                          ; ada9: a9 7f       ..
-    sta l00ed                                                         ; adab: 85 ed       ..
+    sta blke_ed_flag                                                  ; adab: 85 ed       ..
     lda #&ed                                                          ; adad: a9 ed       ..
     ldx #0                                                            ; adaf: a2 00       ..
-    jsr sub_ca861                                                     ; adb1: 20 61 a8     a.
+    jsr econet_set_rxcbv_to_x                                         ; adb1: 20 61 a8     a.
 .loop_cadb4
-    lda l00ed                                                         ; adb4: a5 ed       ..
+    lda blke_ed_flag                                                  ; adb4: a5 ed       ..
     bpl loop_cadb4                                                    ; adb6: 10 fc       ..
-    jsr ca690                                                         ; adb8: 20 90 a6     ..
+    jsr econet_clear_rxcbv_exists_flag                                ; adb8: 20 90 a6     ..
     pla                                                               ; adbb: 68          h
     tay                                                               ; adbc: a8          .
     pla                                                               ; adbd: 68          h
     tax                                                               ; adbe: aa          .
-    lda l00f6                                                         ; adbf: a5 f6       ..
+    lda blke_f6_imm1                                                  ; adbf: a5 f6       ..
     rts                                                               ; adc1: 60          `
 
-.eco_wrch2
-    sta l00f6                                                         ; adc2: 85 f6       ..
+.remote_wrch
+    sta blke_f6_imm1                                                  ; adc2: 85 f6       ..
     txa                                                               ; adc4: 8a          .
     pha                                                               ; adc5: 48          H
     tya                                                               ; adc6: 98          .
     pha                                                               ; adc7: 48          H
     lda #&c2                                                          ; adc8: a9 c2       ..
-    sta l00ee                                                         ; adca: 85 ee       ..
-    jsr sub_cad3e                                                     ; adcc: 20 3e ad     >.
+    sta blke_ee_port                                                  ; adca: 85 ee       ..
+    jsr econet_transmit_blk_ed_with_retries                           ; adcc: 20 3e ad     >.
     pla                                                               ; adcf: 68          h
     tay                                                               ; add0: a8          .
     pla                                                               ; add1: 68          h
     tax                                                               ; add2: aa          .
-    lda l00f6                                                         ; add3: a5 f6       ..
+    lda blke_f6_imm1                                                  ; add3: a5 f6       ..
     jmp kern_nvwrch                                                   ; add5: 4c 55 fe    LU.
 
 .cmd_NOTIFY
     ldx #&da                                                          ; add8: a2 da       ..
-    jsr sub_ca873                                                     ; adda: 20 73 a8     s.
+    jsr econet_read_stn_or_user                                       ; adda: 20 73 a8     s.
     bne cade2                                                         ; addd: d0 03       ..
     jmp ca8f0                                                         ; addf: 4c f0 a8    L..
 
@@ -2284,8 +2280,8 @@ oswrch                  = &fff4
     jsr kern_skip_spaces                                              ; ade2: 20 76 f8     v.
     ldx #0                                                            ; ade5: a2 00       ..
 .loop_cade7
-    lda l0100,y                                                       ; ade7: b9 00 01    ...
-    sta l0100,x                                                       ; adea: 9d 00 01    ...
+    lda command_line,y                                                ; ade7: b9 00 01    ...
+    sta command_line,x                                                ; adea: 9d 00 01    ...
     inx                                                               ; aded: e8          .
     iny                                                               ; adee: c8          .
     cmp #&0d                                                          ; adef: c9 0d       ..
@@ -2295,16 +2291,16 @@ oswrch                  = &fff4
     ldx #9                                                            ; adf5: a2 09       ..
 .loop_cadf7
     lda init_0d00_0d09_alt2,x                                         ; adf7: bd 3e af    .>.
-    sta l00d0,x                                                       ; adfa: 95 d0       ..
+    sta blkd_d0_flag,x                                                ; adfa: 95 d0       ..
     dex                                                               ; adfc: ca          .
     bpl loop_cadf7                                                    ; adfd: 10 f8       ..
     lda l00da                                                         ; adff: a5 da       ..
-    sta l00d2                                                         ; ae01: 85 d2       ..
+    sta blkd_d2_stn_lo                                                ; ae01: 85 d2       ..
     lda l00db                                                         ; ae03: a5 db       ..
-    sta l00d3                                                         ; ae05: 85 d3       ..
+    sta blkd_d3_stn_hi                                                ; ae05: 85 d3       ..
     lda #&20                                                          ; ae07: a9 20       .
     ldy #&14                                                          ; ae09: a0 14       ..
-    jsr ca818                                                         ; ae0b: 20 18 a8     ..
+    jsr econet_transmit_blk_d0_with_retries                           ; ae0b: 20 18 a8     ..
     lda l00da                                                         ; ae0e: a5 da       ..
     beq cae1b                                                         ; ae10: f0 09       ..
     jsr kern_print_string                                             ; ae12: 20 d1 f7     ..
@@ -2315,39 +2311,39 @@ oswrch                  = &fff4
 
 .cae1b
     ldx #0                                                            ; ae1b: a2 00       ..
-    stx l00d9                                                         ; ae1d: 86 d9       ..
+    stx blkd_d9_imm1                                                  ; ae1d: 86 d9       ..
     inx                                                               ; ae1f: e8          .
-    stx l00d8                                                         ; ae20: 86 d8       ..
+    stx blkd_d8_imm0                                                  ; ae20: 86 d8       ..
     ldx #3                                                            ; ae22: a2 03       ..
 .loop_cae24
     lda init_00d4_00d8_alt2,x                                         ; ae24: bd 39 af    .9.
-    sta l00d4,x                                                       ; ae27: 95 d4       ..
+    sta blkd_d4_buffer_start_lo,x                                     ; ae27: 95 d4       ..
     dex                                                               ; ae29: ca          .
     bpl loop_cae24                                                    ; ae2a: 10 f8       ..
     lda #&85                                                          ; ae2c: a9 85       ..
-    sta l00d0                                                         ; ae2e: 85 d0       ..
+    sta blkd_d0_flag                                                  ; ae2e: 85 d0       ..
     lda #&20                                                          ; ae30: a9 20       .
     ldy #&14                                                          ; ae32: a0 14       ..
-    jsr ca818                                                         ; ae34: 20 18 a8     ..
+    jsr econet_transmit_blk_d0_with_retries                           ; ae34: 20 18 a8     ..
     ldx #4                                                            ; ae37: a2 04       ..
 .loop_cae39
     lda init_00d4_00d8_alt2,x                                         ; ae39: bd 39 af    .9.
-    sta l00d4,x                                                       ; ae3c: 95 d4       ..
+    sta blkd_d4_buffer_start_lo,x                                     ; ae3c: 95 d4       ..
     dex                                                               ; ae3e: ca          .
     bpl loop_cae39                                                    ; ae3f: 10 f8       ..
     lda #&7f                                                          ; ae41: a9 7f       ..
-    sta l00d0                                                         ; ae43: 85 d0       ..
-    jsr ca85d                                                         ; ae45: 20 5d a8     ].
+    sta blkd_d0_flag                                                  ; ae43: 85 d0       ..
+    jsr econet_set_rxcbv_to_d0                                        ; ae45: 20 5d a8     ].
 .loop_cae48
-    jsr sub_ca799                                                     ; ae48: 20 99 a7     ..
+    jsr econet_test_escape_in_z                                       ; ae48: 20 99 a7     ..
     beq cae8e                                                         ; ae4b: f0 41       .A
-    lda l00d0                                                         ; ae4d: a5 d0       ..
+    lda blkd_d0_flag                                                  ; ae4d: a5 d0       ..
     bpl loop_cae48                                                    ; ae4f: 10 f7       ..
-    jsr ca690                                                         ; ae51: 20 90 a6     ..
+    jsr econet_clear_rxcbv_exists_flag                                ; ae51: 20 90 a6     ..
     lda #0                                                            ; ae54: a9 00       ..
-    sta l00d4                                                         ; ae56: 85 d4       ..
+    sta blkd_d4_buffer_start_lo                                       ; ae56: 85 d4       ..
     lda #1                                                            ; ae58: a9 01       ..
-    sta l00d5                                                         ; ae5a: 85 d5       ..
+    sta blkd_d5_buffer_start_hi                                       ; ae5a: 85 d5       ..
     pla                                                               ; ae5c: 68          h
     sta l00db                                                         ; ae5d: 85 db       ..
     lda #0                                                            ; ae5f: a9 00       ..
@@ -2355,30 +2351,30 @@ oswrch                  = &fff4
 .cae62
     lda l00da                                                         ; ae62: a5 da       ..
     clc                                                               ; ae64: 18          .
-    adc l00d4                                                         ; ae65: 65 d4       e.
-    sta l00d6                                                         ; ae67: 85 d6       ..
+    adc blkd_d4_buffer_start_lo                                       ; ae65: 65 d4       e.
+    sta blkd_d6_buffer_end_lo                                         ; ae67: 85 d6       ..
     lda #0                                                            ; ae69: a9 00       ..
-    adc l00d5                                                         ; ae6b: 65 d5       e.
-    sta l00d7                                                         ; ae6d: 85 d7       ..
+    adc blkd_d5_buffer_start_hi                                       ; ae6b: 65 d5       e.
+    sta blkd_d7_buffer_end_hi                                         ; ae6d: 85 d7       ..
     lda #&80                                                          ; ae6f: a9 80       ..
-    sta l00d0                                                         ; ae71: 85 d0       ..
+    sta blkd_d0_flag                                                  ; ae71: 85 d0       ..
     lda #&ff                                                          ; ae73: a9 ff       ..
     ldy #2                                                            ; ae75: a0 02       ..
-    jsr ca818                                                         ; ae77: 20 18 a8     ..
+    jsr econet_transmit_blk_d0_with_retries                           ; ae77: 20 18 a8     ..
     pla                                                               ; ae7a: 68          h
     clc                                                               ; ae7b: 18          .
     adc l00da                                                         ; ae7c: 65 da       e.
     cmp l00db                                                         ; ae7e: c5 db       ..
     bcs cae92                                                         ; ae80: b0 10       ..
     pha                                                               ; ae82: 48          H
-    lda l00d6                                                         ; ae83: a5 d6       ..
-    sta l00d4                                                         ; ae85: 85 d4       ..
-    lda l00d7                                                         ; ae87: a5 d7       ..
-    sta l00d5                                                         ; ae89: 85 d5       ..
+    lda blkd_d6_buffer_end_lo                                         ; ae83: a5 d6       ..
+    sta blkd_d4_buffer_start_lo                                       ; ae85: 85 d4       ..
+    lda blkd_d7_buffer_end_hi                                         ; ae87: a5 d7       ..
+    sta blkd_d5_buffer_start_hi                                       ; ae89: 85 d5       ..
     jmp cae62                                                         ; ae8b: 4c 62 ae    Lb.
 
 .cae8e
-    jsr ca690                                                         ; ae8e: 20 90 a6     ..
+    jsr econet_clear_rxcbv_exists_flag                                ; ae8e: 20 90 a6     ..
     pla                                                               ; ae91: 68          h
 .cae92
     rts                                                               ; ae92: 60          `
@@ -2400,13 +2396,13 @@ oswrch                  = &fff4
     ldx #7                                                            ; aea7: a2 07       ..
 .loop_caea9
     lda init_00d0_00d7_alt2,x                                         ; aea9: bd 35 af    .5.
-    sta l00d0,x                                                       ; aeac: 95 d0       ..
+    sta blkd_d0_flag,x                                                ; aeac: 95 d0       ..
     dex                                                               ; aeae: ca          .
     bpl loop_caea9                                                    ; aeaf: 10 f8       ..
     pla                                                               ; aeb1: 68          h
-    sta l00d2                                                         ; aeb2: 85 d2       ..
+    sta blkd_d2_stn_lo                                                ; aeb2: 85 d2       ..
     lda notifying_stn + 1                                             ; aeb4: ad 29 02    .).
-    sta l00d3                                                         ; aeb7: 85 d3       ..
+    sta blkd_d3_stn_hi                                                ; aeb7: 85 d3       ..
     lda #<error_handler4                                              ; aeb9: a9 27       .'
     sta error_handler                                                 ; aebb: 8d 2a 02    .*.
     lda #>error_handler4                                              ; aebe: a9 af       ..
@@ -2415,15 +2411,15 @@ oswrch                  = &fff4
     sta l00da                                                         ; aec5: 85 da       ..
     lda #&10                                                          ; aec7: a9 10       ..
     ldy #&32                                                          ; aec9: a0 32       .2
-    jsr ca818                                                         ; aecb: 20 18 a8     ..
+    jsr econet_transmit_blk_d0_with_retries                           ; aecb: 20 18 a8     ..
     ldx #4                                                            ; aece: a2 04       ..
 .loop_caed0
     lda init_00d4_00d9,x                                              ; aed0: bd ec a6    ...
-    sta l00d4,x                                                       ; aed3: 95 d4       ..
+    sta blkd_d4_buffer_start_lo,x                                     ; aed3: 95 d4       ..
     dex                                                               ; aed5: ca          .
     bpl loop_caed0                                                    ; aed6: 10 f8       ..
     jsr oscrlf                                                        ; aed8: 20 ed ff     ..
-    lda l00d2                                                         ; aedb: a5 d2       ..
+    lda blkd_d2_stn_lo                                                ; aedb: a5 d2       ..
     ldx #&2f                                                          ; aedd: a2 2f       ./
     sec                                                               ; aedf: 38          8
 .loop_caee0
@@ -2453,8 +2449,8 @@ oswrch                  = &fff4
     nop                                                               ; af05: ea          .
 .loop_caf06
     lda #&7f                                                          ; af06: a9 7f       ..
-    sta l00d0                                                         ; af08: 85 d0       ..
-    jsr ca85d                                                         ; af0a: 20 5d a8     ].
+    sta blkd_d0_flag                                                  ; af08: 85 d0       ..
+    jsr econet_set_rxcbv_to_d0                                        ; af0a: 20 5d a8     ].
     lda #1                                                            ; af0d: a9 01       ..
     ldy #&d0                                                          ; af0f: a0 d0       ..
     jsr sub_ca674                                                     ; af11: 20 74 a6     t.
@@ -2526,16 +2522,16 @@ oswrch                  = &fff4
 .caf83
     ldx #&0f                                                          ; af83: a2 0f       ..
 .loop_caf85
-    lda l00d0,x                                                       ; af85: b5 d0       ..
+    lda blkd_d0_flag,x                                                ; af85: b5 d0       ..
     pha                                                               ; af87: 48          H
     dex                                                               ; af88: ca          .
     bpl loop_caf85                                                    ; af89: 10 fa       ..
     lda printserver_stn                                               ; af8b: ad 2e 02    ...
-    sta l00d2                                                         ; af8e: 85 d2       ..
+    sta blkd_d2_stn_lo                                                ; af8e: 85 d2       ..
     lda printserver_stn + 1                                           ; af90: ad 2f 02    ./.
-    sta l00d3                                                         ; af93: 85 d3       ..
+    sta blkd_d3_stn_hi                                                ; af93: 85 d3       ..
     lda #&d1                                                          ; af95: a9 d1       ..
-    sta l00d1                                                         ; af97: 85 d1       ..
+    sta blkd_d1_port                                                  ; af97: 85 d1       ..
     lda error_handler                                                 ; af99: ad 2a 02    .*.
     sta l0110                                                         ; af9c: 8d 10 01    ...
     lda error_handler + 1                                             ; af9f: ad 2b 02    .+.
@@ -2545,9 +2541,9 @@ oswrch                  = &fff4
     lda #>error_handler1                                              ; afaa: a9 a6       ..
     sta error_handler + 1                                             ; afac: 8d 2b 02    .+.
     lda #&ca                                                          ; afaf: a9 ca       ..
-    sta l00d4                                                         ; afb1: 85 d4       ..
+    sta blkd_d4_buffer_start_lo                                       ; afb1: 85 d4       ..
     lda #0                                                            ; afb3: a9 00       ..
-    sta l00d5                                                         ; afb5: 85 d5       ..
+    sta blkd_d5_buffer_start_hi                                       ; afb5: 85 d5       ..
     lda sequenceno                                                    ; afb7: ad 27 02    .'.
     eor #1                                                            ; afba: 49 01       I.
     sta sequenceno                                                    ; afbc: 8d 27 02    .'.
@@ -2567,7 +2563,7 @@ oswrch                  = &fff4
     tay                                                               ; afd8: a8          .
 .loop_cafd9
     pla                                                               ; afd9: 68          h
-    sta l00d0,x                                                       ; afda: 95 d0       ..
+    sta blkd_d0_flag,x                                                ; afda: 95 d0       ..
     inx                                                               ; afdc: e8          .
     cpx #&10                                                          ; afdd: e0 10       ..
     bne loop_cafd9                                                    ; afdf: d0 f8       ..
@@ -2658,12 +2654,10 @@ oswrch                  = &fff4
     assert eco_load == &aa95
     assert eco_rdar == &abc3
     assert eco_rdch == &ae93
-    assert eco_rdch2 == &ad9e
     assert eco_save == &a9bb
     assert eco_shut == &abe5
     assert eco_star == &aba3
     assert eco_wrch == &af48
-    assert eco_wrch2 == &adc2
     assert fserv_01_save-1 == &a99e
     assert fserv_02_load-1 == &aa71
     assert fserv_03-1 == &ac11
@@ -2672,5 +2666,7 @@ oswrch                  = &fff4
     assert fserv_07_dir-1 == &acbe
     assert fserv_08_unrecognised-1 == &acb1
     assert fserv_09_lib-1 == &acc5
+    assert remote_rdch == &ad9e
+    assert remote_wrch == &adc2
 
 save pydis_start, pydis_end
