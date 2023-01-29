@@ -40,14 +40,20 @@ beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=0xB408 -D ATOMMCHDR=1 -v -o ${BUI
 
 echo "Building commands"
 
-for i in 350A 350E
+for i in A E
 do
-    echo "Building ${i} commands"
-    CBUILD=build/ATOMLIB${i}
+    echo "Building #${i}000 commands"
+    CBUILD=build/ATOMLIB35${i}
     mkdir -p ${CBUILD}
-    make_include ${BUILD}/ECO${i}.lst econet.inc
+    make_include ${BUILD}/ECO350${i}.lst econet.inc
     for j in DISCS INF PROT REMOTE RUN UNPROT USERS VIEW
     do
         beebasm -i commands/${j}.asm -v -o ${CBUILD}/${j} > ${CBUILD}/${j}.lst
+        echo "0 00002800 00002800 17" > ${CBUILD}/${j}.inf
     done
 done
+
+echo "Packaging commands"
+pushd build
+zip -r commands.zip `find ATOMLIB* -type f -not -name '*.lst' | sort`
+popd
