@@ -236,10 +236,11 @@ label(0xad6b, "start_remote")
 label(0xadc2, "remote_wrch")
 label(0xad9e, "remote_rdch")
 
-# Unreachable code
+# Core only reached from library commands
+entry(0xa6f1, "econet_check_end_of_line")
 
-entry(0xa6f1, "unreachable1")
-entry(0xacf3, "unreachable2")
+# Unreachable code
+entry(0xacf3, "unreachable")
 
 # Initializatiom data
 
