@@ -1437,7 +1437,7 @@ oswrch                              = &fff4
     clc                                                               ; a830: 18          .
     sbc #0                                                            ; a831: e9 00       ..
     beq ca83a                                                         ; a833: f0 05       ..
-    jsr econey_delay_approx_y_ms                                      ; a835: 20 48 a8     H.
+    jsr econet_delay_approx_y_ms                                      ; a835: 20 48 a8     H.
     bne econet_transmit_blk_x_with_retries                            ; a838: d0 e0       ..
 .ca83a
     lda #1                                                            ; a83a: a9 01       ..
@@ -1453,7 +1453,7 @@ oswrch                              = &fff4
     pla                                                               ; a846: 68          h
     rts                                                               ; a847: 60          `
 
-.econey_delay_approx_y_ms
+.econet_delay_approx_y_ms
     cpy #0                                                            ; a848: c0 00       ..
     beq ca85c                                                         ; a84a: f0 10       ..
     pha                                                               ; a84c: 48          H

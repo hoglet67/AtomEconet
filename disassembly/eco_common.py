@@ -67,7 +67,7 @@ def add_common_labels():
     optional_label(0xa818, "econet_transmit_blk_d0_with_retries")
     optional_label(0xa81a, "econet_transmit_blk_x_with_retries")
     optional_label(0xa83c, "econet_error_a")
-    optional_label(0xa848, "econey_delay_approx_y_ms")
+    optional_label(0xa848, "econet_delay_approx_y_ms")
     optional_label(0xa85d, "econet_set_rxcbv_to_d0")
     optional_label(0xa861, "econet_set_rxcbv_to_x")
     optional_label(0xa873, "econet_read_stn_or_user")

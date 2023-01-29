@@ -77,7 +77,7 @@ include "econet.inc"
     and l00db
     sta pia
     ldy #&d0
-    jsr econey_delay_approx_y_ms
+    jsr econet_delay_approx_y_ms
     plp
     rts
 
