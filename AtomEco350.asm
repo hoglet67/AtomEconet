@@ -1327,7 +1327,7 @@ ENDIF
     equb &48,   1, &4d,   1,   0                                      ; a6ec: 48 01 4d... H.M
 
     ;; Not used from the ROM, but used from the *VIEW and *REMOTE commands
-.sub_ca6f1
+.econet_check_end_of_line
     pha                                                               ; a6f1: 48          H
     jsr kern_skip_spaces                                              ; a6f2: 20 76 f8     v.
     cmp #&0d                                                          ; a6f5: c9 0d       ..
@@ -2244,7 +2244,7 @@ ENDIF
 
 IF (BASE = &A000)
     ;; Save space in other versions
-.unreachable2
+.unreachable
     ldx #&0c                                                          ; acf3: a2 0c       ..
     cld                                                               ; acf5: d8          .
     jmp cacfc                                                         ; acf6: 4c fc ac    L..
