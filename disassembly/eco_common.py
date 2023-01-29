@@ -38,7 +38,7 @@ def add_common_labels():
     optional_label(0xb404, "reg_stationid")
 
     label(0x0100, "command_line")
-    for i in range(4):
+    for i in range(5):
         expr_label(0x0100+i, "command_line+"+str(i))
 
 

@@ -1,7 +1,5 @@
 *~
 #*
-*.lst
-ECO350A
-ECO350A.rom
-ECO350E
-ECO350E.rom
+build/
+*.pyc
+not_in_git/
