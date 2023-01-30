@@ -71,6 +71,7 @@ def add_common_labels():
     optional_label(0xa85d, "econet_set_rxcbv_to_d0")
     optional_label(0xa861, "econet_set_rxcbv_to_x")
     optional_label(0xa873, "econet_read_stn_or_user")
+    optional_label(0xa8f0, "econet_syn_error")
     optional_label(0xad2a, "econet_init_blk_ed")
     optional_label(0xad3e, "econet_transmit_blk_ed_with_retries")
 
