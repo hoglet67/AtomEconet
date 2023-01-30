@@ -1,41 +1,10 @@
 from commands import *
 
 # =======================================================================
-# Custom Label Makes
-# =======================================================================
-
-def our_label_maker(addr, context, suggestion):
-    # TODO: I haven't worried about runtime vs binary addrs here; this only
-    # matters if move() is used, but if this code gets promoted into the
-    # "standard library" this needs thinking about.
-    if disassembly.is_code(context - 1):
-        opcode_value = memory[context - 1]
-        opcode_obj = trace.cpu.opcodes.get(opcode_value)
-        if opcode_obj is not None:
-            if opcode_obj.mnemonic in ("STA", "STX", "STY"):
-                if addr == 0xb400:
-                    return "reg_adlc_control1"
-                if addr == 0xb401:
-                    return "reg_adlc_control23"
-                if addr == 0xb402:
-                    return "reg_adlc_txdata"
-                if addr == 0xb403:
-                    return "reg_adlc_control4"
-
-    return None
-
-# =======================================================================
 # Labels that need to be common between ROM and Library Commands
 # =======================================================================
 
 def add_common_labels():
-
-    set_label_maker_hook(our_label_maker)
-
-    optional_label(0xb400, "reg_adlc_status1")
-    optional_label(0xb401, "reg_adlc_status2")
-    optional_label(0xb402, "reg_adlc_rxdata")
-    optional_label(0xb404, "reg_stationid")
 
     label(0x0100, "command_line")
     for i in range(5):
