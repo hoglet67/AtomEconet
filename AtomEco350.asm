@@ -1522,7 +1522,7 @@ oswrch                              = &fff4
     sta l0000,x                                                       ; a8ae: 95 00       ..
     bcc ca887                                                         ; a8b0: 90 d5       ..
     inc l0001,x                                                       ; a8b2: f6 01       ..
-    beq ca8f0                                                         ; a8b4: f0 3a       .:
+    beq econet_syn_error                                              ; a8b4: f0 3a       .:
     bne ca887                                                         ; a8b6: d0 cf       ..
 .ca8b8
     lda l0000,x                                                       ; a8b8: b5 00       ..
@@ -1560,7 +1560,7 @@ oswrch                              = &fff4
     sta l0001,x                                                       ; a8eb: 95 01       ..
     jmp ca8b8                                                         ; a8ed: 4c b8 a8    L..
 
-.ca8f0
+.econet_syn_error
     jsr kern_print_string                                             ; a8f0: 20 d1 f7     ..
     equs "STN?"                                                       ; a8f3: 53 54 4e... STN
 
@@ -2274,7 +2274,7 @@ oswrch                              = &fff4
     ldx #&da                                                          ; add8: a2 da       ..
     jsr econet_read_stn_or_user                                       ; adda: 20 73 a8     s.
     bne cade2                                                         ; addd: d0 03       ..
-    jmp ca8f0                                                         ; addf: 4c f0 a8    L..
+    jmp econet_syn_error                                              ; addf: 4c f0 a8    L..
 
 .cade2
     jsr kern_skip_spaces                                              ; ade2: 20 76 f8     v.
