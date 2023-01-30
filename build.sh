@@ -46,7 +46,7 @@ do
     CBUILD=build/ATOMLIB35${i}
     mkdir -p ${CBUILD}
     make_include ${BUILD}/ECO350${i}.lst econet.inc
-    for j in DISCS INF PROT REMOTE RUN UNPROT USERS VIEW
+    for j in DISCS INF PROT NOTIFY REMOTE RUN UNPROT USERS VIEW
     do
         beebasm -i commands/${j}.asm -v -o ${CBUILD}/${j} > ${CBUILD}/${j}.lst
         echo "0 00002800 00002800 17" > ${CBUILD}/${j}.inf

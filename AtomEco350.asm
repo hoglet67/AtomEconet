@@ -4,6 +4,8 @@ IO =? &B400
 
 ATOMMCHDR =? FALSE
 
+INCLUDE_NOTIFY =? (BASE = &A000)
+
 ; Memory locations
 l0000                               = &0000
 l0001                               = &0001
@@ -2230,9 +2232,11 @@ ENDIF
     equs "I AM"                                                       ; acd8: 49 20 41... I A
     equb >(cmd_I_AM-1)                                                ; acdc: ab          .
     equb <(cmd_I_AM-1)                                                ; acdd: f1          .
+IF INCLUDE_NOTIFY
     equs "NOTIFY"                                                     ; acde: 4e 4f 54... NOT
     equb >(cmd_NOTIFY-1)                                              ; ace4: ad          .
     equb <(cmd_NOTIFY-1)                                              ; ace5: d7          .
+ENDIF
     equs "COS"                                                        ; ace6: 43 4f 53    COS
     equb >(cmd_COS-1)                                                 ; ace9: a7          .
     equb <(cmd_COS-1)                                                 ; acea: 4f          O
@@ -2393,6 +2397,7 @@ ENDIF
     lda blke_f6_imm1                                                  ; add3: a5 f6       ..
     jmp kern_nvwrch                                                   ; add5: 4c 55 fe    LU.
 
+IF INCLUDE_NOTIFY
 .cmd_NOTIFY
     ldx #&da                                                          ; add8: a2 da       ..
     jsr econet_read_stn_or_user                                       ; adda: 20 73 a8     s.
@@ -2428,12 +2433,8 @@ ENDIF
     beq cae1b                                                         ; ae10: f0 09       ..
     jsr kern_print_string                                             ; ae12: 20 d1 f7     ..
     equs "BUSY"                                                       ; ae15: 42 55 53... BUS
-
-IF (BASE = &A000)
-    ;; Save space in other versions
     nop                                                               ; ae19: ea          .
     brk                                                               ; ae1a: 00          .
-ENDIF
 
 .cae1b
     ldx #0                                                            ; ae1b: a2 00       ..
@@ -2502,6 +2503,8 @@ ENDIF
 .cae8e
     jsr econet_clear_rxcbv_exists_flag                                ; ae8e: 20 90 a6     ..
     pla                                                               ; ae91: 68          h
+ENDIF
+
 .cae92
     rts                                                               ; ae92: 60          `
 
@@ -2609,10 +2612,12 @@ ENDIF
 
 .init_00d0_00d7_alt2
     equb &80, &aa,   0,   0                                           ; af35: 80 aa 00... ...
+IF INCLUDE_NOTIFY
 .init_00d4_00d8_alt2
     equb &da,   0, &db,   0,   0                                      ; af39: da 00 db... ...
 .init_0d00_0d09_alt2
     equb &81,   0,   0,   0, &da,   0, &db,   0, &28,   2             ; af3e: 81 00 00... ...
+ENDIF
 
 .eco_wrch
     bit char_not_sent_to_printer                                      ; af48: 24 fe       $.
@@ -2729,7 +2734,9 @@ IF (BASE = &A000)
     assert 100 == &64
     assert <(cmd_COS-1) == &4f
     assert <(cmd_I_AM-1) == &f1
+IF INCLUDE_NOTIFY
     assert <(cmd_NOTIFY-1) == &d7
+ENDIF
     assert <(cmd_ROFF-1) == &83
     assert <(cmd_UNKNOWN-1) == &9e
     assert <(kern_cli_handler-1) == &ee
