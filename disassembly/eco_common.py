@@ -17,11 +17,9 @@ def add_common_labels():
     optional_label(0x0118, "fs_cmd_handle_root_or_return_code")
     optional_label(0x0119, "fs_cmd_handle_cwd")
     optional_label(0x011A, "fs_cmd_handle_lib")
-    optional_label(0x011B, "fs_cmd_param0")
-    optional_label(0x011C, "fs_cmd_param1")
-    optional_label(0x011D, "fs_cmd_param2")
-    optional_label(0x011E, "fs_cmd_param3")
-    optional_label(0x011F, "fs_cmd_param4")
+
+    for i in range(10):
+        optional_label(0x011B + i, "fs_cmd_param" +str(i))
 
     optional_label(0xa658, "econet_file_server_send_command_wait_response")
     optional_label(0xa670, "econet_wait_response")

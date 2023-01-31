@@ -181,42 +181,42 @@ entry(0xa79f, "cmd_UNKNOWN")
 # Tx Cmd table at A42A
 
 pc = 0xa4ab
-label(pc, "tx_cmd_table_lo")
-label(pc + 8, "tx_cmd_table_hi")
+label(pc, "tx_imm_table_lo")
+label(pc + 8, "tx_imm_table_hi")
 
-expr_label(0xa42a, "tx_cmd_table_lo-&81")
-expr_label(0xa432, "tx_cmd_table_hi-&81")
+expr_label(0xa42a, "tx_imm_table_lo-&81")
+expr_label(0xa432, "tx_imm_table_hi-&81")
 
 for i in range(8):
     code_ptr(pc, pc + 8, 1)
     pc = pc + 1
 
-label(0xa4bb, "tx_cmd_81_88_peek")
-label(0xa4f7, "tx_cmd_82_poke")
-label(0xa519, "tx_cmd_83_84_85_remote")
-label(0xa535, "tx_cmd_86_87_halt_resume")
+label(0xa4bb, "tx_imm_81_88_peek")
+label(0xa4f7, "tx_imm_82_poke")
+label(0xa519, "tx_imm_83_84_85_remote")
+label(0xa535, "tx_imm_86_87_halt_resume")
 
 # Rx Cmd table at A573
 
 pc = 0xa573
-label(pc, "rx_cmd_table_lo")
-label(pc + 8, "rx_cmd_table_hi")
+label(pc, "rx_imm_table_lo")
+label(pc + 8, "rx_imm_table_hi")
 
-expr_label(0xa4f2, "rx_cmd_table_lo-&81")
-expr_label(0xa4fa, "rx_cmd_table_hi-&81")
+expr_label(0xa4f2, "rx_imm_table_lo-&81")
+expr_label(0xa4fa, "rx_imm_table_hi-&81")
 
 for i in range(8):
     code_ptr(pc, pc + 8, 1)
     pc = pc + 1
 
-label(0xa594, "rx_cmd_81_peek")
-label(0xa5ad, "rx_cmd_82_poke")
-label(0xa5d6, "rx_cmd_83_jsr")
-label(0xa5c1, "rx_cmd_84_user_proc")
-label(0xa5ca, "rx_cmd_85_os_proc")
-label(0xa614, "rx_cmd_86_halt")
-label(0xa630, "rx_cmd_87_resume")
-label(0xa583, "rx_cmd_88_machine_peek")
+label(0xa594, "rx_imm_81_peek")
+label(0xa5ad, "rx_imm_82_poke")
+label(0xa5d6, "rx_imm_83_jsr")
+label(0xa5c1, "rx_imm_84_user_proc")
+label(0xa5ca, "rx_imm_85_os_proc")
+label(0xa614, "rx_imm_86_halt")
+label(0xa630, "rx_imm_87_resume")
+label(0xa583, "rx_imm_88_machine_peek")
 
 # Vector Table at A772
 
@@ -293,58 +293,8 @@ expr(0xa04a, "100")
 expr(0xa04f, "100")
 
 
-# Better labels
-
-# Low Level uses #B0-#CF
-#label(0x00b0, "")
-#label(0x00b1, "")
-#label(0x00b2, "")
-#label(0x00b3, "")
-#label(0x00b4, "")
-#label(0x00b5, "")
-#label(0x00b6, "")
-#label(0x00b7, "")
-#label(0x00b8, "")
-#label(0x00b9, "")
-#label(0x00ba, "")
-#label(0x00bb, "")
-#label(0x00bc, "")
-#label(0x00bd, "")
-#label(0x00be, "")
-#label(0x00bf, "")
-#label(0x00c0, "")
-#label(0x00c1, "")
-#label(0x00c2, "")
-#label(0x00ca, "")
-
-# High Level uses #D0-#DD
-#label(0x00d0, "")
-#label(0x00d1, "")
-#label(0x00d2, "")
-#label(0x00d3, "")
-#label(0x00d4, "")
-#label(0x00d5, "")
-#label(0x00d6, "")
-#label(0x00d7, "")
-#label(0x00d8, "")
-#label(0x00d9, "")
-#label(0x00da, "")
-#label(0x00db, "")
-#label(0x00dc, "")
-
-
-#Remove uses #ED-#F7
-#label(0x00ed, "")
-#label(0x00ee, "")
-#label(0x00ef, "")
-#label(0x00f0, "")
-#label(0x00f1, "")
-#label(0x00f6, "")
-
-
 label(0x00fe, "char_not_sent_to_printer")
 label(0x00ff, "temp_sp")
-
 
 
 
@@ -371,6 +321,42 @@ label(0x023a, "flags")
 label(0x023d, "transmit")
 
 label(0xa2ee, "transmit_handler")
+
+
+label(0xa095, "adlc_init_rx_and_buffer_b2")
+label(0xa0a1, "adlc_init_rx")
+label(0xa0b0, "adlc_enable_rx_interrupt")
+label(0xa0b5, "adlc_reset_status")
+label(0xa0bb, "adlc_wait_cts_high")
+
+label(0xa163, "adlc_init_tx")
+label(0xa1aa, "process_rxcb")
+label(0xa1de, "read_address_quad")
+
+label(0xa218, "wait_receive_data")
+label(0xa235, "exit_irq_from_depth_10")
+label(0xa239, "exit_irq_from_depth_6")
+label(0xa23b, "exit_irq_from_depth_4")
+label(0xa23c, "exit_irq_from_depth_3")
+label(0xa23d, "exit_irq_from_depth_2")
+label(0xa23f, "exit_irq_from_depth_0")
+label(0xa242, "exit_irq")
+label(0xa24b, "send_ack")
+label(0xa295, "receive_data_to_buffer_b2")
+
+label(0xa39b, "exit_transmit_from_depth_11")
+label(0xa39c, "exit_transmit_from_depth_10")
+label(0xa3a1, "exit_transmit_from_depth_5")
+label(0xa3a2, "exit_transmit_from_depth_4")
+label(0xa3a3, "exit_transmit_from_depth_3")
+label(0xa3a4, "exit_transmit_from_depth_2")
+label(0xa3a6, "exit_transmit_from_depth_0")
+label(0xa3b0, "exit_transmit")
+
+label(0xa443, "calculate_buffer_pointers")
+label(0xa494, "dispatch_tx_imm")
+
+label(0xa674, "econet_wait_response_blk_y_timeout_a")
 
 # TODO:
 
