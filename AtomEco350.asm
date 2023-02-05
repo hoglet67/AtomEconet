@@ -2345,7 +2345,7 @@ ENDIF
 
 .cmd_ROFF
     lda rdcvec                                                        ; ad84: ad 0a 02    ...
-    cmp #&9e                                                          ; ad87: c9 9e       ..
+    cmp #<remote_rdch                                                 ; ad87: c9 9e       ..
     bne cad9d                                                         ; ad89: d0 12       ..
     lda #&c0                                                          ; ad8b: a9 c0       ..
     sta blke_ee_port                                                  ; ad8d: 85 ee       ..
