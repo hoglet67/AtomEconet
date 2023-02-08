@@ -26,17 +26,19 @@ else
 fi
 popd
 
+IO=0xB408
+
 echo "Building new #A000 ROM"
-beebasm -i AtomEco350.asm -D BASE=0xA000 -D IO=0xB408 -v -o ${BUILD}/ECO350A.rom > ${BUILD}/ECO350A.lst
+beebasm -i AtomEco350.asm -D BASE=0xA000 -D IO=${IO} -v -o ${BUILD}/ECO350A.rom > ${BUILD}/ECO350A.lst
 
 echo "Building new #A000 AtoMMC file"
-beebasm -i AtomEco350.asm -D BASE=0xA000 -D IO=0xB408 -D ATOMMCHDR=1 -v -o ${BUILD}/ECO350A > ${BUILD}/ECO350E.lst
+beebasm -i AtomEco350.asm -D BASE=0xA000 -D IO=${IO} -D ATOMMCHDR=1 -v -o ${BUILD}/ECO350A > ${BUILD}/ECO350E.lst
 
 echo "Building new #E000 ROM"
-beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=0xB408 -v -o ${BUILD}/ECO350E.rom > ${BUILD}/ECO350E.lst
+beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=${IO} -v -o ${BUILD}/ECO350E.rom > ${BUILD}/ECO350E.lst
 
 echo "Building new #E000 AtoMMC file"
-beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=0xB408 -D ATOMMCHDR=1 -v -o ${BUILD}/ECO350E > ${BUILD}/ECO350E.lst
+beebasm -i AtomEco350.asm -D BASE=0xE000 -D IO=${IO} -D ATOMMCHDR=1 -v -o ${BUILD}/ECO350E > ${BUILD}/ECO350E.lst
 
 echo "Building commands"
 
