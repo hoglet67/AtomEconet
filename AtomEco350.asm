@@ -6,6 +6,8 @@ ATOMMCHDR =? FALSE
 
 INCLUDE_NOTIFY =? (BASE = &A000)
 
+FIXINIT =? FALSE
+
 ; Memory locations
 l0000                               = &0000
 l0001                               = &0001
@@ -144,6 +146,20 @@ ENDIF
     guard BASE + $1000
 
 .initialize
+IF (BASE = &A000 AND FIXINIT)
+    ;; make sure initialization code only called once to avoid looping
+    lda irqvec
+    cmp #<irq_handler
+    bne continue_initialize
+    lda irqvec + 1
+    cmp #>irq_handler
+    bne continue_initialize
+    pla
+    rti
+    ;; pad out so external entry points used by commands don't change
+    nop
+.continue_initialize
+ENDIF
     bit pia + 1                                                       ; a000: 2c 01 b0    ,..
 IF (BASE = &A000)
     ;; the original Econet ROM uses SHIFT to bypass initialization
@@ -1018,7 +1034,7 @@ ENDIF
     ldy #4                                                            ; a4ff: a0 04       ..
     sec                                                               ; a501: 38          8
     jsr sub_ca382                                                     ; a502: 20 82 a3     ..
-IF (BASE = &A000)
+IF (BASE = &A000 AND not(FIXINIT))
     ldy #8                                                            ; a505: a0 08       ..
     sec                                                               ; a507: 38          8
 ELSE
@@ -1043,7 +1059,7 @@ ENDIF
     ldy #4                                                            ; a519: a0 04       ..
     jsr ca443                                                         ; a51b: 20 43 a4     C.
     jsr sub_ca40d                                                     ; a51e: 20 0d a4     ..
-IF (BASE = &A000)
+IF (BASE = &A000 AND not(FIXINIT))
     ldy #8                                                            ; a521: a0 08       ..
     clc                                                               ; a523: 18          .
     jsr sub_ca382                                                     ; a524: 20 82 a3     ..
@@ -2729,7 +2745,7 @@ IF (BASE = &A000)
 ENDIF
 
 .pydis_end
-IF (BASE = &A000)
+IF (BASE = &A000 AND not(FIXINIT))
     assert '0' - 1 == &2f
     assert 100 == &64
     assert <(cmd_COS-1) == &4f
